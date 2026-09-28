@@ -1,0 +1,120 @@
+{
+  "encabezados": [
+    "Provincias",
+    "ACP",
+    "Tormenta",
+    "Lluvia",
+    "Nevada",
+    "Viento",
+    "Viento zonda",
+    "Niebla",
+    "Polvo",
+    "Humo",
+    "Ceniza"
+  ],
+  "provincias_con_alerta": [
+    {
+      "provincia": "Buenos Aires",
+      "alertas": {
+        "Tormenta": "Amarillo"
+      }
+    },
+    {
+      "provincia": "Catamarca",
+      "alertas": {
+        "Tormenta": "Amarillo"
+      }
+    },
+    {
+      "provincia": "Chaco",
+      "alertas": {
+        "Tormenta": "Amarillo"
+      }
+    },
+    {
+      "provincia": "Chubut",
+      "alertas": {
+        "Lluvia": "Amarillo"
+      }
+    },
+    {
+      "provincia": "Córdoba",
+      "alertas": {
+        "Tormenta": "Amarillo"
+      }
+    },
+    {
+      "provincia": "Corrientes",
+      "alertas": {
+        "Tormenta": "Amarillo"
+      }
+    },
+    {
+      "provincia": "Entre Ríos",
+      "alertas": {
+        "Tormenta": "Amarillo"
+      }
+    },
+    {
+      "provincia": "Jujuy",
+      "alertas": {
+        "Tormenta": "Amarillo"
+      }
+    },
+    {
+      "provincia": "La Pampa",
+      "alertas": {
+        "Tormenta": "Amarillo"
+      }
+    },
+    {
+      "provincia": "La Rioja",
+      "alertas": {
+        "Tormenta": "Amarillo",
+        "Viento zonda": "Amarillo"
+      }
+    },
+    {
+      "provincia": "Mendoza",
+      "alertas": {
+        "Tormenta": "Amarillo"
+      }
+    },
+    {
+      "provincia": "Salta",
+      "alertas": {
+        "Tormenta": "Amarillo"
+      }
+    },
+    {
+      "provincia": "San Juan",
+      "alertas": {
+        "Viento zonda": "Amarillo"
+      }
+    },
+    {
+      "provincia": "San Luis",
+      "alertas": {
+        "Tormenta": "Amarillo"
+      }
+    },
+    {
+      "provincia": "Santa Fe",
+      "alertas": {
+        "Tormenta": "Amarillo"
+      }
+    },
+    {
+      "provincia": "Santiago del Estero",
+      "alertas": {
+        "Tormenta": "Amarillo"
+      }
+    },
+    {
+      "provincia": "Tucumán",
+      "alertas": {
+        "Tormenta": "Amarillo"
+      }
+    }
+  ]
+}

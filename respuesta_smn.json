@@ -1,0 +1,8381 @@
+[
+  {
+    "area_id": 3330,
+    "updated": "2026-09-28T06:10:35-03:00",
+    "warnings": [
+      {
+        "date": "2026-09-28",
+        "max_level": 1,
+        "events": [
+          {
+            "id": 37,
+            "max_level": 1
+          },
+          {
+            "id": 54,
+            "max_level": 1
+          },
+          {
+            "id": 39,
+            "max_level": 1
+          },
+          {
+            "id": 40,
+            "max_level": 1
+          },
+          {
+            "id": 41,
+            "max_level": 1
+          },
+          {
+            "id": 42,
+            "max_level": 1
+          },
+          {
+            "id": 45,
+            "max_level": 1
+          },
+          {
+            "id": 46,
+            "max_level": 1
+          },
+          {
+            "id": 47,
+            "max_level": 1
+          }
+        ]
+      }
+    ],
+    "reports": []
+  },
+  {
+    "area_id": 3331,
+    "updated": "2026-09-28T06:10:35-03:00",
+    "warnings": [
+      {
+        "date": "2026-09-28",
+        "max_level": 3,
+        "events": [
+          {
+            "id": 37,
+            "max_level": 1
+          },
+          {
+            "id": 54,
+            "max_level": 1
+          },
+          {
+            "id": 39,
+            "max_level": 1
+          },
+          {
+            "id": 40,
+            "max_level": 1
+          },
+          {
+            "id": 41,
+            "max_level": 3
+          },
+          {
+            "id": 42,
+            "max_level": 1
+          },
+          {
+            "id": 45,
+            "max_level": 1
+          },
+          {
+            "id": 46,
+            "max_level": 1
+          },
+          {
+            "id": 47,
+            "max_level": 1
+          }
+        ]
+      }
+    ],
+    "reports": []
+  },
+  {
+    "area_id": 3333,
+    "updated": "2026-09-28T06:10:35-03:00",
+    "warnings": [
+      {
+        "date": "2026-09-28",
+        "max_level": 1,
+        "events": [
+          {
+            "id": 37,
+            "max_level": 1
+          },
+          {
+            "id": 54,
+            "max_level": 1
+          },
+          {
+            "id": 39,
+            "max_level": 1
+          },
+          {
+            "id": 40,
+            "max_level": 1
+          },
+          {
+            "id": 41,
+            "max_level": 1
+          },
+          {
+            "id": 42,
+            "max_level": 1
+          },
+          {
+            "id": 45,
+            "max_level": 1
+          },
+          {
+            "id": 46,
+            "max_level": 1
+          },
+          {
+            "id": 47,
+            "max_level": 1
+          }
+        ]
+      }
+    ],
+    "reports": []
+  },
+  {
+    "area_id": 3334,
+    "updated": "2026-09-28T06:10:35-03:00",
+    "warnings": [
+      {
+        "date": "2026-09-28",
+        "max_level": 1,
+        "events": [
+          {
+            "id": 37,
+            "max_level": 1
+          },
+          {
+            "id": 54,
+            "max_level": 1
+          },
+          {
+            "id": 39,
+            "max_level": 1
+          },
+          {
+            "id": 40,
+            "max_level": 1
+          },
+          {
+            "id": 41,
+            "max_level": 1
+          },
+          {
+            "id": 42,
+            "max_level": 1
+          },
+          {
+            "id": 45,
+            "max_level": 1
+          },
+          {
+            "id": 46,
+            "max_level": 1
+          },
+          {
+            "id": 47,
+            "max_level": 1
+          }
+        ]
+      }
+    ],
+    "reports": []
+  },
+  {
+    "area_id": 3335,
+    "updated": "2026-09-28T06:10:35-03:00",
+    "warnings": [
+      {
+        "date": "2026-09-28",
+        "max_level": 1,
+        "events": [
+          {
+            "id": 37,
+            "max_level": 1
+          },
+          {
+            "id": 54,
+            "max_level": 1
+          },
+          {
+            "id": 39,
+            "max_level": 1
+          },
+          {
+            "id": 40,
+            "max_level": 1
+          },
+          {
+            "id": 41,
+            "max_level": 1
+          },
+          {
+            "id": 42,
+            "max_level": 1
+          },
+          {
+            "id": 45,
+            "max_level": 1
+          },
+          {
+            "id": 46,
+            "max_level": 1
+          },
+          {
+            "id": 47,
+            "max_level": 1
+          }
+        ]
+      }
+    ],
+    "reports": []
+  },
+  {
+    "area_id": 3336,
+    "updated": "2026-09-28T06:10:35-03:00",
+    "warnings": [
+      {
+        "date": "2026-09-28",
+        "max_level": 1,
+        "events": [
+          {
+            "id": 37,
+            "max_level": 1
+          },
+          {
+            "id": 54,
+            "max_level": 1
+          },
+          {
+            "id": 39,
+            "max_level": 1
+          },
+          {
+            "id": 40,
+            "max_level": 1
+          },
+          {
+            "id": 41,
+            "max_level": 1
+          },
+          {
+            "id": 42,
+            "max_level": 1
+          },
+          {
+            "id": 45,
+            "max_level": 1
+          },
+          {
+            "id": 46,
+            "max_level": 1
+          },
+          {
+            "id": 47,
+            "max_level": 1
+          }
+        ]
+      }
+    ],
+    "reports": []
+  },
+  {
+    "area_id": 3337,
+    "updated": "2026-09-28T06:10:35-03:00",
+    "warnings": [
+      {
+        "date": "2026-09-28",
+        "max_level": 1,
+        "events": [
+          {
+            "id": 37,
+            "max_level": 1
+          },
+          {
+            "id": 54,
+            "max_level": 1
+          },
+          {
+            "id": 39,
+            "max_level": 1
+          },
+          {
+            "id": 40,
+            "max_level": 1
+          },
+          {
+            "id": 41,
+            "max_level": 1
+          },
+          {
+            "id": 42,
+            "max_level": 1
+          },
+          {
+            "id": 45,
+            "max_level": 1
+          },
+          {
+            "id": 46,
+            "max_level": 1
+          },
+          {
+            "id": 47,
+            "max_level": 1
+          }
+        ]
+      }
+    ],
+    "reports": []
+  },
+  {
+    "area_id": 3338,
+    "updated": "2026-09-28T06:10:35-03:00",
+    "warnings": [
+      {
+        "date": "2026-09-28",
+        "max_level": 1,
+        "events": [
+          {
+            "id": 37,
+            "max_level": 1
+          },
+          {
+            "id": 54,
+            "max_level": 1
+          },
+          {
+            "id": 39,
+            "max_level": 1
+          },
+          {
+            "id": 40,
+            "max_level": 1
+          },
+          {
+            "id": 41,
+            "max_level": 1
+          },
+          {
+            "id": 42,
+            "max_level": 1
+          },
+          {
+            "id": 45,
+            "max_level": 1
+          },
+          {
+            "id": 46,
+            "max_level": 1
+          },
+          {
+            "id": 47,
+            "max_level": 1
+          }
+        ]
+      }
+    ],
+    "reports": []
+  },
+  {
+    "area_id": 3339,
+    "updated": "2026-09-28T06:10:35-03:00",
+    "warnings": [
+      {
+        "date": "2026-09-28",
+        "max_level": 1,
+        "events": [
+          {
+            "id": 37,
+            "max_level": 1
+          },
+          {
+            "id": 54,
+            "max_level": 1
+          },
+          {
+            "id": 39,
+            "max_level": 1
+          },
+          {
+            "id": 40,
+            "max_level": 1
+          },
+          {
+            "id": 41,
+            "max_level": 1
+          },
+          {
+            "id": 42,
+            "max_level": 1
+          },
+          {
+            "id": 45,
+            "max_level": 1
+          },
+          {
+            "id": 46,
+            "max_level": 1
+          },
+          {
+            "id": 47,
+            "max_level": 1
+          }
+        ]
+      }
+    ],
+    "reports": []
+  },
+  {
+    "area_id": 3340,
+    "updated": "2026-09-28T06:10:35-03:00",
+    "warnings": [
+      {
+        "date": "2026-09-28",
+        "max_level": 1,
+        "events": [
+          {
+            "id": 37,
+            "max_level": 1
+          },
+          {
+            "id": 54,
+            "max_level": 1
+          },
+          {
+            "id": 39,
+            "max_level": 1
+          },
+          {
+            "id": 40,
+            "max_level": 1
+          },
+          {
+            "id": 41,
+            "max_level": 1
+          },
+          {
+            "id": 42,
+            "max_level": 1
+          },
+          {
+            "id": 45,
+            "max_level": 1
+          },
+          {
+            "id": 46,
+            "max_level": 1
+          },
+          {
+            "id": 47,
+            "max_level": 1
+          }
+        ]
+      }
+    ],
+    "reports": []
+  },
+  {
+    "area_id": 3341,
+    "updated": "2026-09-28T06:10:35-03:00",
+    "warnings": [
+      {
+        "date": "2026-09-28",
+        "max_level": 1,
+        "events": [
+          {
+            "id": 37,
+            "max_level": 1
+          },
+          {
+            "id": 54,
+            "max_level": 1
+          },
+          {
+            "id": 39,
+            "max_level": 1
+          },
+          {
+            "id": 40,
+            "max_level": 1
+          },
+          {
+            "id": 41,
+            "max_level": 1
+          },
+          {
+            "id": 42,
+            "max_level": 1
+          },
+          {
+            "id": 45,
+            "max_level": 1
+          },
+          {
+            "id": 46,
+            "max_level": 1
+          },
+          {
+            "id": 47,
+            "max_level": 1
+          }
+        ]
+      }
+    ],
+    "reports": []
+  },
+  {
+    "area_id": 3343,
+    "updated": "2026-09-28T06:10:35-03:00",
+    "warnings": [
+      {
+        "date": "2026-09-28",
+        "max_level": 3,
+        "events": [
+          {
+            "id": 37,
+            "max_level": 1
+          },
+          {
+            "id": 54,
+            "max_level": 1
+          },
+          {
+            "id": 39,
+            "max_level": 1
+          },
+          {
+            "id": 40,
+            "max_level": 1
+          },
+          {
+            "id": 41,
+            "max_level": 3
+          },
+          {
+            "id": 42,
+            "max_level": 1
+          },
+          {
+            "id": 45,
+            "max_level": 1
+          },
+          {
+            "id": 46,
+            "max_level": 1
+          },
+          {
+            "id": 47,
+            "max_level": 1
+          }
+        ]
+      }
+    ],
+    "reports": []
+  },
+  {
+    "area_id": 3344,
+    "updated": "2026-09-28T06:10:35-03:00",
+    "warnings": [
+      {
+        "date": "2026-09-28",
+        "max_level": 1,
+        "events": [
+          {
+            "id": 37,
+            "max_level": 1
+          },
+          {
+            "id": 54,
+            "max_level": 1
+          },
+          {
+            "id": 39,
+            "max_level": 1
+          },
+          {
+            "id": 40,
+            "max_level": 1
+          },
+          {
+            "id": 41,
+            "max_level": 1
+          },
+          {
+            "id": 42,
+            "max_level": 1
+          },
+          {
+            "id": 45,
+            "max_level": 1
+          },
+          {
+            "id": 46,
+            "max_level": 1
+          },
+          {
+            "id": 47,
+            "max_level": 1
+          }
+        ]
+      }
+    ],
+    "reports": []
+  },
+  {
+    "area_id": 3346,
+    "updated": "2026-09-28T06:10:35-03:00",
+    "warnings": [
+      {
+        "date": "2026-09-28",
+        "max_level": 3,
+        "events": [
+          {
+            "id": 37,
+            "max_level": 1
+          },
+          {
+            "id": 54,
+            "max_level": 1
+          },
+          {
+            "id": 39,
+            "max_level": 1
+          },
+          {
+            "id": 40,
+            "max_level": 1
+          },
+          {
+            "id": 41,
+            "max_level": 3
+          },
+          {
+            "id": 42,
+            "max_level": 1
+          },
+          {
+            "id": 45,
+            "max_level": 1
+          },
+          {
+            "id": 46,
+            "max_level": 1
+          },
+          {
+            "id": 47,
+            "max_level": 1
+          }
+        ]
+      }
+    ],
+    "reports": []
+  },
+  {
+    "area_id": 3347,
+    "updated": "2026-09-28T06:10:35-03:00",
+    "warnings": [
+      {
+        "date": "2026-09-28",
+        "max_level": 1,
+        "events": [
+          {
+            "id": 37,
+            "max_level": 1
+          },
+          {
+            "id": 54,
+            "max_level": 1
+          },
+          {
+            "id": 39,
+            "max_level": 1
+          },
+          {
+            "id": 40,
+            "max_level": 1
+          },
+          {
+            "id": 41,
+            "max_level": 1
+          },
+          {
+            "id": 42,
+            "max_level": 1
+          },
+          {
+            "id": 45,
+            "max_level": 1
+          },
+          {
+            "id": 46,
+            "max_level": 1
+          },
+          {
+            "id": 47,
+            "max_level": 1
+          }
+        ]
+      }
+    ],
+    "reports": []
+  },
+  {
+    "area_id": 3349,
+    "updated": "2026-09-28T06:10:35-03:00",
+    "warnings": [
+      {
+        "date": "2026-09-28",
+        "max_level": 1,
+        "events": [
+          {
+            "id": 37,
+            "max_level": 1
+          },
+          {
+            "id": 54,
+            "max_level": 1
+          },
+          {
+            "id": 39,
+            "max_level": 1
+          },
+          {
+            "id": 40,
+            "max_level": 1
+          },
+          {
+            "id": 41,
+            "max_level": 1
+          },
+          {
+            "id": 42,
+            "max_level": 1
+          },
+          {
+            "id": 45,
+            "max_level": 1
+          },
+          {
+            "id": 46,
+            "max_level": 1
+          },
+          {
+            "id": 47,
+            "max_level": 1
+          }
+        ]
+      }
+    ],
+    "reports": []
+  },
+  {
+    "area_id": 3350,
+    "updated": "2026-09-28T06:10:35-03:00",
+    "warnings": [
+      {
+        "date": "2026-09-28",
+        "max_level": 3,
+        "events": [
+          {
+            "id": 37,
+            "max_level": 1
+          },
+          {
+            "id": 54,
+            "max_level": 1
+          },
+          {
+            "id": 39,
+            "max_level": 1
+          },
+          {
+            "id": 40,
+            "max_level": 1
+          },
+          {
+            "id": 41,
+            "max_level": 3
+          },
+          {
+            "id": 42,
+            "max_level": 1
+          },
+          {
+            "id": 45,
+            "max_level": 1
+          },
+          {
+            "id": 46,
+            "max_level": 1
+          },
+          {
+            "id": 47,
+            "max_level": 1
+          }
+        ]
+      }
+    ],
+    "reports": []
+  },
+  {
+    "area_id": 3352,
+    "updated": "2026-09-28T06:10:35-03:00",
+    "warnings": [
+      {
+        "date": "2026-09-28",
+        "max_level": 1,
+        "events": [
+          {
+            "id": 37,
+            "max_level": 1
+          },
+          {
+            "id": 54,
+            "max_level": 1
+          },
+          {
+            "id": 39,
+            "max_level": 1
+          },
+          {
+            "id": 40,
+            "max_level": 1
+          },
+          {
+            "id": 41,
+            "max_level": 1
+          },
+          {
+            "id": 42,
+            "max_level": 1
+          },
+          {
+            "id": 45,
+            "max_level": 1
+          },
+          {
+            "id": 46,
+            "max_level": 1
+          },
+          {
+            "id": 47,
+            "max_level": 1
+          }
+        ]
+      }
+    ],
+    "reports": []
+  },
+  {
+    "area_id": 3354,
+    "updated": "2026-09-28T06:10:35-03:00",
+    "warnings": [
+      {
+        "date": "2026-09-28",
+        "max_level": 3,
+        "events": [
+          {
+            "id": 37,
+            "max_level": 1
+          },
+          {
+            "id": 54,
+            "max_level": 1
+          },
+          {
+            "id": 39,
+            "max_level": 1
+          },
+          {
+            "id": 40,
+            "max_level": 1
+          },
+          {
+            "id": 41,
+            "max_level": 3
+          },
+          {
+            "id": 42,
+            "max_level": 1
+          },
+          {
+            "id": 45,
+            "max_level": 1
+          },
+          {
+            "id": 46,
+            "max_level": 1
+          },
+          {
+            "id": 47,
+            "max_level": 1
+          }
+        ]
+      }
+    ],
+    "reports": []
+  },
+  {
+    "area_id": 283,
+    "updated": "2026-09-28T06:10:35-03:00",
+    "warnings": [
+      {
+        "date": "2026-09-28",
+        "max_level": 1,
+        "events": [
+          {
+            "id": 37,
+            "max_level": 1
+          },
+          {
+            "id": 54,
+            "max_level": 1
+          },
+          {
+            "id": 39,
+            "max_level": 1
+          },
+          {
+            "id": 40,
+            "max_level": 1
+          },
+          {
+            "id": 41,
+            "max_level": 1
+          },
+          {
+            "id": 42,
+            "max_level": 1
+          },
+          {
+            "id": 45,
+            "max_level": 1
+          },
+          {
+            "id": 46,
+            "max_level": 1
+          },
+          {
+            "id": 47,
+            "max_level": 1
+          }
+        ]
+      }
+    ],
+    "reports": []
+  },
+  {
+    "area_id": 284,
+    "updated": "2026-09-28T06:10:35-03:00",
+    "warnings": [
+      {
+        "date": "2026-09-28",
+        "max_level": 1,
+        "events": [
+          {
+            "id": 37,
+            "max_level": 1
+          },
+          {
+            "id": 54,
+            "max_level": 1
+          },
+          {
+            "id": 39,
+            "max_level": 1
+          },
+          {
+            "id": 40,
+            "max_level": 1
+          },
+          {
+            "id": 41,
+            "max_level": 1
+          },
+          {
+            "id": 42,
+            "max_level": 1
+          },
+          {
+            "id": 45,
+            "max_level": 1
+          },
+          {
+            "id": 46,
+            "max_level": 1
+          },
+          {
+            "id": 47,
+            "max_level": 1
+          }
+        ]
+      }
+    ],
+    "reports": []
+  },
+  {
+    "area_id": 3356,
+    "updated": "2026-09-28T06:10:35-03:00",
+    "warnings": [
+      {
+        "date": "2026-09-28",
+        "max_level": 1,
+        "events": [
+          {
+            "id": 37,
+            "max_level": 1
+          },
+          {
+            "id": 54,
+            "max_level": 1
+          },
+          {
+            "id": 39,
+            "max_level": 1
+          },
+          {
+            "id": 40,
+            "max_level": 1
+          },
+          {
+            "id": 41,
+            "max_level": 1
+          },
+          {
+            "id": 42,
+            "max_level": 1
+          },
+          {
+            "id": 45,
+            "max_level": 1
+          },
+          {
+            "id": 46,
+            "max_level": 1
+          },
+          {
+            "id": 47,
+            "max_level": 1
+          }
+        ]
+      }
+    ],
+    "reports": []
+  },
+  {
+    "area_id": 285,
+    "updated": "2026-09-28T06:10:35-03:00",
+    "warnings": [
+      {
+        "date": "2026-09-28",
+        "max_level": 1,
+        "events": [
+          {
+            "id": 37,
+            "max_level": 1
+          },
+          {
+            "id": 54,
+            "max_level": 1
+          },
+          {
+            "id": 39,
+            "max_level": 1
+          },
+          {
+            "id": 40,
+            "max_level": 1
+          },
+          {
+            "id": 41,
+            "max_level": 1
+          },
+          {
+            "id": 42,
+            "max_level": 1
+          },
+          {
+            "id": 45,
+            "max_level": 1
+          },
+          {
+            "id": 46,
+            "max_level": 1
+          },
+          {
+            "id": 47,
+            "max_level": 1
+          }
+        ]
+      }
+    ],
+    "reports": []
+  },
+  {
+    "area_id": 3357,
+    "updated": "2026-09-28T06:10:35-03:00",
+    "warnings": [
+      {
+        "date": "2026-09-28",
+        "max_level": 1,
+        "events": [
+          {
+            "id": 37,
+            "max_level": 1
+          },
+          {
+            "id": 54,
+            "max_level": 1
+          },
+          {
+            "id": 39,
+            "max_level": 1
+          },
+          {
+            "id": 40,
+            "max_level": 1
+          },
+          {
+            "id": 41,
+            "max_level": 1
+          },
+          {
+            "id": 42,
+            "max_level": 1
+          },
+          {
+            "id": 45,
+            "max_level": 1
+          },
+          {
+            "id": 46,
+            "max_level": 1
+          },
+          {
+            "id": 47,
+            "max_level": 1
+          }
+        ]
+      }
+    ],
+    "reports": []
+  },
+  {
+    "area_id": 3358,
+    "updated": "2026-09-28T06:10:35-03:00",
+    "warnings": [
+      {
+        "date": "2026-09-28",
+        "max_level": 1,
+        "events": [
+          {
+            "id": 37,
+            "max_level": 1
+          },
+          {
+            "id": 54,
+            "max_level": 1
+          },
+          {
+            "id": 39,
+            "max_level": 1
+          },
+          {
+            "id": 40,
+            "max_level": 1
+          },
+          {
+            "id": 41,
+            "max_level": 1
+          },
+          {
+            "id": 42,
+            "max_level": 1
+          },
+          {
+            "id": 45,
+            "max_level": 1
+          },
+          {
+            "id": 46,
+            "max_level": 1
+          },
+          {
+            "id": 47,
+            "max_level": 1
+          }
+        ]
+      }
+    ],
+    "reports": []
+  },
+  {
+    "area_id": 3359,
+    "updated": "2026-09-28T06:10:35-03:00",
+    "warnings": [
+      {
+        "date": "2026-09-28",
+        "max_level": 3,
+        "events": [
+          {
+            "id": 37,
+            "max_level": 1
+          },
+          {
+            "id": 54,
+            "max_level": 1
+          },
+          {
+            "id": 39,
+            "max_level": 1
+          },
+          {
+            "id": 40,
+            "max_level": 1
+          },
+          {
+            "id": 41,
+            "max_level": 3
+          },
+          {
+            "id": 42,
+            "max_level": 1
+          },
+          {
+            "id": 45,
+            "max_level": 1
+          },
+          {
+            "id": 46,
+            "max_level": 1
+          },
+          {
+            "id": 47,
+            "max_level": 1
+          }
+        ]
+      }
+    ],
+    "reports": []
+  },
+  {
+    "area_id": 3360,
+    "updated": "2026-09-28T06:10:35-03:00",
+    "warnings": [
+      {
+        "date": "2026-09-28",
+        "max_level": 1,
+        "events": [
+          {
+            "id": 37,
+            "max_level": 1
+          },
+          {
+            "id": 54,
+            "max_level": 1
+          },
+          {
+            "id": 39,
+            "max_level": 1
+          },
+          {
+            "id": 40,
+            "max_level": 1
+          },
+          {
+            "id": 41,
+            "max_level": 1
+          },
+          {
+            "id": 42,
+            "max_level": 1
+          },
+          {
+            "id": 45,
+            "max_level": 1
+          },
+          {
+            "id": 46,
+            "max_level": 1
+          },
+          {
+            "id": 47,
+            "max_level": 1
+          }
+        ]
+      }
+    ],
+    "reports": []
+  },
+  {
+    "area_id": 3362,
+    "updated": "2026-09-28T06:10:35-03:00",
+    "warnings": [
+      {
+        "date": "2026-09-28",
+        "max_level": 1,
+        "events": [
+          {
+            "id": 37,
+            "max_level": 1
+          },
+          {
+            "id": 54,
+            "max_level": 1
+          },
+          {
+            "id": 39,
+            "max_level": 1
+          },
+          {
+            "id": 40,
+            "max_level": 1
+          },
+          {
+            "id": 41,
+            "max_level": 1
+          },
+          {
+            "id": 42,
+            "max_level": 1
+          },
+          {
+            "id": 45,
+            "max_level": 1
+          },
+          {
+            "id": 46,
+            "max_level": 1
+          },
+          {
+            "id": 47,
+            "max_level": 1
+          }
+        ]
+      }
+    ],
+    "reports": []
+  },
+  {
+    "area_id": 3363,
+    "updated": "2026-09-28T06:10:35-03:00",
+    "warnings": [
+      {
+        "date": "2026-09-28",
+        "max_level": 1,
+        "events": [
+          {
+            "id": 37,
+            "max_level": 1
+          },
+          {
+            "id": 54,
+            "max_level": 1
+          },
+          {
+            "id": 39,
+            "max_level": 1
+          },
+          {
+            "id": 40,
+            "max_level": 1
+          },
+          {
+            "id": 41,
+            "max_level": 1
+          },
+          {
+            "id": 42,
+            "max_level": 1
+          },
+          {
+            "id": 45,
+            "max_level": 1
+          },
+          {
+            "id": 46,
+            "max_level": 1
+          },
+          {
+            "id": 47,
+            "max_level": 1
+          }
+        ]
+      }
+    ],
+    "reports": []
+  },
+  {
+    "area_id": 3364,
+    "updated": "2026-09-28T06:10:35-03:00",
+    "warnings": [
+      {
+        "date": "2026-09-28",
+        "max_level": 1,
+        "events": [
+          {
+            "id": 37,
+            "max_level": 1
+          },
+          {
+            "id": 54,
+            "max_level": 1
+          },
+          {
+            "id": 39,
+            "max_level": 1
+          },
+          {
+            "id": 40,
+            "max_level": 1
+          },
+          {
+            "id": 41,
+            "max_level": 1
+          },
+          {
+            "id": 42,
+            "max_level": 1
+          },
+          {
+            "id": 45,
+            "max_level": 1
+          },
+          {
+            "id": 46,
+            "max_level": 1
+          },
+          {
+            "id": 47,
+            "max_level": 1
+          }
+        ]
+      }
+    ],
+    "reports": []
+  },
+  {
+    "area_id": 3365,
+    "updated": "2026-09-28T06:10:35-03:00",
+    "warnings": [
+      {
+        "date": "2026-09-28",
+        "max_level": 3,
+        "events": [
+          {
+            "id": 37,
+            "max_level": 1
+          },
+          {
+            "id": 54,
+            "max_level": 1
+          },
+          {
+            "id": 39,
+            "max_level": 1
+          },
+          {
+            "id": 40,
+            "max_level": 1
+          },
+          {
+            "id": 41,
+            "max_level": 3
+          },
+          {
+            "id": 42,
+            "max_level": 1
+          },
+          {
+            "id": 45,
+            "max_level": 1
+          },
+          {
+            "id": 46,
+            "max_level": 1
+          },
+          {
+            "id": 47,
+            "max_level": 1
+          }
+        ]
+      }
+    ],
+    "reports": []
+  },
+  {
+    "area_id": 3366,
+    "updated": "2026-09-28T06:10:35-03:00",
+    "warnings": [
+      {
+        "date": "2026-09-28",
+        "max_level": 1,
+        "events": [
+          {
+            "id": 37,
+            "max_level": 1
+          },
+          {
+            "id": 54,
+            "max_level": 1
+          },
+          {
+            "id": 39,
+            "max_level": 1
+          },
+          {
+            "id": 40,
+            "max_level": 1
+          },
+          {
+            "id": 41,
+            "max_level": 1
+          },
+          {
+            "id": 42,
+            "max_level": 1
+          },
+          {
+            "id": 45,
+            "max_level": 1
+          },
+          {
+            "id": 46,
+            "max_level": 1
+          },
+          {
+            "id": 47,
+            "max_level": 1
+          }
+        ]
+      }
+    ],
+    "reports": []
+  },
+  {
+    "area_id": 3369,
+    "updated": "2026-09-28T06:10:35-03:00",
+    "warnings": [
+      {
+        "date": "2026-09-28",
+        "max_level": 1,
+        "events": [
+          {
+            "id": 37,
+            "max_level": 1
+          },
+          {
+            "id": 54,
+            "max_level": 1
+          },
+          {
+            "id": 39,
+            "max_level": 1
+          },
+          {
+            "id": 40,
+            "max_level": 1
+          },
+          {
+            "id": 41,
+            "max_level": 1
+          },
+          {
+            "id": 42,
+            "max_level": 1
+          },
+          {
+            "id": 45,
+            "max_level": 1
+          },
+          {
+            "id": 46,
+            "max_level": 1
+          },
+          {
+            "id": 47,
+            "max_level": 1
+          }
+        ]
+      }
+    ],
+    "reports": []
+  },
+  {
+    "area_id": 3370,
+    "updated": "2026-09-28T06:10:35-03:00",
+    "warnings": [
+      {
+        "date": "2026-09-28",
+        "max_level": 1,
+        "events": [
+          {
+            "id": 37,
+            "max_level": 1
+          },
+          {
+            "id": 54,
+            "max_level": 1
+          },
+          {
+            "id": 39,
+            "max_level": 1
+          },
+          {
+            "id": 40,
+            "max_level": 1
+          },
+          {
+            "id": 41,
+            "max_level": 1
+          },
+          {
+            "id": 42,
+            "max_level": 1
+          },
+          {
+            "id": 45,
+            "max_level": 1
+          },
+          {
+            "id": 46,
+            "max_level": 1
+          },
+          {
+            "id": 47,
+            "max_level": 1
+          }
+        ]
+      }
+    ],
+    "reports": []
+  },
+  {
+    "area_id": 3371,
+    "updated": "2026-09-28T06:10:35-03:00",
+    "warnings": [
+      {
+        "date": "2026-09-28",
+        "max_level": 1,
+        "events": [
+          {
+            "id": 37,
+            "max_level": 1
+          },
+          {
+            "id": 54,
+            "max_level": 1
+          },
+          {
+            "id": 39,
+            "max_level": 1
+          },
+          {
+            "id": 40,
+            "max_level": 1
+          },
+          {
+            "id": 41,
+            "max_level": 1
+          },
+          {
+            "id": 42,
+            "max_level": 1
+          },
+          {
+            "id": 45,
+            "max_level": 1
+          },
+          {
+            "id": 46,
+            "max_level": 1
+          },
+          {
+            "id": 47,
+            "max_level": 1
+          }
+        ]
+      }
+    ],
+    "reports": []
+  },
+  {
+    "area_id": 3373,
+    "updated": "2026-09-28T06:10:35-03:00",
+    "warnings": [
+      {
+        "date": "2026-09-28",
+        "max_level": 3,
+        "events": [
+          {
+            "id": 37,
+            "max_level": 1
+          },
+          {
+            "id": 54,
+            "max_level": 1
+          },
+          {
+            "id": 39,
+            "max_level": 1
+          },
+          {
+            "id": 40,
+            "max_level": 1
+          },
+          {
+            "id": 41,
+            "max_level": 3
+          },
+          {
+            "id": 42,
+            "max_level": 1
+          },
+          {
+            "id": 45,
+            "max_level": 1
+          },
+          {
+            "id": 46,
+            "max_level": 1
+          },
+          {
+            "id": 47,
+            "max_level": 1
+          }
+        ]
+      }
+    ],
+    "reports": []
+  },
+  {
+    "area_id": 3374,
+    "updated": "2026-09-28T06:10:35-03:00",
+    "warnings": [
+      {
+        "date": "2026-09-28",
+        "max_level": 1,
+        "events": [
+          {
+            "id": 37,
+            "max_level": 1
+          },
+          {
+            "id": 54,
+            "max_level": 1
+          },
+          {
+            "id": 39,
+            "max_level": 1
+          },
+          {
+            "id": 40,
+            "max_level": 1
+          },
+          {
+            "id": 41,
+            "max_level": 1
+          },
+          {
+            "id": 42,
+            "max_level": 1
+          },
+          {
+            "id": 45,
+            "max_level": 1
+          },
+          {
+            "id": 46,
+            "max_level": 1
+          },
+          {
+            "id": 47,
+            "max_level": 1
+          }
+        ]
+      }
+    ],
+    "reports": []
+  },
+  {
+    "area_id": 3375,
+    "updated": "2026-09-28T06:10:35-03:00",
+    "warnings": [
+      {
+        "date": "2026-09-28",
+        "max_level": 3,
+        "events": [
+          {
+            "id": 37,
+            "max_level": 1
+          },
+          {
+            "id": 54,
+            "max_level": 1
+          },
+          {
+            "id": 39,
+            "max_level": 1
+          },
+          {
+            "id": 40,
+            "max_level": 1
+          },
+          {
+            "id": 41,
+            "max_level": 3
+          },
+          {
+            "id": 42,
+            "max_level": 1
+          },
+          {
+            "id": 45,
+            "max_level": 1
+          },
+          {
+            "id": 46,
+            "max_level": 1
+          },
+          {
+            "id": 47,
+            "max_level": 1
+          }
+        ]
+      }
+    ],
+    "reports": []
+  },
+  {
+    "area_id": 3378,
+    "updated": "2026-09-28T06:10:35-03:00",
+    "warnings": [
+      {
+        "date": "2026-09-28",
+        "max_level": 3,
+        "events": [
+          {
+            "id": 37,
+            "max_level": 1
+          },
+          {
+            "id": 54,
+            "max_level": 1
+          },
+          {
+            "id": 39,
+            "max_level": 1
+          },
+          {
+            "id": 40,
+            "max_level": 1
+          },
+          {
+            "id": 41,
+            "max_level": 3
+          },
+          {
+            "id": 42,
+            "max_level": 1
+          },
+          {
+            "id": 45,
+            "max_level": 1
+          },
+          {
+            "id": 46,
+            "max_level": 1
+          },
+          {
+            "id": 47,
+            "max_level": 1
+          }
+        ]
+      }
+    ],
+    "reports": []
+  },
+  {
+    "area_id": 3379,
+    "updated": "2026-09-28T06:10:35-03:00",
+    "warnings": [
+      {
+        "date": "2026-09-28",
+        "max_level": 1,
+        "events": [
+          {
+            "id": 37,
+            "max_level": 1
+          },
+          {
+            "id": 54,
+            "max_level": 1
+          },
+          {
+            "id": 39,
+            "max_level": 1
+          },
+          {
+            "id": 40,
+            "max_level": 1
+          },
+          {
+            "id": 41,
+            "max_level": 1
+          },
+          {
+            "id": 42,
+            "max_level": 1
+          },
+          {
+            "id": 45,
+            "max_level": 1
+          },
+          {
+            "id": 46,
+            "max_level": 1
+          },
+          {
+            "id": 47,
+            "max_level": 1
+          }
+        ]
+      }
+    ],
+    "reports": []
+  },
+  {
+    "area_id": 3380,
+    "updated": "2026-09-28T06:10:35-03:00",
+    "warnings": [
+      {
+        "date": "2026-09-28",
+        "max_level": 3,
+        "events": [
+          {
+            "id": 37,
+            "max_level": 1
+          },
+          {
+            "id": 54,
+            "max_level": 1
+          },
+          {
+            "id": 39,
+            "max_level": 1
+          },
+          {
+            "id": 40,
+            "max_level": 1
+          },
+          {
+            "id": 41,
+            "max_level": 3
+          },
+          {
+            "id": 42,
+            "max_level": 1
+          },
+          {
+            "id": 45,
+            "max_level": 1
+          },
+          {
+            "id": 46,
+            "max_level": 1
+          },
+          {
+            "id": 47,
+            "max_level": 1
+          }
+        ]
+      }
+    ],
+    "reports": []
+  },
+  {
+    "area_id": 3381,
+    "updated": "2026-09-28T06:10:35-03:00",
+    "warnings": [
+      {
+        "date": "2026-09-28",
+        "max_level": 3,
+        "events": [
+          {
+            "id": 37,
+            "max_level": 1
+          },
+          {
+            "id": 54,
+            "max_level": 1
+          },
+          {
+            "id": 39,
+            "max_level": 1
+          },
+          {
+            "id": 40,
+            "max_level": 1
+          },
+          {
+            "id": 41,
+            "max_level": 3
+          },
+          {
+            "id": 42,
+            "max_level": 1
+          },
+          {
+            "id": 45,
+            "max_level": 1
+          },
+          {
+            "id": 46,
+            "max_level": 1
+          },
+          {
+            "id": 47,
+            "max_level": 1
+          }
+        ]
+      }
+    ],
+    "reports": []
+  },
+  {
+    "area_id": 3382,
+    "updated": "2026-09-28T06:10:35-03:00",
+    "warnings": [
+      {
+        "date": "2026-09-28",
+        "max_level": 1,
+        "events": [
+          {
+            "id": 37,
+            "max_level": 1
+          },
+          {
+            "id": 54,
+            "max_level": 1
+          },
+          {
+            "id": 39,
+            "max_level": 1
+          },
+          {
+            "id": 40,
+            "max_level": 1
+          },
+          {
+            "id": 41,
+            "max_level": 1
+          },
+          {
+            "id": 42,
+            "max_level": 1
+          },
+          {
+            "id": 45,
+            "max_level": 1
+          },
+          {
+            "id": 46,
+            "max_level": 1
+          },
+          {
+            "id": 47,
+            "max_level": 1
+          }
+        ]
+      }
+    ],
+    "reports": []
+  },
+  {
+    "area_id": 3383,
+    "updated": "2026-09-28T06:10:35-03:00",
+    "warnings": [
+      {
+        "date": "2026-09-28",
+        "max_level": 1,
+        "events": [
+          {
+            "id": 37,
+            "max_level": 1
+          },
+          {
+            "id": 54,
+            "max_level": 1
+          },
+          {
+            "id": 39,
+            "max_level": 1
+          },
+          {
+            "id": 40,
+            "max_level": 1
+          },
+          {
+            "id": 41,
+            "max_level": 1
+          },
+          {
+            "id": 42,
+            "max_level": 1
+          },
+          {
+            "id": 45,
+            "max_level": 1
+          },
+          {
+            "id": 46,
+            "max_level": 1
+          },
+          {
+            "id": 47,
+            "max_level": 1
+          }
+        ]
+      }
+    ],
+    "reports": []
+  },
+  {
+    "area_id": 3384,
+    "updated": "2026-09-28T06:10:35-03:00",
+    "warnings": [
+      {
+        "date": "2026-09-28",
+        "max_level": 1,
+        "events": [
+          {
+            "id": 37,
+            "max_level": 1
+          },
+          {
+            "id": 54,
+            "max_level": 1
+          },
+          {
+            "id": 39,
+            "max_level": 1
+          },
+          {
+            "id": 40,
+            "max_level": 1
+          },
+          {
+            "id": 41,
+            "max_level": 1
+          },
+          {
+            "id": 42,
+            "max_level": 1
+          },
+          {
+            "id": 45,
+            "max_level": 1
+          },
+          {
+            "id": 46,
+            "max_level": 1
+          },
+          {
+            "id": 47,
+            "max_level": 1
+          }
+        ]
+      }
+    ],
+    "reports": []
+  },
+  {
+    "area_id": 3388,
+    "updated": "2026-09-28T06:10:35-03:00",
+    "warnings": [
+      {
+        "date": "2026-09-28",
+        "max_level": 1,
+        "events": [
+          {
+            "id": 37,
+            "max_level": 1
+          },
+          {
+            "id": 54,
+            "max_level": 1
+          },
+          {
+            "id": 39,
+            "max_level": 1
+          },
+          {
+            "id": 40,
+            "max_level": 1
+          },
+          {
+            "id": 41,
+            "max_level": 1
+          },
+          {
+            "id": 42,
+            "max_level": 1
+          },
+          {
+            "id": 45,
+            "max_level": 1
+          },
+          {
+            "id": 46,
+            "max_level": 1
+          },
+          {
+            "id": 47,
+            "max_level": 1
+          }
+        ]
+      }
+    ],
+    "reports": []
+  },
+  {
+    "area_id": 3390,
+    "updated": "2026-09-28T06:10:35-03:00",
+    "warnings": [
+      {
+        "date": "2026-09-28",
+        "max_level": 1,
+        "events": [
+          {
+            "id": 37,
+            "max_level": 1
+          },
+          {
+            "id": 54,
+            "max_level": 1
+          },
+          {
+            "id": 39,
+            "max_level": 1
+          },
+          {
+            "id": 40,
+            "max_level": 1
+          },
+          {
+            "id": 41,
+            "max_level": 1
+          },
+          {
+            "id": 42,
+            "max_level": 1
+          },
+          {
+            "id": 45,
+            "max_level": 1
+          },
+          {
+            "id": 46,
+            "max_level": 1
+          },
+          {
+            "id": 47,
+            "max_level": 1
+          }
+        ]
+      }
+    ],
+    "reports": []
+  },
+  {
+    "area_id": 3396,
+    "updated": "2026-09-28T06:10:35-03:00",
+    "warnings": [
+      {
+        "date": "2026-09-28",
+        "max_level": 3,
+        "events": [
+          {
+            "id": 37,
+            "max_level": 1
+          },
+          {
+            "id": 54,
+            "max_level": 1
+          },
+          {
+            "id": 39,
+            "max_level": 1
+          },
+          {
+            "id": 40,
+            "max_level": 1
+          },
+          {
+            "id": 41,
+            "max_level": 3
+          },
+          {
+            "id": 42,
+            "max_level": 1
+          },
+          {
+            "id": 45,
+            "max_level": 1
+          },
+          {
+            "id": 46,
+            "max_level": 1
+          },
+          {
+            "id": 47,
+            "max_level": 1
+          }
+        ]
+      }
+    ],
+    "reports": []
+  },
+  {
+    "area_id": 3400,
+    "updated": "2026-09-28T06:10:35-03:00",
+    "warnings": [
+      {
+        "date": "2026-09-28",
+        "max_level": 1,
+        "events": [
+          {
+            "id": 37,
+            "max_level": 1
+          },
+          {
+            "id": 54,
+            "max_level": 1
+          },
+          {
+            "id": 39,
+            "max_level": 1
+          },
+          {
+            "id": 40,
+            "max_level": 1
+          },
+          {
+            "id": 41,
+            "max_level": 1
+          },
+          {
+            "id": 42,
+            "max_level": 1
+          },
+          {
+            "id": 45,
+            "max_level": 1
+          },
+          {
+            "id": 46,
+            "max_level": 1
+          },
+          {
+            "id": 47,
+            "max_level": 1
+          }
+        ]
+      }
+    ],
+    "reports": []
+  },
+  {
+    "area_id": 3402,
+    "updated": "2026-09-28T06:10:35-03:00",
+    "warnings": [
+      {
+        "date": "2026-09-28",
+        "max_level": 1,
+        "events": [
+          {
+            "id": 37,
+            "max_level": 1
+          },
+          {
+            "id": 54,
+            "max_level": 1
+          },
+          {
+            "id": 39,
+            "max_level": 1
+          },
+          {
+            "id": 40,
+            "max_level": 1
+          },
+          {
+            "id": 41,
+            "max_level": 1
+          },
+          {
+            "id": 42,
+            "max_level": 1
+          },
+          {
+            "id": 45,
+            "max_level": 1
+          },
+          {
+            "id": 46,
+            "max_level": 1
+          },
+          {
+            "id": 47,
+            "max_level": 1
+          }
+        ]
+      }
+    ],
+    "reports": []
+  },
+  {
+    "area_id": 3406,
+    "updated": "2026-09-28T06:10:35-03:00",
+    "warnings": [
+      {
+        "date": "2026-09-28",
+        "max_level": 3,
+        "events": [
+          {
+            "id": 37,
+            "max_level": 1
+          },
+          {
+            "id": 54,
+            "max_level": 1
+          },
+          {
+            "id": 39,
+            "max_level": 1
+          },
+          {
+            "id": 40,
+            "max_level": 1
+          },
+          {
+            "id": 41,
+            "max_level": 3
+          },
+          {
+            "id": 42,
+            "max_level": 1
+          },
+          {
+            "id": 45,
+            "max_level": 1
+          },
+          {
+            "id": 46,
+            "max_level": 1
+          },
+          {
+            "id": 47,
+            "max_level": 1
+          }
+        ]
+      }
+    ],
+    "reports": []
+  },
+  {
+    "area_id": 3408,
+    "updated": "2026-09-28T06:10:35-03:00",
+    "warnings": [
+      {
+        "date": "2026-09-28",
+        "max_level": 1,
+        "events": [
+          {
+            "id": 37,
+            "max_level": 1
+          },
+          {
+            "id": 54,
+            "max_level": 1
+          },
+          {
+            "id": 39,
+            "max_level": 1
+          },
+          {
+            "id": 40,
+            "max_level": 1
+          },
+          {
+            "id": 41,
+            "max_level": 1
+          },
+          {
+            "id": 42,
+            "max_level": 1
+          },
+          {
+            "id": 45,
+            "max_level": 1
+          },
+          {
+            "id": 46,
+            "max_level": 1
+          },
+          {
+            "id": 47,
+            "max_level": 1
+          }
+        ]
+      }
+    ],
+    "reports": []
+  },
+  {
+    "area_id": 3416,
+    "updated": "2026-09-28T06:10:35-03:00",
+    "warnings": [
+      {
+        "date": "2026-09-28",
+        "max_level": 3,
+        "events": [
+          {
+            "id": 37,
+            "max_level": 1
+          },
+          {
+            "id": 54,
+            "max_level": 1
+          },
+          {
+            "id": 39,
+            "max_level": 1
+          },
+          {
+            "id": 40,
+            "max_level": 1
+          },
+          {
+            "id": 41,
+            "max_level": 3
+          },
+          {
+            "id": 42,
+            "max_level": 1
+          },
+          {
+            "id": 45,
+            "max_level": 1
+          },
+          {
+            "id": 46,
+            "max_level": 1
+          },
+          {
+            "id": 47,
+            "max_level": 1
+          }
+        ]
+      }
+    ],
+    "reports": []
+  },
+  {
+    "area_id": 3417,
+    "updated": "2026-09-28T06:10:35-03:00",
+    "warnings": [
+      {
+        "date": "2026-09-28",
+        "max_level": 3,
+        "events": [
+          {
+            "id": 37,
+            "max_level": 1
+          },
+          {
+            "id": 54,
+            "max_level": 1
+          },
+          {
+            "id": 39,
+            "max_level": 1
+          },
+          {
+            "id": 40,
+            "max_level": 1
+          },
+          {
+            "id": 41,
+            "max_level": 3
+          },
+          {
+            "id": 42,
+            "max_level": 1
+          },
+          {
+            "id": 45,
+            "max_level": 1
+          },
+          {
+            "id": 46,
+            "max_level": 1
+          },
+          {
+            "id": 47,
+            "max_level": 1
+          }
+        ]
+      }
+    ],
+    "reports": []
+  },
+  {
+    "area_id": 3420,
+    "updated": "2026-09-28T06:10:35-03:00",
+    "warnings": [
+      {
+        "date": "2026-09-28",
+        "max_level": 1,
+        "events": [
+          {
+            "id": 37,
+            "max_level": 1
+          },
+          {
+            "id": 54,
+            "max_level": 1
+          },
+          {
+            "id": 39,
+            "max_level": 1
+          },
+          {
+            "id": 40,
+            "max_level": 1
+          },
+          {
+            "id": 41,
+            "max_level": 1
+          },
+          {
+            "id": 42,
+            "max_level": 1
+          },
+          {
+            "id": 45,
+            "max_level": 1
+          },
+          {
+            "id": 46,
+            "max_level": 1
+          },
+          {
+            "id": 47,
+            "max_level": 1
+          }
+        ]
+      }
+    ],
+    "reports": []
+  },
+  {
+    "area_id": 3423,
+    "updated": "2026-09-28T06:10:35-03:00",
+    "warnings": [
+      {
+        "date": "2026-09-28",
+        "max_level": 3,
+        "events": [
+          {
+            "id": 37,
+            "max_level": 1
+          },
+          {
+            "id": 54,
+            "max_level": 1
+          },
+          {
+            "id": 39,
+            "max_level": 1
+          },
+          {
+            "id": 40,
+            "max_level": 1
+          },
+          {
+            "id": 41,
+            "max_level": 3
+          },
+          {
+            "id": 42,
+            "max_level": 1
+          },
+          {
+            "id": 45,
+            "max_level": 1
+          },
+          {
+            "id": 46,
+            "max_level": 1
+          },
+          {
+            "id": 47,
+            "max_level": 1
+          }
+        ]
+      }
+    ],
+    "reports": []
+  },
+  {
+    "area_id": 3424,
+    "updated": "2026-09-28T06:10:35-03:00",
+    "warnings": [
+      {
+        "date": "2026-09-28",
+        "max_level": 3,
+        "events": [
+          {
+            "id": 37,
+            "max_level": 1
+          },
+          {
+            "id": 54,
+            "max_level": 1
+          },
+          {
+            "id": 39,
+            "max_level": 1
+          },
+          {
+            "id": 40,
+            "max_level": 1
+          },
+          {
+            "id": 41,
+            "max_level": 3
+          },
+          {
+            "id": 42,
+            "max_level": 1
+          },
+          {
+            "id": 45,
+            "max_level": 1
+          },
+          {
+            "id": 46,
+            "max_level": 1
+          },
+          {
+            "id": 47,
+            "max_level": 1
+          }
+        ]
+      }
+    ],
+    "reports": []
+  },
+  {
+    "area_id": 3427,
+    "updated": "2026-09-28T06:10:35-03:00",
+    "warnings": [
+      {
+        "date": "2026-09-28",
+        "max_level": 1,
+        "events": [
+          {
+            "id": 37,
+            "max_level": 1
+          },
+          {
+            "id": 54,
+            "max_level": 1
+          },
+          {
+            "id": 39,
+            "max_level": 1
+          },
+          {
+            "id": 40,
+            "max_level": 1
+          },
+          {
+            "id": 41,
+            "max_level": 1
+          },
+          {
+            "id": 42,
+            "max_level": 1
+          },
+          {
+            "id": 45,
+            "max_level": 1
+          },
+          {
+            "id": 46,
+            "max_level": 1
+          },
+          {
+            "id": 47,
+            "max_level": 1
+          }
+        ]
+      }
+    ],
+    "reports": []
+  },
+  {
+    "area_id": 3428,
+    "updated": "2026-09-28T06:10:35-03:00",
+    "warnings": [
+      {
+        "date": "2026-09-28",
+        "max_level": 3,
+        "events": [
+          {
+            "id": 37,
+            "max_level": 1
+          },
+          {
+            "id": 54,
+            "max_level": 1
+          },
+          {
+            "id": 39,
+            "max_level": 1
+          },
+          {
+            "id": 40,
+            "max_level": 1
+          },
+          {
+            "id": 41,
+            "max_level": 3
+          },
+          {
+            "id": 42,
+            "max_level": 1
+          },
+          {
+            "id": 45,
+            "max_level": 1
+          },
+          {
+            "id": 46,
+            "max_level": 1
+          },
+          {
+            "id": 47,
+            "max_level": 1
+          }
+        ]
+      }
+    ],
+    "reports": []
+  },
+  {
+    "area_id": 3429,
+    "updated": "2026-09-28T06:10:35-03:00",
+    "warnings": [
+      {
+        "date": "2026-09-28",
+        "max_level": 3,
+        "events": [
+          {
+            "id": 37,
+            "max_level": 1
+          },
+          {
+            "id": 54,
+            "max_level": 1
+          },
+          {
+            "id": 39,
+            "max_level": 1
+          },
+          {
+            "id": 40,
+            "max_level": 1
+          },
+          {
+            "id": 41,
+            "max_level": 3
+          },
+          {
+            "id": 42,
+            "max_level": 1
+          },
+          {
+            "id": 45,
+            "max_level": 1
+          },
+          {
+            "id": 46,
+            "max_level": 1
+          },
+          {
+            "id": 47,
+            "max_level": 1
+          }
+        ]
+      }
+    ],
+    "reports": []
+  },
+  {
+    "area_id": 3518,
+    "updated": "2026-09-28T06:10:35-03:00",
+    "warnings": [
+      {
+        "date": "2026-09-28",
+        "max_level": 3,
+        "events": [
+          {
+            "id": 37,
+            "max_level": 3
+          },
+          {
+            "id": 54,
+            "max_level": 1
+          },
+          {
+            "id": 39,
+            "max_level": 1
+          },
+          {
+            "id": 40,
+            "max_level": 1
+          },
+          {
+            "id": 41,
+            "max_level": 1
+          },
+          {
+            "id": 42,
+            "max_level": 1
+          },
+          {
+            "id": 45,
+            "max_level": 1
+          },
+          {
+            "id": 46,
+            "max_level": 1
+          },
+          {
+            "id": 47,
+            "max_level": 1
+          }
+        ]
+      }
+    ],
+    "reports": []
+  },
+  {
+    "area_id": 3519,
+    "updated": "2026-09-28T06:10:35-03:00",
+    "warnings": [
+      {
+        "date": "2026-09-28",
+        "max_level": 1,
+        "events": [
+          {
+            "id": 37,
+            "max_level": 1
+          },
+          {
+            "id": 54,
+            "max_level": 1
+          },
+          {
+            "id": 39,
+            "max_level": 1
+          },
+          {
+            "id": 40,
+            "max_level": 1
+          },
+          {
+            "id": 41,
+            "max_level": 1
+          },
+          {
+            "id": 42,
+            "max_level": 1
+          },
+          {
+            "id": 45,
+            "max_level": 1
+          },
+          {
+            "id": 46,
+            "max_level": 1
+          },
+          {
+            "id": 47,
+            "max_level": 1
+          }
+        ]
+      }
+    ],
+    "reports": []
+  },
+  {
+    "area_id": 3527,
+    "updated": "2026-09-28T06:10:35-03:00",
+    "warnings": [
+      {
+        "date": "2026-09-28",
+        "max_level": 1,
+        "events": [
+          {
+            "id": 37,
+            "max_level": 1
+          },
+          {
+            "id": 54,
+            "max_level": 1
+          },
+          {
+            "id": 39,
+            "max_level": 1
+          },
+          {
+            "id": 40,
+            "max_level": 1
+          },
+          {
+            "id": 41,
+            "max_level": 1
+          },
+          {
+            "id": 42,
+            "max_level": 1
+          },
+          {
+            "id": 45,
+            "max_level": 1
+          },
+          {
+            "id": 46,
+            "max_level": 1
+          },
+          {
+            "id": 47,
+            "max_level": 1
+          }
+        ]
+      }
+    ],
+    "reports": []
+  },
+  {
+    "area_id": 3529,
+    "updated": "2026-09-28T06:10:35-03:00",
+    "warnings": [
+      {
+        "date": "2026-09-28",
+        "max_level": 1,
+        "events": [
+          {
+            "id": 37,
+            "max_level": 1
+          },
+          {
+            "id": 54,
+            "max_level": 1
+          },
+          {
+            "id": 39,
+            "max_level": 1
+          },
+          {
+            "id": 40,
+            "max_level": 1
+          },
+          {
+            "id": 41,
+            "max_level": 1
+          },
+          {
+            "id": 42,
+            "max_level": 1
+          },
+          {
+            "id": 45,
+            "max_level": 1
+          },
+          {
+            "id": 46,
+            "max_level": 1
+          },
+          {
+            "id": 47,
+            "max_level": 1
+          }
+        ]
+      }
+    ],
+    "reports": []
+  },
+  {
+    "area_id": 3532,
+    "updated": "2026-09-28T06:10:35-03:00",
+    "warnings": [
+      {
+        "date": "2026-09-28",
+        "max_level": 3,
+        "events": [
+          {
+            "id": 37,
+            "max_level": 3
+          },
+          {
+            "id": 54,
+            "max_level": 1
+          },
+          {
+            "id": 39,
+            "max_level": 1
+          },
+          {
+            "id": 40,
+            "max_level": 1
+          },
+          {
+            "id": 41,
+            "max_level": 1
+          },
+          {
+            "id": 42,
+            "max_level": 1
+          },
+          {
+            "id": 45,
+            "max_level": 1
+          },
+          {
+            "id": 46,
+            "max_level": 1
+          },
+          {
+            "id": 47,
+            "max_level": 1
+          }
+        ]
+      }
+    ],
+    "reports": []
+  },
+  {
+    "area_id": 3534,
+    "updated": "2026-09-28T06:10:35-03:00",
+    "warnings": [
+      {
+        "date": "2026-09-28",
+        "max_level": 1,
+        "events": [
+          {
+            "id": 37,
+            "max_level": 1
+          },
+          {
+            "id": 54,
+            "max_level": 1
+          },
+          {
+            "id": 39,
+            "max_level": 1
+          },
+          {
+            "id": 40,
+            "max_level": 1
+          },
+          {
+            "id": 41,
+            "max_level": 1
+          },
+          {
+            "id": 42,
+            "max_level": 1
+          },
+          {
+            "id": 45,
+            "max_level": 1
+          },
+          {
+            "id": 46,
+            "max_level": 1
+          },
+          {
+            "id": 47,
+            "max_level": 1
+          }
+        ]
+      }
+    ],
+    "reports": []
+  },
+  {
+    "area_id": 3537,
+    "updated": "2026-09-28T06:10:35-03:00",
+    "warnings": [
+      {
+        "date": "2026-09-28",
+        "max_level": 1,
+        "events": [
+          {
+            "id": 37,
+            "max_level": 1
+          },
+          {
+            "id": 54,
+            "max_level": 1
+          },
+          {
+            "id": 39,
+            "max_level": 1
+          },
+          {
+            "id": 40,
+            "max_level": 1
+          },
+          {
+            "id": 41,
+            "max_level": 1
+          },
+          {
+            "id": 42,
+            "max_level": 1
+          },
+          {
+            "id": 45,
+            "max_level": 1
+          },
+          {
+            "id": 46,
+            "max_level": 1
+          },
+          {
+            "id": 47,
+            "max_level": 1
+          }
+        ]
+      }
+    ],
+    "reports": []
+  },
+  {
+    "area_id": 3585,
+    "updated": "2026-09-28T06:10:35-03:00",
+    "warnings": [
+      {
+        "date": "2026-09-28",
+        "max_level": 1,
+        "events": [
+          {
+            "id": 37,
+            "max_level": 1
+          },
+          {
+            "id": 54,
+            "max_level": 1
+          },
+          {
+            "id": 39,
+            "max_level": 1
+          },
+          {
+            "id": 40,
+            "max_level": 1
+          },
+          {
+            "id": 41,
+            "max_level": 1
+          },
+          {
+            "id": 42,
+            "max_level": 1
+          },
+          {
+            "id": 45,
+            "max_level": 1
+          },
+          {
+            "id": 46,
+            "max_level": 1
+          },
+          {
+            "id": 47,
+            "max_level": 1
+          }
+        ]
+      }
+    ],
+    "reports": []
+  },
+  {
+    "area_id": 713,
+    "updated": "2026-09-28T06:10:35-03:00",
+    "warnings": [
+      {
+        "date": "2026-09-28",
+        "max_level": 1,
+        "events": [
+          {
+            "id": 37,
+            "max_level": 1
+          },
+          {
+            "id": 54,
+            "max_level": 1
+          },
+          {
+            "id": 39,
+            "max_level": 1
+          },
+          {
+            "id": 40,
+            "max_level": 1
+          },
+          {
+            "id": 41,
+            "max_level": 1
+          },
+          {
+            "id": 42,
+            "max_level": 1
+          },
+          {
+            "id": 45,
+            "max_level": 1
+          },
+          {
+            "id": 46,
+            "max_level": 1
+          },
+          {
+            "id": 47,
+            "max_level": 1
+          }
+        ]
+      }
+    ],
+    "reports": []
+  },
+  {
+    "area_id": 714,
+    "updated": "2026-09-28T06:10:35-03:00",
+    "warnings": [
+      {
+        "date": "2026-09-28",
+        "max_level": 1,
+        "events": [
+          {
+            "id": 37,
+            "max_level": 1
+          },
+          {
+            "id": 54,
+            "max_level": 1
+          },
+          {
+            "id": 39,
+            "max_level": 1
+          },
+          {
+            "id": 40,
+            "max_level": 1
+          },
+          {
+            "id": 41,
+            "max_level": 1
+          },
+          {
+            "id": 42,
+            "max_level": 1
+          },
+          {
+            "id": 45,
+            "max_level": 1
+          },
+          {
+            "id": 46,
+            "max_level": 1
+          },
+          {
+            "id": 47,
+            "max_level": 1
+          }
+        ]
+      }
+    ],
+    "reports": []
+  },
+  {
+    "area_id": 715,
+    "updated": "2026-09-28T06:10:35-03:00",
+    "warnings": [
+      {
+        "date": "2026-09-28",
+        "max_level": 3,
+        "events": [
+          {
+            "id": 37,
+            "max_level": 1
+          },
+          {
+            "id": 54,
+            "max_level": 1
+          },
+          {
+            "id": 39,
+            "max_level": 1
+          },
+          {
+            "id": 40,
+            "max_level": 1
+          },
+          {
+            "id": 41,
+            "max_level": 1
+          },
+          {
+            "id": 42,
+            "max_level": 1
+          },
+          {
+            "id": 45,
+            "max_level": 1
+          },
+          {
+            "id": 46,
+            "max_level": 1
+          },
+          {
+            "id": 47,
+            "max_level": 3
+          }
+        ]
+      }
+    ],
+    "reports": []
+  },
+  {
+    "area_id": 716,
+    "updated": "2026-09-28T06:10:35-03:00",
+    "warnings": [
+      {
+        "date": "2026-09-28",
+        "max_level": 1,
+        "events": [
+          {
+            "id": 37,
+            "max_level": 1
+          },
+          {
+            "id": 54,
+            "max_level": 1
+          },
+          {
+            "id": 39,
+            "max_level": 1
+          },
+          {
+            "id": 40,
+            "max_level": 1
+          },
+          {
+            "id": 41,
+            "max_level": 1
+          },
+          {
+            "id": 42,
+            "max_level": 1
+          },
+          {
+            "id": 45,
+            "max_level": 1
+          },
+          {
+            "id": 46,
+            "max_level": 1
+          },
+          {
+            "id": 47,
+            "max_level": 1
+          }
+        ]
+      }
+    ],
+    "reports": []
+  },
+  {
+    "area_id": 717,
+    "updated": "2026-09-28T06:10:35-03:00",
+    "warnings": [
+      {
+        "date": "2026-09-28",
+        "max_level": 3,
+        "events": [
+          {
+            "id": 37,
+            "max_level": 1
+          },
+          {
+            "id": 54,
+            "max_level": 1
+          },
+          {
+            "id": 39,
+            "max_level": 1
+          },
+          {
+            "id": 40,
+            "max_level": 1
+          },
+          {
+            "id": 41,
+            "max_level": 1
+          },
+          {
+            "id": 42,
+            "max_level": 1
+          },
+          {
+            "id": 45,
+            "max_level": 1
+          },
+          {
+            "id": 46,
+            "max_level": 1
+          },
+          {
+            "id": 47,
+            "max_level": 3
+          }
+        ]
+      }
+    ],
+    "reports": []
+  },
+  {
+    "area_id": 759,
+    "updated": "2026-09-28T06:10:35-03:00",
+    "warnings": [
+      {
+        "date": "2026-09-28",
+        "max_level": 1,
+        "events": [
+          {
+            "id": 37,
+            "max_level": 1
+          },
+          {
+            "id": 54,
+            "max_level": 1
+          },
+          {
+            "id": 39,
+            "max_level": 1
+          },
+          {
+            "id": 40,
+            "max_level": 1
+          },
+          {
+            "id": 41,
+            "max_level": 1
+          },
+          {
+            "id": 42,
+            "max_level": 1
+          },
+          {
+            "id": 45,
+            "max_level": 1
+          },
+          {
+            "id": 46,
+            "max_level": 1
+          },
+          {
+            "id": 47,
+            "max_level": 1
+          }
+        ]
+      }
+    ],
+    "reports": []
+  },
+  {
+    "area_id": 760,
+    "updated": "2026-09-28T06:10:35-03:00",
+    "warnings": [
+      {
+        "date": "2026-09-28",
+        "max_level": 1,
+        "events": [
+          {
+            "id": 37,
+            "max_level": 1
+          },
+          {
+            "id": 54,
+            "max_level": 1
+          },
+          {
+            "id": 39,
+            "max_level": 1
+          },
+          {
+            "id": 40,
+            "max_level": 1
+          },
+          {
+            "id": 41,
+            "max_level": 1
+          },
+          {
+            "id": 42,
+            "max_level": 1
+          },
+          {
+            "id": 45,
+            "max_level": 1
+          },
+          {
+            "id": 46,
+            "max_level": 1
+          },
+          {
+            "id": 47,
+            "max_level": 1
+          }
+        ]
+      }
+    ],
+    "reports": []
+  },
+  {
+    "area_id": 761,
+    "updated": "2026-09-28T06:10:35-03:00",
+    "warnings": [
+      {
+        "date": "2026-09-28",
+        "max_level": 1,
+        "events": [
+          {
+            "id": 37,
+            "max_level": 1
+          },
+          {
+            "id": 54,
+            "max_level": 1
+          },
+          {
+            "id": 39,
+            "max_level": 1
+          },
+          {
+            "id": 40,
+            "max_level": 1
+          },
+          {
+            "id": 41,
+            "max_level": 1
+          },
+          {
+            "id": 42,
+            "max_level": 1
+          },
+          {
+            "id": 45,
+            "max_level": 1
+          },
+          {
+            "id": 46,
+            "max_level": 1
+          },
+          {
+            "id": 47,
+            "max_level": 1
+          }
+        ]
+      }
+    ],
+    "reports": []
+  },
+  {
+    "area_id": 762,
+    "updated": "2026-09-28T06:10:35-03:00",
+    "warnings": [
+      {
+        "date": "2026-09-28",
+        "max_level": 1,
+        "events": [
+          {
+            "id": 37,
+            "max_level": 1
+          },
+          {
+            "id": 54,
+            "max_level": 1
+          },
+          {
+            "id": 39,
+            "max_level": 1
+          },
+          {
+            "id": 40,
+            "max_level": 1
+          },
+          {
+            "id": 41,
+            "max_level": 1
+          },
+          {
+            "id": 42,
+            "max_level": 1
+          },
+          {
+            "id": 45,
+            "max_level": 1
+          },
+          {
+            "id": 46,
+            "max_level": 1
+          },
+          {
+            "id": 47,
+            "max_level": 1
+          }
+        ]
+      }
+    ],
+    "reports": []
+  },
+  {
+    "area_id": 763,
+    "updated": "2026-09-28T06:10:35-03:00",
+    "warnings": [
+      {
+        "date": "2026-09-28",
+        "max_level": 1,
+        "events": [
+          {
+            "id": 37,
+            "max_level": 1
+          },
+          {
+            "id": 54,
+            "max_level": 1
+          },
+          {
+            "id": 39,
+            "max_level": 1
+          },
+          {
+            "id": 40,
+            "max_level": 1
+          },
+          {
+            "id": 41,
+            "max_level": 1
+          },
+          {
+            "id": 42,
+            "max_level": 1
+          },
+          {
+            "id": 45,
+            "max_level": 1
+          },
+          {
+            "id": 46,
+            "max_level": 1
+          },
+          {
+            "id": 47,
+            "max_level": 1
+          }
+        ]
+      }
+    ],
+    "reports": []
+  },
+  {
+    "area_id": 764,
+    "updated": "2026-09-28T06:10:35-03:00",
+    "warnings": [
+      {
+        "date": "2026-09-28",
+        "max_level": 1,
+        "events": [
+          {
+            "id": 37,
+            "max_level": 1
+          },
+          {
+            "id": 54,
+            "max_level": 1
+          },
+          {
+            "id": 39,
+            "max_level": 1
+          },
+          {
+            "id": 40,
+            "max_level": 1
+          },
+          {
+            "id": 41,
+            "max_level": 1
+          },
+          {
+            "id": 42,
+            "max_level": 1
+          },
+          {
+            "id": 45,
+            "max_level": 1
+          },
+          {
+            "id": 46,
+            "max_level": 1
+          },
+          {
+            "id": 47,
+            "max_level": 1
+          }
+        ]
+      }
+    ],
+    "reports": []
+  },
+  {
+    "area_id": 765,
+    "updated": "2026-09-28T06:10:35-03:00",
+    "warnings": [
+      {
+        "date": "2026-09-28",
+        "max_level": 1,
+        "events": [
+          {
+            "id": 37,
+            "max_level": 1
+          },
+          {
+            "id": 54,
+            "max_level": 1
+          },
+          {
+            "id": 39,
+            "max_level": 1
+          },
+          {
+            "id": 40,
+            "max_level": 1
+          },
+          {
+            "id": 41,
+            "max_level": 1
+          },
+          {
+            "id": 42,
+            "max_level": 1
+          },
+          {
+            "id": 45,
+            "max_level": 1
+          },
+          {
+            "id": 46,
+            "max_level": 1
+          },
+          {
+            "id": 47,
+            "max_level": 1
+          }
+        ]
+      }
+    ],
+    "reports": []
+  },
+  {
+    "area_id": 766,
+    "updated": "2026-09-28T06:10:35-03:00",
+    "warnings": [
+      {
+        "date": "2026-09-28",
+        "max_level": 1,
+        "events": [
+          {
+            "id": 37,
+            "max_level": 1
+          },
+          {
+            "id": 54,
+            "max_level": 1
+          },
+          {
+            "id": 39,
+            "max_level": 1
+          },
+          {
+            "id": 40,
+            "max_level": 1
+          },
+          {
+            "id": 41,
+            "max_level": 1
+          },
+          {
+            "id": 42,
+            "max_level": 1
+          },
+          {
+            "id": 45,
+            "max_level": 1
+          },
+          {
+            "id": 46,
+            "max_level": 1
+          },
+          {
+            "id": 47,
+            "max_level": 1
+          }
+        ]
+      }
+    ],
+    "reports": []
+  },
+  {
+    "area_id": 767,
+    "updated": "2026-09-28T06:10:35-03:00",
+    "warnings": [
+      {
+        "date": "2026-09-28",
+        "max_level": 1,
+        "events": [
+          {
+            "id": 37,
+            "max_level": 1
+          },
+          {
+            "id": 54,
+            "max_level": 1
+          },
+          {
+            "id": 39,
+            "max_level": 1
+          },
+          {
+            "id": 40,
+            "max_level": 1
+          },
+          {
+            "id": 41,
+            "max_level": 1
+          },
+          {
+            "id": 42,
+            "max_level": 1
+          },
+          {
+            "id": 45,
+            "max_level": 1
+          },
+          {
+            "id": 46,
+            "max_level": 1
+          },
+          {
+            "id": 47,
+            "max_level": 1
+          }
+        ]
+      }
+    ],
+    "reports": []
+  },
+  {
+    "area_id": 768,
+    "updated": "2026-09-28T06:10:35-03:00",
+    "warnings": [
+      {
+        "date": "2026-09-28",
+        "max_level": 3,
+        "events": [
+          {
+            "id": 37,
+            "max_level": 1
+          },
+          {
+            "id": 54,
+            "max_level": 1
+          },
+          {
+            "id": 39,
+            "max_level": 1
+          },
+          {
+            "id": 40,
+            "max_level": 1
+          },
+          {
+            "id": 41,
+            "max_level": 3
+          },
+          {
+            "id": 42,
+            "max_level": 1
+          },
+          {
+            "id": 45,
+            "max_level": 1
+          },
+          {
+            "id": 46,
+            "max_level": 1
+          },
+          {
+            "id": 47,
+            "max_level": 1
+          }
+        ]
+      }
+    ],
+    "reports": []
+  },
+  {
+    "area_id": 769,
+    "updated": "2026-09-28T06:10:35-03:00",
+    "warnings": [
+      {
+        "date": "2026-09-28",
+        "max_level": 3,
+        "events": [
+          {
+            "id": 37,
+            "max_level": 1
+          },
+          {
+            "id": 54,
+            "max_level": 1
+          },
+          {
+            "id": 39,
+            "max_level": 1
+          },
+          {
+            "id": 40,
+            "max_level": 1
+          },
+          {
+            "id": 41,
+            "max_level": 3
+          },
+          {
+            "id": 42,
+            "max_level": 1
+          },
+          {
+            "id": 45,
+            "max_level": 1
+          },
+          {
+            "id": 46,
+            "max_level": 1
+          },
+          {
+            "id": 47,
+            "max_level": 1
+          }
+        ]
+      }
+    ],
+    "reports": []
+  },
+  {
+    "area_id": 770,
+    "updated": "2026-09-28T06:10:35-03:00",
+    "warnings": [
+      {
+        "date": "2026-09-28",
+        "max_level": 1,
+        "events": [
+          {
+            "id": 37,
+            "max_level": 1
+          },
+          {
+            "id": 54,
+            "max_level": 1
+          },
+          {
+            "id": 39,
+            "max_level": 1
+          },
+          {
+            "id": 40,
+            "max_level": 1
+          },
+          {
+            "id": 41,
+            "max_level": 1
+          },
+          {
+            "id": 42,
+            "max_level": 1
+          },
+          {
+            "id": 45,
+            "max_level": 1
+          },
+          {
+            "id": 46,
+            "max_level": 1
+          },
+          {
+            "id": 47,
+            "max_level": 1
+          }
+        ]
+      }
+    ],
+    "reports": []
+  },
+  {
+    "area_id": 771,
+    "updated": "2026-09-28T06:10:35-03:00",
+    "warnings": [
+      {
+        "date": "2026-09-28",
+        "max_level": 1,
+        "events": [
+          {
+            "id": 37,
+            "max_level": 1
+          },
+          {
+            "id": 54,
+            "max_level": 1
+          },
+          {
+            "id": 39,
+            "max_level": 1
+          },
+          {
+            "id": 40,
+            "max_level": 1
+          },
+          {
+            "id": 41,
+            "max_level": 1
+          },
+          {
+            "id": 42,
+            "max_level": 1
+          },
+          {
+            "id": 45,
+            "max_level": 1
+          },
+          {
+            "id": 46,
+            "max_level": 1
+          },
+          {
+            "id": 47,
+            "max_level": 1
+          }
+        ]
+      }
+    ],
+    "reports": []
+  },
+  {
+    "area_id": 772,
+    "updated": "2026-09-28T06:10:35-03:00",
+    "warnings": [
+      {
+        "date": "2026-09-28",
+        "max_level": 1,
+        "events": [
+          {
+            "id": 37,
+            "max_level": 1
+          },
+          {
+            "id": 54,
+            "max_level": 1
+          },
+          {
+            "id": 39,
+            "max_level": 1
+          },
+          {
+            "id": 40,
+            "max_level": 1
+          },
+          {
+            "id": 41,
+            "max_level": 1
+          },
+          {
+            "id": 42,
+            "max_level": 1
+          },
+          {
+            "id": 45,
+            "max_level": 1
+          },
+          {
+            "id": 46,
+            "max_level": 1
+          },
+          {
+            "id": 47,
+            "max_level": 1
+          }
+        ]
+      }
+    ],
+    "reports": []
+  },
+  {
+    "area_id": 773,
+    "updated": "2026-09-28T06:10:35-03:00",
+    "warnings": [
+      {
+        "date": "2026-09-28",
+        "max_level": 1,
+        "events": [
+          {
+            "id": 37,
+            "max_level": 1
+          },
+          {
+            "id": 54,
+            "max_level": 1
+          },
+          {
+            "id": 39,
+            "max_level": 1
+          },
+          {
+            "id": 40,
+            "max_level": 1
+          },
+          {
+            "id": 41,
+            "max_level": 1
+          },
+          {
+            "id": 42,
+            "max_level": 1
+          },
+          {
+            "id": 45,
+            "max_level": 1
+          },
+          {
+            "id": 46,
+            "max_level": 1
+          },
+          {
+            "id": 47,
+            "max_level": 1
+          }
+        ]
+      }
+    ],
+    "reports": []
+  },
+  {
+    "area_id": 774,
+    "updated": "2026-09-28T06:10:35-03:00",
+    "warnings": [
+      {
+        "date": "2026-09-28",
+        "max_level": 1,
+        "events": [
+          {
+            "id": 37,
+            "max_level": 1
+          },
+          {
+            "id": 54,
+            "max_level": 1
+          },
+          {
+            "id": 39,
+            "max_level": 1
+          },
+          {
+            "id": 40,
+            "max_level": 1
+          },
+          {
+            "id": 41,
+            "max_level": 1
+          },
+          {
+            "id": 42,
+            "max_level": 1
+          },
+          {
+            "id": 45,
+            "max_level": 1
+          },
+          {
+            "id": 46,
+            "max_level": 1
+          },
+          {
+            "id": 47,
+            "max_level": 1
+          }
+        ]
+      }
+    ],
+    "reports": []
+  },
+  {
+    "area_id": 775,
+    "updated": "2026-09-28T06:10:35-03:00",
+    "warnings": [
+      {
+        "date": "2026-09-28",
+        "max_level": 1,
+        "events": [
+          {
+            "id": 37,
+            "max_level": 1
+          },
+          {
+            "id": 54,
+            "max_level": 1
+          },
+          {
+            "id": 39,
+            "max_level": 1
+          },
+          {
+            "id": 40,
+            "max_level": 1
+          },
+          {
+            "id": 41,
+            "max_level": 1
+          },
+          {
+            "id": 42,
+            "max_level": 1
+          },
+          {
+            "id": 45,
+            "max_level": 1
+          },
+          {
+            "id": 46,
+            "max_level": 1
+          },
+          {
+            "id": 47,
+            "max_level": 1
+          }
+        ]
+      }
+    ],
+    "reports": []
+  },
+  {
+    "area_id": 776,
+    "updated": "2026-09-28T06:10:35-03:00",
+    "warnings": [
+      {
+        "date": "2026-09-28",
+        "max_level": 1,
+        "events": [
+          {
+            "id": 37,
+            "max_level": 1
+          },
+          {
+            "id": 54,
+            "max_level": 1
+          },
+          {
+            "id": 39,
+            "max_level": 1
+          },
+          {
+            "id": 40,
+            "max_level": 1
+          },
+          {
+            "id": 41,
+            "max_level": 1
+          },
+          {
+            "id": 42,
+            "max_level": 1
+          },
+          {
+            "id": 45,
+            "max_level": 1
+          },
+          {
+            "id": 46,
+            "max_level": 1
+          },
+          {
+            "id": 47,
+            "max_level": 1
+          }
+        ]
+      }
+    ],
+    "reports": []
+  },
+  {
+    "area_id": 777,
+    "updated": "2026-09-28T06:10:35-03:00",
+    "warnings": [
+      {
+        "date": "2026-09-28",
+        "max_level": 1,
+        "events": [
+          {
+            "id": 37,
+            "max_level": 1
+          },
+          {
+            "id": 54,
+            "max_level": 1
+          },
+          {
+            "id": 39,
+            "max_level": 1
+          },
+          {
+            "id": 40,
+            "max_level": 1
+          },
+          {
+            "id": 41,
+            "max_level": 1
+          },
+          {
+            "id": 42,
+            "max_level": 1
+          },
+          {
+            "id": 45,
+            "max_level": 1
+          },
+          {
+            "id": 46,
+            "max_level": 1
+          },
+          {
+            "id": 47,
+            "max_level": 1
+          }
+        ]
+      }
+    ],
+    "reports": []
+  },
+  {
+    "area_id": 778,
+    "updated": "2026-09-28T06:10:35-03:00",
+    "warnings": [
+      {
+        "date": "2026-09-28",
+        "max_level": 1,
+        "events": [
+          {
+            "id": 37,
+            "max_level": 1
+          },
+          {
+            "id": 54,
+            "max_level": 1
+          },
+          {
+            "id": 39,
+            "max_level": 1
+          },
+          {
+            "id": 40,
+            "max_level": 1
+          },
+          {
+            "id": 41,
+            "max_level": 1
+          },
+          {
+            "id": 42,
+            "max_level": 1
+          },
+          {
+            "id": 45,
+            "max_level": 1
+          },
+          {
+            "id": 46,
+            "max_level": 1
+          },
+          {
+            "id": 47,
+            "max_level": 1
+          }
+        ]
+      }
+    ],
+    "reports": []
+  },
+  {
+    "area_id": 779,
+    "updated": "2026-09-28T06:10:35-03:00",
+    "warnings": [
+      {
+        "date": "2026-09-28",
+        "max_level": 1,
+        "events": [
+          {
+            "id": 37,
+            "max_level": 1
+          },
+          {
+            "id": 54,
+            "max_level": 1
+          },
+          {
+            "id": 39,
+            "max_level": 1
+          },
+          {
+            "id": 40,
+            "max_level": 1
+          },
+          {
+            "id": 41,
+            "max_level": 1
+          },
+          {
+            "id": 42,
+            "max_level": 1
+          },
+          {
+            "id": 45,
+            "max_level": 1
+          },
+          {
+            "id": 46,
+            "max_level": 1
+          },
+          {
+            "id": 47,
+            "max_level": 1
+          }
+        ]
+      }
+    ],
+    "reports": []
+  },
+  {
+    "area_id": 780,
+    "updated": "2026-09-28T06:10:35-03:00",
+    "warnings": [
+      {
+        "date": "2026-09-28",
+        "max_level": 1,
+        "events": [
+          {
+            "id": 37,
+            "max_level": 1
+          },
+          {
+            "id": 54,
+            "max_level": 1
+          },
+          {
+            "id": 39,
+            "max_level": 1
+          },
+          {
+            "id": 40,
+            "max_level": 1
+          },
+          {
+            "id": 41,
+            "max_level": 1
+          },
+          {
+            "id": 42,
+            "max_level": 1
+          },
+          {
+            "id": 45,
+            "max_level": 1
+          },
+          {
+            "id": 46,
+            "max_level": 1
+          },
+          {
+            "id": 47,
+            "max_level": 1
+          }
+        ]
+      }
+    ],
+    "reports": []
+  },
+  {
+    "area_id": 781,
+    "updated": "2026-09-28T06:10:35-03:00",
+    "warnings": [
+      {
+        "date": "2026-09-28",
+        "max_level": 3,
+        "events": [
+          {
+            "id": 37,
+            "max_level": 1
+          },
+          {
+            "id": 54,
+            "max_level": 1
+          },
+          {
+            "id": 39,
+            "max_level": 1
+          },
+          {
+            "id": 40,
+            "max_level": 1
+          },
+          {
+            "id": 41,
+            "max_level": 3
+          },
+          {
+            "id": 42,
+            "max_level": 1
+          },
+          {
+            "id": 45,
+            "max_level": 1
+          },
+          {
+            "id": 46,
+            "max_level": 1
+          },
+          {
+            "id": 47,
+            "max_level": 1
+          }
+        ]
+      }
+    ],
+    "reports": []
+  },
+  {
+    "area_id": 783,
+    "updated": "2026-09-28T06:10:35-03:00",
+    "warnings": [
+      {
+        "date": "2026-09-28",
+        "max_level": 1,
+        "events": [
+          {
+            "id": 37,
+            "max_level": 1
+          },
+          {
+            "id": 54,
+            "max_level": 1
+          },
+          {
+            "id": 39,
+            "max_level": 1
+          },
+          {
+            "id": 40,
+            "max_level": 1
+          },
+          {
+            "id": 41,
+            "max_level": 1
+          },
+          {
+            "id": 42,
+            "max_level": 1
+          },
+          {
+            "id": 45,
+            "max_level": 1
+          },
+          {
+            "id": 46,
+            "max_level": 1
+          },
+          {
+            "id": 47,
+            "max_level": 1
+          }
+        ]
+      }
+    ],
+    "reports": []
+  },
+  {
+    "area_id": 784,
+    "updated": "2026-09-28T06:10:35-03:00",
+    "warnings": [
+      {
+        "date": "2026-09-28",
+        "max_level": 1,
+        "events": [
+          {
+            "id": 37,
+            "max_level": 1
+          },
+          {
+            "id": 54,
+            "max_level": 1
+          },
+          {
+            "id": 39,
+            "max_level": 1
+          },
+          {
+            "id": 40,
+            "max_level": 1
+          },
+          {
+            "id": 41,
+            "max_level": 1
+          },
+          {
+            "id": 42,
+            "max_level": 1
+          },
+          {
+            "id": 45,
+            "max_level": 1
+          },
+          {
+            "id": 46,
+            "max_level": 1
+          },
+          {
+            "id": 47,
+            "max_level": 1
+          }
+        ]
+      }
+    ],
+    "reports": []
+  },
+  {
+    "area_id": 785,
+    "updated": "2026-09-28T06:10:35-03:00",
+    "warnings": [
+      {
+        "date": "2026-09-28",
+        "max_level": 1,
+        "events": [
+          {
+            "id": 37,
+            "max_level": 1
+          },
+          {
+            "id": 54,
+            "max_level": 1
+          },
+          {
+            "id": 39,
+            "max_level": 1
+          },
+          {
+            "id": 40,
+            "max_level": 1
+          },
+          {
+            "id": 41,
+            "max_level": 1
+          },
+          {
+            "id": 42,
+            "max_level": 1
+          },
+          {
+            "id": 45,
+            "max_level": 1
+          },
+          {
+            "id": 46,
+            "max_level": 1
+          },
+          {
+            "id": 47,
+            "max_level": 1
+          }
+        ]
+      }
+    ],
+    "reports": []
+  },
+  {
+    "area_id": 786,
+    "updated": "2026-09-28T06:10:35-03:00",
+    "warnings": [
+      {
+        "date": "2026-09-28",
+        "max_level": 1,
+        "events": [
+          {
+            "id": 37,
+            "max_level": 1
+          },
+          {
+            "id": 54,
+            "max_level": 1
+          },
+          {
+            "id": 39,
+            "max_level": 1
+          },
+          {
+            "id": 40,
+            "max_level": 1
+          },
+          {
+            "id": 41,
+            "max_level": 1
+          },
+          {
+            "id": 42,
+            "max_level": 1
+          },
+          {
+            "id": 45,
+            "max_level": 1
+          },
+          {
+            "id": 46,
+            "max_level": 1
+          },
+          {
+            "id": 47,
+            "max_level": 1
+          }
+        ]
+      }
+    ],
+    "reports": []
+  },
+  {
+    "area_id": 787,
+    "updated": "2026-09-28T06:10:35-03:00",
+    "warnings": [
+      {
+        "date": "2026-09-28",
+        "max_level": 1,
+        "events": [
+          {
+            "id": 37,
+            "max_level": 1
+          },
+          {
+            "id": 54,
+            "max_level": 1
+          },
+          {
+            "id": 39,
+            "max_level": 1
+          },
+          {
+            "id": 40,
+            "max_level": 1
+          },
+          {
+            "id": 41,
+            "max_level": 1
+          },
+          {
+            "id": 42,
+            "max_level": 1
+          },
+          {
+            "id": 45,
+            "max_level": 1
+          },
+          {
+            "id": 46,
+            "max_level": 1
+          },
+          {
+            "id": 47,
+            "max_level": 1
+          }
+        ]
+      }
+    ],
+    "reports": []
+  },
+  {
+    "area_id": 788,
+    "updated": "2026-09-28T06:10:35-03:00",
+    "warnings": [
+      {
+        "date": "2026-09-28",
+        "max_level": 1,
+        "events": [
+          {
+            "id": 37,
+            "max_level": 1
+          },
+          {
+            "id": 54,
+            "max_level": 1
+          },
+          {
+            "id": 39,
+            "max_level": 1
+          },
+          {
+            "id": 40,
+            "max_level": 1
+          },
+          {
+            "id": 41,
+            "max_level": 1
+          },
+          {
+            "id": 42,
+            "max_level": 1
+          },
+          {
+            "id": 45,
+            "max_level": 1
+          },
+          {
+            "id": 46,
+            "max_level": 1
+          },
+          {
+            "id": 47,
+            "max_level": 1
+          }
+        ]
+      }
+    ],
+    "reports": []
+  },
+  {
+    "area_id": 789,
+    "updated": "2026-09-28T06:10:35-03:00",
+    "warnings": [
+      {
+        "date": "2026-09-28",
+        "max_level": 1,
+        "events": [
+          {
+            "id": 37,
+            "max_level": 1
+          },
+          {
+            "id": 54,
+            "max_level": 1
+          },
+          {
+            "id": 39,
+            "max_level": 1
+          },
+          {
+            "id": 40,
+            "max_level": 1
+          },
+          {
+            "id": 41,
+            "max_level": 1
+          },
+          {
+            "id": 42,
+            "max_level": 1
+          },
+          {
+            "id": 45,
+            "max_level": 1
+          },
+          {
+            "id": 46,
+            "max_level": 1
+          },
+          {
+            "id": 47,
+            "max_level": 1
+          }
+        ]
+      }
+    ],
+    "reports": []
+  },
+  {
+    "area_id": 790,
+    "updated": "2026-09-28T06:10:35-03:00",
+    "warnings": [
+      {
+        "date": "2026-09-28",
+        "max_level": 1,
+        "events": [
+          {
+            "id": 37,
+            "max_level": 1
+          },
+          {
+            "id": 54,
+            "max_level": 1
+          },
+          {
+            "id": 39,
+            "max_level": 1
+          },
+          {
+            "id": 40,
+            "max_level": 1
+          },
+          {
+            "id": 41,
+            "max_level": 1
+          },
+          {
+            "id": 42,
+            "max_level": 1
+          },
+          {
+            "id": 45,
+            "max_level": 1
+          },
+          {
+            "id": 46,
+            "max_level": 1
+          },
+          {
+            "id": 47,
+            "max_level": 1
+          }
+        ]
+      }
+    ],
+    "reports": []
+  },
+  {
+    "area_id": 791,
+    "updated": "2026-09-28T06:10:35-03:00",
+    "warnings": [
+      {
+        "date": "2026-09-28",
+        "max_level": 1,
+        "events": [
+          {
+            "id": 37,
+            "max_level": 1
+          },
+          {
+            "id": 54,
+            "max_level": 1
+          },
+          {
+            "id": 39,
+            "max_level": 1
+          },
+          {
+            "id": 40,
+            "max_level": 1
+          },
+          {
+            "id": 41,
+            "max_level": 1
+          },
+          {
+            "id": 42,
+            "max_level": 1
+          },
+          {
+            "id": 45,
+            "max_level": 1
+          },
+          {
+            "id": 46,
+            "max_level": 1
+          },
+          {
+            "id": 47,
+            "max_level": 1
+          }
+        ]
+      }
+    ],
+    "reports": []
+  },
+  {
+    "area_id": 792,
+    "updated": "2026-09-28T06:10:35-03:00",
+    "warnings": [
+      {
+        "date": "2026-09-28",
+        "max_level": 1,
+        "events": [
+          {
+            "id": 37,
+            "max_level": 1
+          },
+          {
+            "id": 54,
+            "max_level": 1
+          },
+          {
+            "id": 39,
+            "max_level": 1
+          },
+          {
+            "id": 40,
+            "max_level": 1
+          },
+          {
+            "id": 41,
+            "max_level": 1
+          },
+          {
+            "id": 42,
+            "max_level": 1
+          },
+          {
+            "id": 45,
+            "max_level": 1
+          },
+          {
+            "id": 46,
+            "max_level": 1
+          },
+          {
+            "id": 47,
+            "max_level": 1
+          }
+        ]
+      }
+    ],
+    "reports": []
+  },
+  {
+    "area_id": 793,
+    "updated": "2026-09-28T06:10:35-03:00",
+    "warnings": [
+      {
+        "date": "2026-09-28",
+        "max_level": 1,
+        "events": [
+          {
+            "id": 37,
+            "max_level": 1
+          },
+          {
+            "id": 54,
+            "max_level": 1
+          },
+          {
+            "id": 39,
+            "max_level": 1
+          },
+          {
+            "id": 40,
+            "max_level": 1
+          },
+          {
+            "id": 41,
+            "max_level": 1
+          },
+          {
+            "id": 42,
+            "max_level": 1
+          },
+          {
+            "id": 45,
+            "max_level": 1
+          },
+          {
+            "id": 46,
+            "max_level": 1
+          },
+          {
+            "id": 47,
+            "max_level": 1
+          }
+        ]
+      }
+    ],
+    "reports": []
+  },
+  {
+    "area_id": 794,
+    "updated": "2026-09-28T06:10:35-03:00",
+    "warnings": [
+      {
+        "date": "2026-09-28",
+        "max_level": 1,
+        "events": [
+          {
+            "id": 37,
+            "max_level": 1
+          },
+          {
+            "id": 54,
+            "max_level": 1
+          },
+          {
+            "id": 39,
+            "max_level": 1
+          },
+          {
+            "id": 40,
+            "max_level": 1
+          },
+          {
+            "id": 41,
+            "max_level": 1
+          },
+          {
+            "id": 42,
+            "max_level": 1
+          },
+          {
+            "id": 45,
+            "max_level": 1
+          },
+          {
+            "id": 46,
+            "max_level": 1
+          },
+          {
+            "id": 47,
+            "max_level": 1
+          }
+        ]
+      }
+    ],
+    "reports": []
+  },
+  {
+    "area_id": 795,
+    "updated": "2026-09-28T06:10:35-03:00",
+    "warnings": [
+      {
+        "date": "2026-09-28",
+        "max_level": 1,
+        "events": [
+          {
+            "id": 37,
+            "max_level": 1
+          },
+          {
+            "id": 54,
+            "max_level": 1
+          },
+          {
+            "id": 39,
+            "max_level": 1
+          },
+          {
+            "id": 40,
+            "max_level": 1
+          },
+          {
+            "id": 41,
+            "max_level": 1
+          },
+          {
+            "id": 42,
+            "max_level": 1
+          },
+          {
+            "id": 45,
+            "max_level": 1
+          },
+          {
+            "id": 46,
+            "max_level": 1
+          },
+          {
+            "id": 47,
+            "max_level": 1
+          }
+        ]
+      }
+    ],
+    "reports": []
+  },
+  {
+    "area_id": 796,
+    "updated": "2026-09-28T06:10:35-03:00",
+    "warnings": [
+      {
+        "date": "2026-09-28",
+        "max_level": 1,
+        "events": [
+          {
+            "id": 37,
+            "max_level": 1
+          },
+          {
+            "id": 54,
+            "max_level": 1
+          },
+          {
+            "id": 39,
+            "max_level": 1
+          },
+          {
+            "id": 40,
+            "max_level": 1
+          },
+          {
+            "id": 41,
+            "max_level": 1
+          },
+          {
+            "id": 42,
+            "max_level": 1
+          },
+          {
+            "id": 45,
+            "max_level": 1
+          },
+          {
+            "id": 46,
+            "max_level": 1
+          },
+          {
+            "id": 47,
+            "max_level": 1
+          }
+        ]
+      }
+    ],
+    "reports": []
+  },
+  {
+    "area_id": 797,
+    "updated": "2026-09-28T06:10:35-03:00",
+    "warnings": [
+      {
+        "date": "2026-09-28",
+        "max_level": 1,
+        "events": [
+          {
+            "id": 37,
+            "max_level": 1
+          },
+          {
+            "id": 54,
+            "max_level": 1
+          },
+          {
+            "id": 39,
+            "max_level": 1
+          },
+          {
+            "id": 40,
+            "max_level": 1
+          },
+          {
+            "id": 41,
+            "max_level": 1
+          },
+          {
+            "id": 42,
+            "max_level": 1
+          },
+          {
+            "id": 45,
+            "max_level": 1
+          },
+          {
+            "id": 46,
+            "max_level": 1
+          },
+          {
+            "id": 47,
+            "max_level": 1
+          }
+        ]
+      }
+    ],
+    "reports": []
+  },
+  {
+    "area_id": 798,
+    "updated": "2026-09-28T06:10:35-03:00",
+    "warnings": [
+      {
+        "date": "2026-09-28",
+        "max_level": 1,
+        "events": [
+          {
+            "id": 37,
+            "max_level": 1
+          },
+          {
+            "id": 54,
+            "max_level": 1
+          },
+          {
+            "id": 39,
+            "max_level": 1
+          },
+          {
+            "id": 40,
+            "max_level": 1
+          },
+          {
+            "id": 41,
+            "max_level": 1
+          },
+          {
+            "id": 42,
+            "max_level": 1
+          },
+          {
+            "id": 45,
+            "max_level": 1
+          },
+          {
+            "id": 46,
+            "max_level": 1
+          },
+          {
+            "id": 47,
+            "max_level": 1
+          }
+        ]
+      }
+    ],
+    "reports": []
+  },
+  {
+    "area_id": 799,
+    "updated": "2026-09-28T06:10:35-03:00",
+    "warnings": [
+      {
+        "date": "2026-09-28",
+        "max_level": 1,
+        "events": [
+          {
+            "id": 37,
+            "max_level": 1
+          },
+          {
+            "id": 54,
+            "max_level": 1
+          },
+          {
+            "id": 39,
+            "max_level": 1
+          },
+          {
+            "id": 40,
+            "max_level": 1
+          },
+          {
+            "id": 41,
+            "max_level": 1
+          },
+          {
+            "id": 42,
+            "max_level": 1
+          },
+          {
+            "id": 45,
+            "max_level": 1
+          },
+          {
+            "id": 46,
+            "max_level": 1
+          },
+          {
+            "id": 47,
+            "max_level": 1
+          }
+        ]
+      }
+    ],
+    "reports": []
+  },
+  {
+    "area_id": 800,
+    "updated": "2026-09-28T06:10:35-03:00",
+    "warnings": [
+      {
+        "date": "2026-09-28",
+        "max_level": 1,
+        "events": [
+          {
+            "id": 37,
+            "max_level": 1
+          },
+          {
+            "id": 54,
+            "max_level": 1
+          },
+          {
+            "id": 39,
+            "max_level": 1
+          },
+          {
+            "id": 40,
+            "max_level": 1
+          },
+          {
+            "id": 41,
+            "max_level": 1
+          },
+          {
+            "id": 42,
+            "max_level": 1
+          },
+          {
+            "id": 45,
+            "max_level": 1
+          },
+          {
+            "id": 46,
+            "max_level": 1
+          },
+          {
+            "id": 47,
+            "max_level": 1
+          }
+        ]
+      }
+    ],
+    "reports": []
+  },
+  {
+    "area_id": 801,
+    "updated": "2026-09-28T06:10:35-03:00",
+    "warnings": [
+      {
+        "date": "2026-09-28",
+        "max_level": 3,
+        "events": [
+          {
+            "id": 37,
+            "max_level": 3
+          },
+          {
+            "id": 54,
+            "max_level": 1
+          },
+          {
+            "id": 39,
+            "max_level": 1
+          },
+          {
+            "id": 40,
+            "max_level": 1
+          },
+          {
+            "id": 41,
+            "max_level": 1
+          },
+          {
+            "id": 42,
+            "max_level": 1
+          },
+          {
+            "id": 45,
+            "max_level": 1
+          },
+          {
+            "id": 46,
+            "max_level": 1
+          },
+          {
+            "id": 47,
+            "max_level": 1
+          }
+        ]
+      }
+    ],
+    "reports": []
+  },
+  {
+    "area_id": 802,
+    "updated": "2026-09-28T06:10:35-03:00",
+    "warnings": [
+      {
+        "date": "2026-09-28",
+        "max_level": 3,
+        "events": [
+          {
+            "id": 37,
+            "max_level": 3
+          },
+          {
+            "id": 54,
+            "max_level": 1
+          },
+          {
+            "id": 39,
+            "max_level": 1
+          },
+          {
+            "id": 40,
+            "max_level": 1
+          },
+          {
+            "id": 41,
+            "max_level": 1
+          },
+          {
+            "id": 42,
+            "max_level": 1
+          },
+          {
+            "id": 45,
+            "max_level": 1
+          },
+          {
+            "id": 46,
+            "max_level": 1
+          },
+          {
+            "id": 47,
+            "max_level": 1
+          }
+        ]
+      }
+    ],
+    "reports": []
+  },
+  {
+    "area_id": 803,
+    "updated": "2026-09-28T06:10:35-03:00",
+    "warnings": [
+      {
+        "date": "2026-09-28",
+        "max_level": 3,
+        "events": [
+          {
+            "id": 37,
+            "max_level": 1
+          },
+          {
+            "id": 54,
+            "max_level": 1
+          },
+          {
+            "id": 39,
+            "max_level": 1
+          },
+          {
+            "id": 40,
+            "max_level": 1
+          },
+          {
+            "id": 41,
+            "max_level": 3
+          },
+          {
+            "id": 42,
+            "max_level": 1
+          },
+          {
+            "id": 45,
+            "max_level": 1
+          },
+          {
+            "id": 46,
+            "max_level": 1
+          },
+          {
+            "id": 47,
+            "max_level": 1
+          }
+        ]
+      }
+    ],
+    "reports": []
+  },
+  {
+    "area_id": 804,
+    "updated": "2026-09-28T06:10:35-03:00",
+    "warnings": [
+      {
+        "date": "2026-09-28",
+        "max_level": 3,
+        "events": [
+          {
+            "id": 37,
+            "max_level": 1
+          },
+          {
+            "id": 54,
+            "max_level": 1
+          },
+          {
+            "id": 39,
+            "max_level": 1
+          },
+          {
+            "id": 40,
+            "max_level": 1
+          },
+          {
+            "id": 41,
+            "max_level": 3
+          },
+          {
+            "id": 42,
+            "max_level": 1
+          },
+          {
+            "id": 45,
+            "max_level": 1
+          },
+          {
+            "id": 46,
+            "max_level": 1
+          },
+          {
+            "id": 47,
+            "max_level": 1
+          }
+        ]
+      }
+    ],
+    "reports": []
+  },
+  {
+    "area_id": 805,
+    "updated": "2026-09-28T06:10:35-03:00",
+    "warnings": [
+      {
+        "date": "2026-09-28",
+        "max_level": 3,
+        "events": [
+          {
+            "id": 37,
+            "max_level": 1
+          },
+          {
+            "id": 54,
+            "max_level": 1
+          },
+          {
+            "id": 39,
+            "max_level": 1
+          },
+          {
+            "id": 40,
+            "max_level": 1
+          },
+          {
+            "id": 41,
+            "max_level": 3
+          },
+          {
+            "id": 42,
+            "max_level": 1
+          },
+          {
+            "id": 45,
+            "max_level": 1
+          },
+          {
+            "id": 46,
+            "max_level": 1
+          },
+          {
+            "id": 47,
+            "max_level": 1
+          }
+        ]
+      }
+    ],
+    "reports": []
+  },
+  {
+    "area_id": 806,
+    "updated": "2026-09-28T06:10:35-03:00",
+    "warnings": [
+      {
+        "date": "2026-09-28",
+        "max_level": 3,
+        "events": [
+          {
+            "id": 37,
+            "max_level": 1
+          },
+          {
+            "id": 54,
+            "max_level": 1
+          },
+          {
+            "id": 39,
+            "max_level": 1
+          },
+          {
+            "id": 40,
+            "max_level": 1
+          },
+          {
+            "id": 41,
+            "max_level": 3
+          },
+          {
+            "id": 42,
+            "max_level": 1
+          },
+          {
+            "id": 45,
+            "max_level": 1
+          },
+          {
+            "id": 46,
+            "max_level": 1
+          },
+          {
+            "id": 47,
+            "max_level": 1
+          }
+        ]
+      }
+    ],
+    "reports": []
+  },
+  {
+    "area_id": 807,
+    "updated": "2026-09-28T06:10:35-03:00",
+    "warnings": [
+      {
+        "date": "2026-09-28",
+        "max_level": 3,
+        "events": [
+          {
+            "id": 37,
+            "max_level": 1
+          },
+          {
+            "id": 54,
+            "max_level": 1
+          },
+          {
+            "id": 39,
+            "max_level": 1
+          },
+          {
+            "id": 40,
+            "max_level": 1
+          },
+          {
+            "id": 41,
+            "max_level": 3
+          },
+          {
+            "id": 42,
+            "max_level": 1
+          },
+          {
+            "id": 45,
+            "max_level": 1
+          },
+          {
+            "id": 46,
+            "max_level": 1
+          },
+          {
+            "id": 47,
+            "max_level": 1
+          }
+        ]
+      }
+    ],
+    "reports": []
+  },
+  {
+    "area_id": 808,
+    "updated": "2026-09-28T06:10:35-03:00",
+    "warnings": [
+      {
+        "date": "2026-09-28",
+        "max_level": 1,
+        "events": [
+          {
+            "id": 37,
+            "max_level": 1
+          },
+          {
+            "id": 54,
+            "max_level": 1
+          },
+          {
+            "id": 39,
+            "max_level": 1
+          },
+          {
+            "id": 40,
+            "max_level": 1
+          },
+          {
+            "id": 41,
+            "max_level": 1
+          },
+          {
+            "id": 42,
+            "max_level": 1
+          },
+          {
+            "id": 45,
+            "max_level": 1
+          },
+          {
+            "id": 46,
+            "max_level": 1
+          },
+          {
+            "id": 47,
+            "max_level": 1
+          }
+        ]
+      }
+    ],
+    "reports": []
+  },
+  {
+    "area_id": 809,
+    "updated": "2026-09-28T06:10:35-03:00",
+    "warnings": [
+      {
+        "date": "2026-09-28",
+        "max_level": 3,
+        "events": [
+          {
+            "id": 37,
+            "max_level": 1
+          },
+          {
+            "id": 54,
+            "max_level": 1
+          },
+          {
+            "id": 39,
+            "max_level": 1
+          },
+          {
+            "id": 40,
+            "max_level": 1
+          },
+          {
+            "id": 41,
+            "max_level": 3
+          },
+          {
+            "id": 42,
+            "max_level": 1
+          },
+          {
+            "id": 45,
+            "max_level": 1
+          },
+          {
+            "id": 46,
+            "max_level": 1
+          },
+          {
+            "id": 47,
+            "max_level": 1
+          }
+        ]
+      }
+    ],
+    "reports": []
+  },
+  {
+    "area_id": 810,
+    "updated": "2026-09-28T06:10:35-03:00",
+    "warnings": [
+      {
+        "date": "2026-09-28",
+        "max_level": 3,
+        "events": [
+          {
+            "id": 37,
+            "max_level": 1
+          },
+          {
+            "id": 54,
+            "max_level": 1
+          },
+          {
+            "id": 39,
+            "max_level": 1
+          },
+          {
+            "id": 40,
+            "max_level": 1
+          },
+          {
+            "id": 41,
+            "max_level": 3
+          },
+          {
+            "id": 42,
+            "max_level": 1
+          },
+          {
+            "id": 45,
+            "max_level": 1
+          },
+          {
+            "id": 46,
+            "max_level": 1
+          },
+          {
+            "id": 47,
+            "max_level": 1
+          }
+        ]
+      }
+    ],
+    "reports": []
+  },
+  {
+    "area_id": 811,
+    "updated": "2026-09-28T06:10:35-03:00",
+    "warnings": [
+      {
+        "date": "2026-09-28",
+        "max_level": 3,
+        "events": [
+          {
+            "id": 37,
+            "max_level": 1
+          },
+          {
+            "id": 54,
+            "max_level": 1
+          },
+          {
+            "id": 39,
+            "max_level": 1
+          },
+          {
+            "id": 40,
+            "max_level": 1
+          },
+          {
+            "id": 41,
+            "max_level": 3
+          },
+          {
+            "id": 42,
+            "max_level": 1
+          },
+          {
+            "id": 45,
+            "max_level": 1
+          },
+          {
+            "id": 46,
+            "max_level": 1
+          },
+          {
+            "id": 47,
+            "max_level": 1
+          }
+        ]
+      }
+    ],
+    "reports": []
+  },
+  {
+    "area_id": 812,
+    "updated": "2026-09-28T06:10:35-03:00",
+    "warnings": [
+      {
+        "date": "2026-09-28",
+        "max_level": 3,
+        "events": [
+          {
+            "id": 37,
+            "max_level": 1
+          },
+          {
+            "id": 54,
+            "max_level": 1
+          },
+          {
+            "id": 39,
+            "max_level": 1
+          },
+          {
+            "id": 40,
+            "max_level": 1
+          },
+          {
+            "id": 41,
+            "max_level": 3
+          },
+          {
+            "id": 42,
+            "max_level": 1
+          },
+          {
+            "id": 45,
+            "max_level": 1
+          },
+          {
+            "id": 46,
+            "max_level": 1
+          },
+          {
+            "id": 47,
+            "max_level": 1
+          }
+        ]
+      }
+    ],
+    "reports": []
+  },
+  {
+    "area_id": 813,
+    "updated": "2026-09-28T06:10:35-03:00",
+    "warnings": [
+      {
+        "date": "2026-09-28",
+        "max_level": 1,
+        "events": [
+          {
+            "id": 37,
+            "max_level": 1
+          },
+          {
+            "id": 54,
+            "max_level": 1
+          },
+          {
+            "id": 39,
+            "max_level": 1
+          },
+          {
+            "id": 40,
+            "max_level": 1
+          },
+          {
+            "id": 41,
+            "max_level": 1
+          },
+          {
+            "id": 42,
+            "max_level": 1
+          },
+          {
+            "id": 45,
+            "max_level": 1
+          },
+          {
+            "id": 46,
+            "max_level": 1
+          },
+          {
+            "id": 47,
+            "max_level": 1
+          }
+        ]
+      }
+    ],
+    "reports": []
+  },
+  {
+    "area_id": 814,
+    "updated": "2026-09-28T06:10:35-03:00",
+    "warnings": [
+      {
+        "date": "2026-09-28",
+        "max_level": 1,
+        "events": [
+          {
+            "id": 37,
+            "max_level": 1
+          },
+          {
+            "id": 54,
+            "max_level": 1
+          },
+          {
+            "id": 39,
+            "max_level": 1
+          },
+          {
+            "id": 40,
+            "max_level": 1
+          },
+          {
+            "id": 41,
+            "max_level": 1
+          },
+          {
+            "id": 42,
+            "max_level": 1
+          },
+          {
+            "id": 45,
+            "max_level": 1
+          },
+          {
+            "id": 46,
+            "max_level": 1
+          },
+          {
+            "id": 47,
+            "max_level": 1
+          }
+        ]
+      }
+    ],
+    "reports": []
+  },
+  {
+    "area_id": 815,
+    "updated": "2026-09-28T06:10:35-03:00",
+    "warnings": [
+      {
+        "date": "2026-09-28",
+        "max_level": 3,
+        "events": [
+          {
+            "id": 37,
+            "max_level": 1
+          },
+          {
+            "id": 54,
+            "max_level": 1
+          },
+          {
+            "id": 39,
+            "max_level": 1
+          },
+          {
+            "id": 40,
+            "max_level": 1
+          },
+          {
+            "id": 41,
+            "max_level": 3
+          },
+          {
+            "id": 42,
+            "max_level": 1
+          },
+          {
+            "id": 45,
+            "max_level": 1
+          },
+          {
+            "id": 46,
+            "max_level": 1
+          },
+          {
+            "id": 47,
+            "max_level": 1
+          }
+        ]
+      }
+    ],
+    "reports": []
+  },
+  {
+    "area_id": 816,
+    "updated": "2026-09-28T06:10:35-03:00",
+    "warnings": [
+      {
+        "date": "2026-09-28",
+        "max_level": 3,
+        "events": [
+          {
+            "id": 37,
+            "max_level": 1
+          },
+          {
+            "id": 54,
+            "max_level": 1
+          },
+          {
+            "id": 39,
+            "max_level": 1
+          },
+          {
+            "id": 40,
+            "max_level": 1
+          },
+          {
+            "id": 41,
+            "max_level": 3
+          },
+          {
+            "id": 42,
+            "max_level": 1
+          },
+          {
+            "id": 45,
+            "max_level": 1
+          },
+          {
+            "id": 46,
+            "max_level": 1
+          },
+          {
+            "id": 47,
+            "max_level": 1
+          }
+        ]
+      }
+    ],
+    "reports": []
+  },
+  {
+    "area_id": 817,
+    "updated": "2026-09-28T06:10:35-03:00",
+    "warnings": [
+      {
+        "date": "2026-09-28",
+        "max_level": 1,
+        "events": [
+          {
+            "id": 37,
+            "max_level": 1
+          },
+          {
+            "id": 54,
+            "max_level": 1
+          },
+          {
+            "id": 39,
+            "max_level": 1
+          },
+          {
+            "id": 40,
+            "max_level": 1
+          },
+          {
+            "id": 41,
+            "max_level": 1
+          },
+          {
+            "id": 42,
+            "max_level": 1
+          },
+          {
+            "id": 45,
+            "max_level": 1
+          },
+          {
+            "id": 46,
+            "max_level": 1
+          },
+          {
+            "id": 47,
+            "max_level": 1
+          }
+        ]
+      }
+    ],
+    "reports": []
+  },
+  {
+    "area_id": 818,
+    "updated": "2026-09-28T06:10:35-03:00",
+    "warnings": [
+      {
+        "date": "2026-09-28",
+        "max_level": 1,
+        "events": [
+          {
+            "id": 37,
+            "max_level": 1
+          },
+          {
+            "id": 54,
+            "max_level": 1
+          },
+          {
+            "id": 39,
+            "max_level": 1
+          },
+          {
+            "id": 40,
+            "max_level": 1
+          },
+          {
+            "id": 41,
+            "max_level": 1
+          },
+          {
+            "id": 42,
+            "max_level": 1
+          },
+          {
+            "id": 45,
+            "max_level": 1
+          },
+          {
+            "id": 46,
+            "max_level": 1
+          },
+          {
+            "id": 47,
+            "max_level": 1
+          }
+        ]
+      }
+    ],
+    "reports": []
+  },
+  {
+    "area_id": 819,
+    "updated": "2026-09-28T06:10:35-03:00",
+    "warnings": [
+      {
+        "date": "2026-09-28",
+        "max_level": 1,
+        "events": [
+          {
+            "id": 37,
+            "max_level": 1
+          },
+          {
+            "id": 54,
+            "max_level": 1
+          },
+          {
+            "id": 39,
+            "max_level": 1
+          },
+          {
+            "id": 40,
+            "max_level": 1
+          },
+          {
+            "id": 41,
+            "max_level": 1
+          },
+          {
+            "id": 42,
+            "max_level": 1
+          },
+          {
+            "id": 45,
+            "max_level": 1
+          },
+          {
+            "id": 46,
+            "max_level": 1
+          },
+          {
+            "id": 47,
+            "max_level": 1
+          }
+        ]
+      }
+    ],
+    "reports": []
+  },
+  {
+    "area_id": 820,
+    "updated": "2026-09-28T06:10:35-03:00",
+    "warnings": [
+      {
+        "date": "2026-09-28",
+        "max_level": 1,
+        "events": [
+          {
+            "id": 37,
+            "max_level": 1
+          },
+          {
+            "id": 54,
+            "max_level": 1
+          },
+          {
+            "id": 39,
+            "max_level": 1
+          },
+          {
+            "id": 40,
+            "max_level": 1
+          },
+          {
+            "id": 41,
+            "max_level": 1
+          },
+          {
+            "id": 42,
+            "max_level": 1
+          },
+          {
+            "id": 45,
+            "max_level": 1
+          },
+          {
+            "id": 46,
+            "max_level": 1
+          },
+          {
+            "id": 47,
+            "max_level": 1
+          }
+        ]
+      }
+    ],
+    "reports": []
+  },
+  {
+    "area_id": 821,
+    "updated": "2026-09-28T06:10:35-03:00",
+    "warnings": [
+      {
+        "date": "2026-09-28",
+        "max_level": 3,
+        "events": [
+          {
+            "id": 37,
+            "max_level": 1
+          },
+          {
+            "id": 54,
+            "max_level": 1
+          },
+          {
+            "id": 39,
+            "max_level": 1
+          },
+          {
+            "id": 40,
+            "max_level": 1
+          },
+          {
+            "id": 41,
+            "max_level": 3
+          },
+          {
+            "id": 42,
+            "max_level": 1
+          },
+          {
+            "id": 45,
+            "max_level": 1
+          },
+          {
+            "id": 46,
+            "max_level": 1
+          },
+          {
+            "id": 47,
+            "max_level": 1
+          }
+        ]
+      }
+    ],
+    "reports": []
+  },
+  {
+    "area_id": 822,
+    "updated": "2026-09-28T06:10:35-03:00",
+    "warnings": [
+      {
+        "date": "2026-09-28",
+        "max_level": 1,
+        "events": [
+          {
+            "id": 37,
+            "max_level": 1
+          },
+          {
+            "id": 54,
+            "max_level": 1
+          },
+          {
+            "id": 39,
+            "max_level": 1
+          },
+          {
+            "id": 40,
+            "max_level": 1
+          },
+          {
+            "id": 41,
+            "max_level": 1
+          },
+          {
+            "id": 42,
+            "max_level": 1
+          },
+          {
+            "id": 45,
+            "max_level": 1
+          },
+          {
+            "id": 46,
+            "max_level": 1
+          },
+          {
+            "id": 47,
+            "max_level": 1
+          }
+        ]
+      }
+    ],
+    "reports": []
+  },
+  {
+    "area_id": 823,
+    "updated": "2026-09-28T06:10:35-03:00",
+    "warnings": [
+      {
+        "date": "2026-09-28",
+        "max_level": 3,
+        "events": [
+          {
+            "id": 37,
+            "max_level": 1
+          },
+          {
+            "id": 54,
+            "max_level": 1
+          },
+          {
+            "id": 39,
+            "max_level": 1
+          },
+          {
+            "id": 40,
+            "max_level": 1
+          },
+          {
+            "id": 41,
+            "max_level": 3
+          },
+          {
+            "id": 42,
+            "max_level": 1
+          },
+          {
+            "id": 45,
+            "max_level": 1
+          },
+          {
+            "id": 46,
+            "max_level": 1
+          },
+          {
+            "id": 47,
+            "max_level": 1
+          }
+        ]
+      }
+    ],
+    "reports": []
+  },
+  {
+    "area_id": 824,
+    "updated": "2026-09-28T06:10:35-03:00",
+    "warnings": [
+      {
+        "date": "2026-09-28",
+        "max_level": 3,
+        "events": [
+          {
+            "id": 37,
+            "max_level": 1
+          },
+          {
+            "id": 54,
+            "max_level": 1
+          },
+          {
+            "id": 39,
+            "max_level": 1
+          },
+          {
+            "id": 40,
+            "max_level": 1
+          },
+          {
+            "id": 41,
+            "max_level": 3
+          },
+          {
+            "id": 42,
+            "max_level": 1
+          },
+          {
+            "id": 45,
+            "max_level": 1
+          },
+          {
+            "id": 46,
+            "max_level": 1
+          },
+          {
+            "id": 47,
+            "max_level": 1
+          }
+        ]
+      }
+    ],
+    "reports": []
+  },
+  {
+    "area_id": 825,
+    "updated": "2026-09-28T06:10:35-03:00",
+    "warnings": [
+      {
+        "date": "2026-09-28",
+        "max_level": 3,
+        "events": [
+          {
+            "id": 37,
+            "max_level": 1
+          },
+          {
+            "id": 54,
+            "max_level": 1
+          },
+          {
+            "id": 39,
+            "max_level": 1
+          },
+          {
+            "id": 40,
+            "max_level": 1
+          },
+          {
+            "id": 41,
+            "max_level": 3
+          },
+          {
+            "id": 42,
+            "max_level": 1
+          },
+          {
+            "id": 45,
+            "max_level": 1
+          },
+          {
+            "id": 46,
+            "max_level": 1
+          },
+          {
+            "id": 47,
+            "max_level": 1
+          }
+        ]
+      }
+    ],
+    "reports": []
+  },
+  {
+    "area_id": 826,
+    "updated": "2026-09-28T06:10:35-03:00",
+    "warnings": [
+      {
+        "date": "2026-09-28",
+        "max_level": 1,
+        "events": [
+          {
+            "id": 37,
+            "max_level": 1
+          },
+          {
+            "id": 54,
+            "max_level": 1
+          },
+          {
+            "id": 39,
+            "max_level": 1
+          },
+          {
+            "id": 40,
+            "max_level": 1
+          },
+          {
+            "id": 41,
+            "max_level": 1
+          },
+          {
+            "id": 42,
+            "max_level": 1
+          },
+          {
+            "id": 45,
+            "max_level": 1
+          },
+          {
+            "id": 46,
+            "max_level": 1
+          },
+          {
+            "id": 47,
+            "max_level": 1
+          }
+        ]
+      }
+    ],
+    "reports": []
+  },
+  {
+    "area_id": 827,
+    "updated": "2026-09-28T06:10:35-03:00",
+    "warnings": [
+      {
+        "date": "2026-09-28",
+        "max_level": 1,
+        "events": [
+          {
+            "id": 37,
+            "max_level": 1
+          },
+          {
+            "id": 54,
+            "max_level": 1
+          },
+          {
+            "id": 39,
+            "max_level": 1
+          },
+          {
+            "id": 40,
+            "max_level": 1
+          },
+          {
+            "id": 41,
+            "max_level": 1
+          },
+          {
+            "id": 42,
+            "max_level": 1
+          },
+          {
+            "id": 45,
+            "max_level": 1
+          },
+          {
+            "id": 46,
+            "max_level": 1
+          },
+          {
+            "id": 47,
+            "max_level": 1
+          }
+        ]
+      }
+    ],
+    "reports": []
+  },
+  {
+    "area_id": 828,
+    "updated": "2026-09-28T06:10:35-03:00",
+    "warnings": [
+      {
+        "date": "2026-09-28",
+        "max_level": 1,
+        "events": [
+          {
+            "id": 37,
+            "max_level": 1
+          },
+          {
+            "id": 54,
+            "max_level": 1
+          },
+          {
+            "id": 39,
+            "max_level": 1
+          },
+          {
+            "id": 40,
+            "max_level": 1
+          },
+          {
+            "id": 41,
+            "max_level": 1
+          },
+          {
+            "id": 42,
+            "max_level": 1
+          },
+          {
+            "id": 45,
+            "max_level": 1
+          },
+          {
+            "id": 46,
+            "max_level": 1
+          },
+          {
+            "id": 47,
+            "max_level": 1
+          }
+        ]
+      }
+    ],
+    "reports": []
+  },
+  {
+    "area_id": 829,
+    "updated": "2026-09-28T06:10:35-03:00",
+    "warnings": [
+      {
+        "date": "2026-09-28",
+        "max_level": 1,
+        "events": [
+          {
+            "id": 37,
+            "max_level": 1
+          },
+          {
+            "id": 54,
+            "max_level": 1
+          },
+          {
+            "id": 39,
+            "max_level": 1
+          },
+          {
+            "id": 40,
+            "max_level": 1
+          },
+          {
+            "id": 41,
+            "max_level": 1
+          },
+          {
+            "id": 42,
+            "max_level": 1
+          },
+          {
+            "id": 45,
+            "max_level": 1
+          },
+          {
+            "id": 46,
+            "max_level": 1
+          },
+          {
+            "id": 47,
+            "max_level": 1
+          }
+        ]
+      }
+    ],
+    "reports": []
+  },
+  {
+    "area_id": 830,
+    "updated": "2026-09-28T06:10:35-03:00",
+    "warnings": [
+      {
+        "date": "2026-09-28",
+        "max_level": 1,
+        "events": [
+          {
+            "id": 37,
+            "max_level": 1
+          },
+          {
+            "id": 54,
+            "max_level": 1
+          },
+          {
+            "id": 39,
+            "max_level": 1
+          },
+          {
+            "id": 40,
+            "max_level": 1
+          },
+          {
+            "id": 41,
+            "max_level": 1
+          },
+          {
+            "id": 42,
+            "max_level": 1
+          },
+          {
+            "id": 45,
+            "max_level": 1
+          },
+          {
+            "id": 46,
+            "max_level": 1
+          },
+          {
+            "id": 47,
+            "max_level": 1
+          }
+        ]
+      }
+    ],
+    "reports": []
+  },
+  {
+    "area_id": 831,
+    "updated": "2026-09-28T06:10:35-03:00",
+    "warnings": [
+      {
+        "date": "2026-09-28",
+        "max_level": 1,
+        "events": [
+          {
+            "id": 37,
+            "max_level": 1
+          },
+          {
+            "id": 54,
+            "max_level": 1
+          },
+          {
+            "id": 39,
+            "max_level": 1
+          },
+          {
+            "id": 40,
+            "max_level": 1
+          },
+          {
+            "id": 41,
+            "max_level": 1
+          },
+          {
+            "id": 42,
+            "max_level": 1
+          },
+          {
+            "id": 45,
+            "max_level": 1
+          },
+          {
+            "id": 46,
+            "max_level": 1
+          },
+          {
+            "id": 47,
+            "max_level": 1
+          }
+        ]
+      }
+    ],
+    "reports": []
+  },
+  {
+    "area_id": 832,
+    "updated": "2026-09-28T06:10:35-03:00",
+    "warnings": [
+      {
+        "date": "2026-09-28",
+        "max_level": 1,
+        "events": [
+          {
+            "id": 37,
+            "max_level": 1
+          },
+          {
+            "id": 54,
+            "max_level": 1
+          },
+          {
+            "id": 39,
+            "max_level": 1
+          },
+          {
+            "id": 40,
+            "max_level": 1
+          },
+          {
+            "id": 41,
+            "max_level": 1
+          },
+          {
+            "id": 42,
+            "max_level": 1
+          },
+          {
+            "id": 45,
+            "max_level": 1
+          },
+          {
+            "id": 46,
+            "max_level": 1
+          },
+          {
+            "id": 47,
+            "max_level": 1
+          }
+        ]
+      }
+    ],
+    "reports": []
+  },
+  {
+    "area_id": 833,
+    "updated": "2026-09-28T06:10:35-03:00",
+    "warnings": [
+      {
+        "date": "2026-09-28",
+        "max_level": 1,
+        "events": [
+          {
+            "id": 37,
+            "max_level": 1
+          },
+          {
+            "id": 54,
+            "max_level": 1
+          },
+          {
+            "id": 39,
+            "max_level": 1
+          },
+          {
+            "id": 40,
+            "max_level": 1
+          },
+          {
+            "id": 41,
+            "max_level": 1
+          },
+          {
+            "id": 42,
+            "max_level": 1
+          },
+          {
+            "id": 45,
+            "max_level": 1
+          },
+          {
+            "id": 46,
+            "max_level": 1
+          },
+          {
+            "id": 47,
+            "max_level": 1
+          }
+        ]
+      }
+    ],
+    "reports": []
+  },
+  {
+    "area_id": 834,
+    "updated": "2026-09-28T06:10:35-03:00",
+    "warnings": [
+      {
+        "date": "2026-09-28",
+        "max_level": 1,
+        "events": [
+          {
+            "id": 37,
+            "max_level": 1
+          },
+          {
+            "id": 54,
+            "max_level": 1
+          },
+          {
+            "id": 39,
+            "max_level": 1
+          },
+          {
+            "id": 40,
+            "max_level": 1
+          },
+          {
+            "id": 41,
+            "max_level": 1
+          },
+          {
+            "id": 42,
+            "max_level": 1
+          },
+          {
+            "id": 45,
+            "max_level": 1
+          },
+          {
+            "id": 46,
+            "max_level": 1
+          },
+          {
+            "id": 47,
+            "max_level": 1
+          }
+        ]
+      }
+    ],
+    "reports": []
+  },
+  {
+    "area_id": 835,
+    "updated": "2026-09-28T06:10:35-03:00",
+    "warnings": [
+      {
+        "date": "2026-09-28",
+        "max_level": 1,
+        "events": [
+          {
+            "id": 37,
+            "max_level": 1
+          },
+          {
+            "id": 54,
+            "max_level": 1
+          },
+          {
+            "id": 39,
+            "max_level": 1
+          },
+          {
+            "id": 40,
+            "max_level": 1
+          },
+          {
+            "id": 41,
+            "max_level": 1
+          },
+          {
+            "id": 42,
+            "max_level": 1
+          },
+          {
+            "id": 45,
+            "max_level": 1
+          },
+          {
+            "id": 46,
+            "max_level": 1
+          },
+          {
+            "id": 47,
+            "max_level": 1
+          }
+        ]
+      }
+    ],
+    "reports": []
+  },
+  {
+    "area_id": 836,
+    "updated": "2026-09-28T06:10:35-03:00",
+    "warnings": [
+      {
+        "date": "2026-09-28",
+        "max_level": 1,
+        "events": [
+          {
+            "id": 37,
+            "max_level": 1
+          },
+          {
+            "id": 54,
+            "max_level": 1
+          },
+          {
+            "id": 39,
+            "max_level": 1
+          },
+          {
+            "id": 40,
+            "max_level": 1
+          },
+          {
+            "id": 41,
+            "max_level": 1
+          },
+          {
+            "id": 42,
+            "max_level": 1
+          },
+          {
+            "id": 45,
+            "max_level": 1
+          },
+          {
+            "id": 46,
+            "max_level": 1
+          },
+          {
+            "id": 47,
+            "max_level": 1
+          }
+        ]
+      }
+    ],
+    "reports": []
+  },
+  {
+    "area_id": 837,
+    "updated": "2026-09-28T06:10:35-03:00",
+    "warnings": [
+      {
+        "date": "2026-09-28",
+        "max_level": 1,
+        "events": [
+          {
+            "id": 37,
+            "max_level": 1
+          },
+          {
+            "id": 54,
+            "max_level": 1
+          },
+          {
+            "id": 39,
+            "max_level": 1
+          },
+          {
+            "id": 40,
+            "max_level": 1
+          },
+          {
+            "id": 41,
+            "max_level": 1
+          },
+          {
+            "id": 42,
+            "max_level": 1
+          },
+          {
+            "id": 45,
+            "max_level": 1
+          },
+          {
+            "id": 46,
+            "max_level": 1
+          },
+          {
+            "id": 47,
+            "max_level": 1
+          }
+        ]
+      }
+    ],
+    "reports": []
+  },
+  {
+    "area_id": 838,
+    "updated": "2026-09-28T06:10:35-03:00",
+    "warnings": [
+      {
+        "date": "2026-09-28",
+        "max_level": 1,
+        "events": [
+          {
+            "id": 37,
+            "max_level": 1
+          },
+          {
+            "id": 54,
+            "max_level": 1
+          },
+          {
+            "id": 39,
+            "max_level": 1
+          },
+          {
+            "id": 40,
+            "max_level": 1
+          },
+          {
+            "id": 41,
+            "max_level": 1
+          },
+          {
+            "id": 42,
+            "max_level": 1
+          },
+          {
+            "id": 45,
+            "max_level": 1
+          },
+          {
+            "id": 46,
+            "max_level": 1
+          },
+          {
+            "id": 47,
+            "max_level": 1
+          }
+        ]
+      }
+    ],
+    "reports": []
+  },
+  {
+    "area_id": 839,
+    "updated": "2026-09-28T06:10:35-03:00",
+    "warnings": [
+      {
+        "date": "2026-09-28",
+        "max_level": 1,
+        "events": [
+          {
+            "id": 37,
+            "max_level": 1
+          },
+          {
+            "id": 54,
+            "max_level": 1
+          },
+          {
+            "id": 39,
+            "max_level": 1
+          },
+          {
+            "id": 40,
+            "max_level": 1
+          },
+          {
+            "id": 41,
+            "max_level": 1
+          },
+          {
+            "id": 42,
+            "max_level": 1
+          },
+          {
+            "id": 45,
+            "max_level": 1
+          },
+          {
+            "id": 46,
+            "max_level": 1
+          },
+          {
+            "id": 47,
+            "max_level": 1
+          }
+        ]
+      }
+    ],
+    "reports": []
+  },
+  {
+    "area_id": 840,
+    "updated": "2026-09-28T06:10:35-03:00",
+    "warnings": [
+      {
+        "date": "2026-09-28",
+        "max_level": 1,
+        "events": [
+          {
+            "id": 37,
+            "max_level": 1
+          },
+          {
+            "id": 54,
+            "max_level": 1
+          },
+          {
+            "id": 39,
+            "max_level": 1
+          },
+          {
+            "id": 40,
+            "max_level": 1
+          },
+          {
+            "id": 41,
+            "max_level": 1
+          },
+          {
+            "id": 42,
+            "max_level": 1
+          },
+          {
+            "id": 45,
+            "max_level": 1
+          },
+          {
+            "id": 46,
+            "max_level": 1
+          },
+          {
+            "id": 47,
+            "max_level": 1
+          }
+        ]
+      }
+    ],
+    "reports": []
+  },
+  {
+    "area_id": 841,
+    "updated": "2026-09-28T06:10:35-03:00",
+    "warnings": [
+      {
+        "date": "2026-09-28",
+        "max_level": 1,
+        "events": [
+          {
+            "id": 37,
+            "max_level": 1
+          },
+          {
+            "id": 54,
+            "max_level": 1
+          },
+          {
+            "id": 39,
+            "max_level": 1
+          },
+          {
+            "id": 40,
+            "max_level": 1
+          },
+          {
+            "id": 41,
+            "max_level": 1
+          },
+          {
+            "id": 42,
+            "max_level": 1
+          },
+          {
+            "id": 45,
+            "max_level": 1
+          },
+          {
+            "id": 46,
+            "max_level": 1
+          },
+          {
+            "id": 47,
+            "max_level": 1
+          }
+        ]
+      }
+    ],
+    "reports": []
+  },
+  {
+    "area_id": 842,
+    "updated": "2026-09-28T06:10:35-03:00",
+    "warnings": [
+      {
+        "date": "2026-09-28",
+        "max_level": 1,
+        "events": [
+          {
+            "id": 37,
+            "max_level": 1
+          },
+          {
+            "id": 54,
+            "max_level": 1
+          },
+          {
+            "id": 39,
+            "max_level": 1
+          },
+          {
+            "id": 40,
+            "max_level": 1
+          },
+          {
+            "id": 41,
+            "max_level": 1
+          },
+          {
+            "id": 42,
+            "max_level": 1
+          },
+          {
+            "id": 45,
+            "max_level": 1
+          },
+          {
+            "id": 46,
+            "max_level": 1
+          },
+          {
+            "id": 47,
+            "max_level": 1
+          }
+        ]
+      }
+    ],
+    "reports": []
+  },
+  {
+    "area_id": 843,
+    "updated": "2026-09-28T06:10:35-03:00",
+    "warnings": [
+      {
+        "date": "2026-09-28",
+        "max_level": 1,
+        "events": [
+          {
+            "id": 37,
+            "max_level": 1
+          },
+          {
+            "id": 54,
+            "max_level": 1
+          },
+          {
+            "id": 39,
+            "max_level": 1
+          },
+          {
+            "id": 40,
+            "max_level": 1
+          },
+          {
+            "id": 41,
+            "max_level": 1
+          },
+          {
+            "id": 42,
+            "max_level": 1
+          },
+          {
+            "id": 45,
+            "max_level": 1
+          },
+          {
+            "id": 46,
+            "max_level": 1
+          },
+          {
+            "id": 47,
+            "max_level": 1
+          }
+        ]
+      }
+    ],
+    "reports": []
+  },
+  {
+    "area_id": 845,
+    "updated": "2026-09-28T06:10:35-03:00",
+    "warnings": [
+      {
+        "date": "2026-09-28",
+        "max_level": 1,
+        "events": [
+          {
+            "id": 37,
+            "max_level": 1
+          },
+          {
+            "id": 54,
+            "max_level": 1
+          },
+          {
+            "id": 39,
+            "max_level": 1
+          },
+          {
+            "id": 40,
+            "max_level": 1
+          },
+          {
+            "id": 41,
+            "max_level": 1
+          },
+          {
+            "id": 42,
+            "max_level": 1
+          },
+          {
+            "id": 45,
+            "max_level": 1
+          },
+          {
+            "id": 46,
+            "max_level": 1
+          },
+          {
+            "id": 47,
+            "max_level": 1
+          }
+        ]
+      }
+    ],
+    "reports": []
+  },
+  {
+    "area_id": 846,
+    "updated": "2026-09-28T06:10:35-03:00",
+    "warnings": [
+      {
+        "date": "2026-09-28",
+        "max_level": 1,
+        "events": [
+          {
+            "id": 37,
+            "max_level": 1
+          },
+          {
+            "id": 54,
+            "max_level": 1
+          },
+          {
+            "id": 39,
+            "max_level": 1
+          },
+          {
+            "id": 40,
+            "max_level": 1
+          },
+          {
+            "id": 41,
+            "max_level": 1
+          },
+          {
+            "id": 42,
+            "max_level": 1
+          },
+          {
+            "id": 45,
+            "max_level": 1
+          },
+          {
+            "id": 46,
+            "max_level": 1
+          },
+          {
+            "id": 47,
+            "max_level": 1
+          }
+        ]
+      }
+    ],
+    "reports": []
+  },
+  {
+    "area_id": 847,
+    "updated": "2026-09-28T06:10:35-03:00",
+    "warnings": [
+      {
+        "date": "2026-09-28",
+        "max_level": 1,
+        "events": [
+          {
+            "id": 37,
+            "max_level": 1
+          },
+          {
+            "id": 54,
+            "max_level": 1
+          },
+          {
+            "id": 39,
+            "max_level": 1
+          },
+          {
+            "id": 40,
+            "max_level": 1
+          },
+          {
+            "id": 41,
+            "max_level": 1
+          },
+          {
+            "id": 42,
+            "max_level": 1
+          },
+          {
+            "id": 45,
+            "max_level": 1
+          },
+          {
+            "id": 46,
+            "max_level": 1
+          },
+          {
+            "id": 47,
+            "max_level": 1
+          }
+        ]
+      }
+    ],
+    "reports": []
+  },
+  {
+    "area_id": 848,
+    "updated": "2026-09-28T06:10:35-03:00",
+    "warnings": [
+      {
+        "date": "2026-09-28",
+        "max_level": 3,
+        "events": [
+          {
+            "id": 37,
+            "max_level": 1
+          },
+          {
+            "id": 54,
+            "max_level": 1
+          },
+          {
+            "id": 39,
+            "max_level": 1
+          },
+          {
+            "id": 40,
+            "max_level": 1
+          },
+          {
+            "id": 41,
+            "max_level": 3
+          },
+          {
+            "id": 42,
+            "max_level": 1
+          },
+          {
+            "id": 45,
+            "max_level": 1
+          },
+          {
+            "id": 46,
+            "max_level": 1
+          },
+          {
+            "id": 47,
+            "max_level": 1
+          }
+        ]
+      }
+    ],
+    "reports": []
+  },
+  {
+    "area_id": 850,
+    "updated": "2026-09-28T06:10:35-03:00",
+    "warnings": [
+      {
+        "date": "2026-09-28",
+        "max_level": 3,
+        "events": [
+          {
+            "id": 37,
+            "max_level": 1
+          },
+          {
+            "id": 54,
+            "max_level": 1
+          },
+          {
+            "id": 39,
+            "max_level": 1
+          },
+          {
+            "id": 40,
+            "max_level": 1
+          },
+          {
+            "id": 41,
+            "max_level": 3
+          },
+          {
+            "id": 42,
+            "max_level": 1
+          },
+          {
+            "id": 45,
+            "max_level": 1
+          },
+          {
+            "id": 46,
+            "max_level": 1
+          },
+          {
+            "id": 47,
+            "max_level": 1
+          }
+        ]
+      }
+    ],
+    "reports": []
+  },
+  {
+    "area_id": 851,
+    "updated": "2026-09-28T06:10:35-03:00",
+    "warnings": [
+      {
+        "date": "2026-09-28",
+        "max_level": 3,
+        "events": [
+          {
+            "id": 37,
+            "max_level": 1
+          },
+          {
+            "id": 54,
+            "max_level": 1
+          },
+          {
+            "id": 39,
+            "max_level": 1
+          },
+          {
+            "id": 40,
+            "max_level": 1
+          },
+          {
+            "id": 41,
+            "max_level": 3
+          },
+          {
+            "id": 42,
+            "max_level": 1
+          },
+          {
+            "id": 45,
+            "max_level": 1
+          },
+          {
+            "id": 46,
+            "max_level": 1
+          },
+          {
+            "id": 47,
+            "max_level": 1
+          }
+        ]
+      }
+    ],
+    "reports": []
+  },
+  {
+    "area_id": 852,
+    "updated": "2026-09-28T06:10:35-03:00",
+    "warnings": [
+      {
+        "date": "2026-09-28",
+        "max_level": 3,
+        "events": [
+          {
+            "id": 37,
+            "max_level": 1
+          },
+          {
+            "id": 54,
+            "max_level": 1
+          },
+          {
+            "id": 39,
+            "max_level": 1
+          },
+          {
+            "id": 40,
+            "max_level": 1
+          },
+          {
+            "id": 41,
+            "max_level": 3
+          },
+          {
+            "id": 42,
+            "max_level": 1
+          },
+          {
+            "id": 45,
+            "max_level": 1
+          },
+          {
+            "id": 46,
+            "max_level": 1
+          },
+          {
+            "id": 47,
+            "max_level": 1
+          }
+        ]
+      }
+    ],
+    "reports": []
+  },
+  {
+    "area_id": 853,
+    "updated": "2026-09-28T06:10:35-03:00",
+    "warnings": [
+      {
+        "date": "2026-09-28",
+        "max_level": 3,
+        "events": [
+          {
+            "id": 37,
+            "max_level": 1
+          },
+          {
+            "id": 54,
+            "max_level": 1
+          },
+          {
+            "id": 39,
+            "max_level": 1
+          },
+          {
+            "id": 40,
+            "max_level": 1
+          },
+          {
+            "id": 41,
+            "max_level": 3
+          },
+          {
+            "id": 42,
+            "max_level": 1
+          },
+          {
+            "id": 45,
+            "max_level": 1
+          },
+          {
+            "id": 46,
+            "max_level": 1
+          },
+          {
+            "id": 47,
+            "max_level": 1
+          }
+        ]
+      }
+    ],
+    "reports": []
+  },
+  {
+    "area_id": 854,
+    "updated": "2026-09-28T06:10:35-03:00",
+    "warnings": [
+      {
+        "date": "2026-09-28",
+        "max_level": 3,
+        "events": [
+          {
+            "id": 37,
+            "max_level": 1
+          },
+          {
+            "id": 54,
+            "max_level": 1
+          },
+          {
+            "id": 39,
+            "max_level": 1
+          },
+          {
+            "id": 40,
+            "max_level": 1
+          },
+          {
+            "id": 41,
+            "max_level": 3
+          },
+          {
+            "id": 42,
+            "max_level": 1
+          },
+          {
+            "id": 45,
+            "max_level": 1
+          },
+          {
+            "id": 46,
+            "max_level": 1
+          },
+          {
+            "id": 47,
+            "max_level": 1
+          }
+        ]
+      }
+    ],
+    "reports": []
+  },
+  {
+    "area_id": 855,
+    "updated": "2026-09-28T06:10:35-03:00",
+    "warnings": [
+      {
+        "date": "2026-09-28",
+        "max_level": 3,
+        "events": [
+          {
+            "id": 37,
+            "max_level": 1
+          },
+          {
+            "id": 54,
+            "max_level": 1
+          },
+          {
+            "id": 39,
+            "max_level": 1
+          },
+          {
+            "id": 40,
+            "max_level": 1
+          },
+          {
+            "id": 41,
+            "max_level": 3
+          },
+          {
+            "id": 42,
+            "max_level": 1
+          },
+          {
+            "id": 45,
+            "max_level": 1
+          },
+          {
+            "id": 46,
+            "max_level": 1
+          },
+          {
+            "id": 47,
+            "max_level": 1
+          }
+        ]
+      }
+    ],
+    "reports": []
+  },
+  {
+    "area_id": 856,
+    "updated": "2026-09-28T06:10:35-03:00",
+    "warnings": [
+      {
+        "date": "2026-09-28",
+        "max_level": 3,
+        "events": [
+          {
+            "id": 37,
+            "max_level": 1
+          },
+          {
+            "id": 54,
+            "max_level": 1
+          },
+          {
+            "id": 39,
+            "max_level": 1
+          },
+          {
+            "id": 40,
+            "max_level": 1
+          },
+          {
+            "id": 41,
+            "max_level": 3
+          },
+          {
+            "id": 42,
+            "max_level": 1
+          },
+          {
+            "id": 45,
+            "max_level": 1
+          },
+          {
+            "id": 46,
+            "max_level": 1
+          },
+          {
+            "id": 47,
+            "max_level": 1
+          }
+        ]
+      }
+    ],
+    "reports": []
+  },
+  {
+    "area_id": 857,
+    "updated": "2026-09-28T06:10:35-03:00",
+    "warnings": [
+      {
+        "date": "2026-09-28",
+        "max_level": 3,
+        "events": [
+          {
+            "id": 37,
+            "max_level": 1
+          },
+          {
+            "id": 54,
+            "max_level": 1
+          },
+          {
+            "id": 39,
+            "max_level": 1
+          },
+          {
+            "id": 40,
+            "max_level": 1
+          },
+          {
+            "id": 41,
+            "max_level": 3
+          },
+          {
+            "id": 42,
+            "max_level": 1
+          },
+          {
+            "id": 45,
+            "max_level": 1
+          },
+          {
+            "id": 46,
+            "max_level": 1
+          },
+          {
+            "id": 47,
+            "max_level": 1
+          }
+        ]
+      }
+    ],
+    "reports": []
+  },
+  {
+    "area_id": 858,
+    "updated": "2026-09-28T06:10:35-03:00",
+    "warnings": [
+      {
+        "date": "2026-09-28",
+        "max_level": 3,
+        "events": [
+          {
+            "id": 37,
+            "max_level": 1
+          },
+          {
+            "id": 54,
+            "max_level": 1
+          },
+          {
+            "id": 39,
+            "max_level": 1
+          },
+          {
+            "id": 40,
+            "max_level": 1
+          },
+          {
+            "id": 41,
+            "max_level": 3
+          },
+          {
+            "id": 42,
+            "max_level": 1
+          },
+          {
+            "id": 45,
+            "max_level": 1
+          },
+          {
+            "id": 46,
+            "max_level": 1
+          },
+          {
+            "id": 47,
+            "max_level": 1
+          }
+        ]
+      }
+    ],
+    "reports": []
+  },
+  {
+    "area_id": 859,
+    "updated": "2026-09-28T06:10:35-03:00",
+    "warnings": [
+      {
+        "date": "2026-09-28",
+        "max_level": 3,
+        "events": [
+          {
+            "id": 37,
+            "max_level": 1
+          },
+          {
+            "id": 54,
+            "max_level": 1
+          },
+          {
+            "id": 39,
+            "max_level": 1
+          },
+          {
+            "id": 40,
+            "max_level": 1
+          },
+          {
+            "id": 41,
+            "max_level": 3
+          },
+          {
+            "id": 42,
+            "max_level": 1
+          },
+          {
+            "id": 45,
+            "max_level": 1
+          },
+          {
+            "id": 46,
+            "max_level": 1
+          },
+          {
+            "id": 47,
+            "max_level": 1
+          }
+        ]
+      }
+    ],
+    "reports": []
+  }
+]

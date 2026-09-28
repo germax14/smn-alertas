@@ -1,0 +1,9 @@
+{
+  "titulo": "| Servicio Meteorologico Nacional.",
+  "tablas_disponibles": [
+    "areas",
+    "crear_area",
+    "crear_area_evento"
+  ],
+  "alertas_detectadas": []
+}
