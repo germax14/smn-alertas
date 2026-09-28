@@ -29,7 +29,7 @@ jobs:
 
       - name: Instalar Firefox y dependencias para Playwright
         run: |
-          npx playwright install --with-deps firefox
+          npx playwright install --with-deps chromium
 
       - name: Instalar fuentes tipograficas
         run: |
