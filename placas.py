@@ -169,16 +169,23 @@ def procesar_generacion(idx_dia):
 
     print(f"\n[+] Conectando al SMN para {dia_elegido.upper()}...")
 
-    with sync_playwright() as p:
+   with sync_playwright() as p:
         browser = p.firefox.launch(
             headless=True,
             firefox_user_prefs={
                 "security.mixed_content.block_active_content": False,
-                "security.mixed_content.block_display_content": False
+                "security.mixed_content.block_display_content": False,
+                "dom.webdriver.enabled": False
             }
         )
-        context = browser.new_context(viewport={"width": 720, "height": 1100}, ignore_https_errors=True)
+        context = browser.new_context(
+            viewport={"width": 720, "height": 1100},
+            ignore_https_errors=True,
+            user_agent="Mozilla/5.0 (Windows NT 10.0; Win64; x64; rv:124.0) Gecko/20100101 Firefox/124.0",
+            locale="es-AR"
+        )
         page = context.new_page()
+        page.add_init_script("delete Object.getPrototypeOf(navigator).webdriver")
 
         page.goto("https://www.smn.gob.ar/alertas", wait_until="domcontentloaded", timeout=45000)
         time.sleep(4)
