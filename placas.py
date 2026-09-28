@@ -167,9 +167,9 @@ def procesar_generacion(idx_dia):
     prefijos_arch = {0: "Hoy", 1: "Manana", 2: "Pasado"}
     prefijo = prefijos_arch[idx_dia]
 
-    print(f"\n[+] Conectando al SMN para {dia_elegido.upper()}...")
+print(f"\n[+] Conectando al SMN para {dia_elegido.upper()}...")
 
-   with sync_playwright() as p:
+    with sync_playwright() as p:
         browser = p.firefox.launch(
             headless=True,
             firefox_user_prefs={
