@@ -44,4 +44,3 @@ jobs:
         with:
           commit_message: "Auto: actualizacion de placas SMN [skip ci]"
           file_pattern: "placas_mapa/*"
-          fi
