@@ -16,6 +16,8 @@ jobs:
     steps:
       - name: Descargar repositorio
         uses: actions/checkout@v4
+        with:
+          fetch-depth: 0
 
       - name: Configurar Python
         uses: actions/setup-python@v5
@@ -44,3 +46,4 @@ jobs:
         with:
           commit_message: "Auto: actualizacion de placas SMN [skip ci]"
           file_pattern: "placas_mapa/*"
+          skip_fetch: false
