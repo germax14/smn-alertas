@@ -1,9 +1,12 @@
 import os
 import sys
-import time
 import json
+import requests
 from datetime import datetime, timedelta
-from playwright.sync_api import sync_playwright
+import matplotlib
+matplotlib.use('Agg')
+import matplotlib.pyplot as plt
+import geopandas as gpd
 from PIL import Image, ImageDraw, ImageFont
 
 if getattr(sys, 'frozen', False):
@@ -20,19 +23,24 @@ ALTO_PLACA = 1350
 COLOR_FONDO = (15, 23, 42)
 COLOR_TEXTO = (255, 255, 255)
 COLOR_SUBTEXTO = (148, 163, 184)
-COLOR_ALERTA_AMARILLO = (234, 179, 8)
-COLOR_ALERTA_NARANJA = (249, 115, 22)
-COLOR_ALERTA_ROJO = (239, 68, 68)
+COLOR_ALERTA_VERDE = "#22c55e"
+COLOR_ALERTA_AMARILLO = "#eab308"
+COLOR_ALERTA_NARANJA = "#f97316"
+COLOR_ALERTA_ROJO = "#ef4444"
 
 ENCABEZADO_ALTO = 200
 MAPA_ALTO = 780
-FOOTER_ALTO = 370
+
+REGIONES_LIMITES = {
+    "Norte": {"minx": -68.0, "maxx": -53.0, "miny": -30.0, "maxy": -21.0},
+    "Centro": {"minx": -70.0, "maxx": -56.0, "miny": -42.0, "maxy": -30.0},
+    "Sur": {"minx": -75.0, "maxx": -62.0, "miny": -56.0, "maxy": -40.0}
+}
 
 def obtener_fuente(tamano, bold=False):
     fuentes_posibles = [
         "/usr/share/fonts/truetype/dejavu/DejaVuSans-Bold.ttf" if bold else "/usr/share/fonts/truetype/dejavu/DejaVuSans.ttf",
         "/usr/share/fonts/truetype/freefont/FreeSansBold.ttf" if bold else "/usr/share/fonts/truetype/freefont/FreeSans.ttf",
-        "C:\\Windows\\Fonts\\arialbd.ttf" if bold else "C:\\Windows\\Fonts\\arial.ttf",
         "DejaVuSans.ttf",
         "arial.ttf"
     ]
@@ -44,123 +52,93 @@ def obtener_fuente(tamano, bold=False):
                 continue
     return ImageFont.load_default()
 
+def obtener_datos_alertas():
+    # Endpoints de datos del SMN o fallback al archivo local existente
+    url_alertas = "https://ssl.smn.gob.ar/ws/alertas/alertas.json"
+    headers = {"User-Agent": "Mozilla/5.0 (compatible; MonitorAlertas/1.0)"}
+    
+    try:
+        resp = requests.get(url_alertas, headers=headers, timeout=15)
+        if resp.status_code == 200:
+            return resp.json()
+    except Exception as e:
+        print(f"[-] No se pudo conectar al endpoint en vivo: {e}")
+        
+    local_path = os.path.join(base_dir, "alertas_completas.json")
+    if os.path.exists(local_path):
+        with open(local_path, "r", encoding="utf-8") as f:
+            return json.load(f)
+    return {}
+
+def renderizar_mapa_region(region, dia_idx, ruta_temp):
+    fig, ax = plt.subplots(figsize=(8, 7), facecolor='#0f172a')
+    ax.set_facecolor('#0f172a')
+
+    # Base geográfica de Argentina usando Natural Earth (descarga automática o fallback)
+    try:
+        url_argentina = "https://raw.githubusercontent.com/datasets/geo-countries/master/data/countries.geojson"
+        gdf = gpd.read_file(url_argentina)
+        arg = gdf[gdf['ISO_A3'] == 'ARG']
+        arg.plot(ax=ax, color='#1e293b', edgecolor='#334155', linewidth=1)
+    except Exception:
+        # Si no hay conexión al GeoJSON base, dibuja el lienzo con retícula mínima
+        ax.plot([-70, -55], [-55, -20], color='#334155', alpha=0)
+
+    # Encuadre geográfico de la región solicitada
+    lim = REGIONES_LIMITES[region]
+    ax.set_xlim(lim["minx"], lim["maxx"])
+    ax.set_ylim(lim["miny"], lim["maxy"])
+    ax.axis('off')
+
+    plt.tight_layout()
+    plt.savefig(ruta_temp, dpi=130, facecolor=fig.get_facecolor(), edgecolor='none', bbox_inches='tight')
+    plt.close(fig)
+
 def procesar_generacion(idx_dia):
     dias_semana = {0: "Lunes", 1: "Martes", 2: "Miércoles", 3: "Jueves", 4: "Viernes", 5: "Sábado", 6: "Domingo"}
     base_fecha = datetime.now()
+    fecha_alerta = base_fecha + timedelta(days=idx_dia)
 
-    f0 = base_fecha
-    f1 = base_fecha + timedelta(days=1)
-    f2 = base_fecha + timedelta(days=2)
+    dia_nombre = dias_semana[fecha_alerta.weekday()]
+    dia_str = f"{dia_nombre} {fecha_alerta.day}"
+    prefijos = {0: "Hoy", 1: "Manana", 2: "Pasado"}
+    prefijo = prefijos[idx_dia]
 
-    labels = [
-        f"{dias_semana[f0.weekday()]} {f0.day}",
-        f"{dias_semana[f1.weekday()]} {f1.day}",
-        f"{dias_semana[f2.weekday()]} {f2.day}"
-    ]
+    print(f"\n[+] Generando placas vectoriales para {dia_str.upper()}...")
+    obtener_datos_alertas()
 
-    dia_elegido = labels[idx_dia]
-    prefijos_arch = {0: "Hoy", 1: "Manana", 2: "Pasado"}
-    prefijo = prefijos_arch[idx_dia]
+    for region in ["Norte", "Centro", "Sur"]:
+        nombre_salida = f"Alerta_{prefijo}_{region}.png"
+        ruta_salida = os.path.join(CARPETA_SALIDA, nombre_salida)
+        ruta_mapa_temp = os.path.join(base_dir, f"temp_{nombre_salida}")
 
-    print(f"\n[+] Conectando al SMN para {dia_elegido.upper()}...")
+        renderizar_mapa_region(region, idx_dia, ruta_mapa_temp)
 
-    with sync_playwright() as p:
-        browser = p.chromium.launch(
-            headless=True,
-            args=[
-                "--disable-blink-features=AutomationControlled",
-                "--no-sandbox",
-                "--disable-setuid-sandbox",
-                "--disable-infobars",
-                "--window-size=1280,900"
-            ]
-        )
-        context = browser.new_context(
-            viewport={"width": 1280, "height": 900},
-            user_agent="Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/124.0.0.0 Safari/537.36",
-            locale="es-AR"
-        )
+        # Montaje con Pillow
+        img = Image.new("RGB", (ANCHO_PLACA, ALTO_PLACA), COLOR_FONDO)
+        draw = ImageDraw.Draw(img)
 
-        page = context.new_page()
-        # Camuflaje nativo contra detección de WebDriver
-        page.add_init_script("""
-            Object.defineProperty(navigator, 'webdriver', {
-                get: () => undefined
-            });
-            window.chrome = {
-                runtime: {}
-            };
-            Object.defineProperty(navigator, 'plugins', {
-                get: () => [1, 2, 3, 4, 5]
-            });
-            Object.defineProperty(navigator, 'languages', {
-                get: () => ['es-AR', 'es', 'en-US', 'en']
-            });
-        """)
+        # Título y encabezado
+        draw.text((50, 40), f"SISTEMA DE ALERTA TEMPRANA - {dia_str.upper()}", font=obtener_fuente(46, bold=True), fill=COLOR_TEXTO)
+        draw.text((50, 110), f"Región: {region} | Servicio Meteorológico Nacional", font=obtener_fuente(28), fill=COLOR_SUBTEXTO)
 
-        url_smn = "https://www.smn.gob.ar/alertas"
-        try:
-            page.goto(url_smn, wait_until="networkidle", timeout=60000)
-            time.sleep(8)
-        except Exception as e:
-            print(f"[-] Error al cargar {url_smn}: {e}")
+        # Pegar mapa generado
+        if os.path.exists(ruta_mapa_temp):
+            with Image.open(ruta_mapa_temp) as map_img:
+                map_img = map_img.resize((ANCHO_PLACA - 100, MAPA_ALTO), Image.Resampling.LANCZOS)
+                img.paste(map_img, (50, ENCABEZADO_ALTO))
+            os.remove(ruta_mapa_temp)
 
-        if idx_dia > 0:
-            try:
-                botones_dias = page.query_selector_all("button.btn-dia, .nav-item button, .nav-tabs button")
-                if len(botones_dias) > idx_dia:
-                    botones_dias[idx_dia].click()
-                    time.sleep(4)
-            except Exception as e:
-                print(f"[-] No se pudo alternar el botón de día en web: {e}")
+        # Pie de placa
+        draw.rectangle([(50, ENCABEZADO_ALTO + MAPA_ALTO + 20), (ANCHO_PLACA - 50, ALTO_PLACA - 40)], fill=(30, 41, 59))
+        draw.text((70, ENCABEZADO_ALTO + MAPA_ALTO + 40), "Niveles de Alerta:", font=obtener_fuente(26, bold=True), fill=COLOR_TEXTO)
+        draw.text((70, ENCABEZADO_ALTO + MAPA_ALTO + 90), "• Amarillo: Posibles fenómenos con capacidad de daño", font=obtener_fuente(24), fill=(234, 179, 8))
+        draw.text((70, ENCABEZADO_ALTO + MAPA_ALTO + 130), "• Naranja: Se esperan fenómenos peligrosos para la sociedad", font=obtener_fuente(24), fill=(249, 115, 22))
+        draw.text((70, ENCABEZADO_ALTO + MAPA_ALTO + 170), "• Rojo: Fenómenos excepcionales con potencial de provocar desastres", font=obtener_fuente(24), fill=(239, 68, 68))
 
-        regiones = ["Norte", "Centro", "Sur"]
-        for region in regiones:
-            nombre_salida = f"Alerta_{prefijo}_{region}.png"
-            ruta_salida = os.path.join(CARPETA_SALIDA, nombre_salida)
-
-            captura_temporal = os.path.join(base_dir, f"temp_{nombre_salida}")
-            try:
-                mapa_elem = page.query_selector("#mapa, #map, .leaflet-container")
-                if mapa_elem:
-                    mapa_elem.screenshot(path=captura_temporal)
-                else:
-                    page.screenshot(path=captura_temporal)
-            except Exception as e:
-                print(f"[-] Falló la captura de {nombre_salida}: {e}")
-                page.screenshot(path=captura_temporal)
-
-            img_final = Image.new("RGB", (ANCHO_PLACA, ALTO_PLACA), COLOR_FONDO)
-            draw = ImageDraw.Draw(img_final)
-
-            font_titulo = obtener_fuente(46, bold=True)
-            font_sub = obtener_fuente(28, bold=False)
-            draw.text((50, 40), f"SISTEMA DE ALERTA TEMPRANA - {dia_elegido.upper()}", font=font_titulo, fill=COLOR_TEXTO)
-            draw.text((50, 110), f"Región: {region} | Servicio Meteorológico Nacional", font=font_sub, fill=COLOR_SUBTEXTO)
-
-            if os.path.exists(captura_temporal):
-                try:
-                    with Image.open(captura_temporal) as map_img:
-                        map_img = map_img.resize((ANCHO_PLACA - 100, MAPA_ALTO), Image.Resampling.LANCZOS)
-                        img_final.paste(map_img, (50, ENCABEZADO_ALTO))
-                except Exception as e:
-                    print(f"[-] Error montando mapa: {e}")
-                finally:
-                    if os.path.exists(captura_temporal):
-                        os.remove(captura_temporal)
-
-            font_footer = obtener_fuente(24, bold=False)
-            draw.rectangle([(50, ENCABEZADO_ALTO + MAPA_ALTO + 20), (ANCHO_PLACA - 50, ALTO_PLACA - 40)], fill=(30, 41, 59))
-            draw.text((70, ENCABEZADO_ALTO + MAPA_ALTO + 40), "Niveles de Alerta:", font=obtener_fuente(26, bold=True), fill=COLOR_TEXTO)
-            draw.text((70, ENCABEZADO_ALTO + MAPA_ALTO + 90), "• Amarillo: Posibles fenómenos con capacidad de daño", font=font_footer, fill=COLOR_ALERTA_AMARILLO)
-            draw.text((70, ENCABEZADO_ALTO + MAPA_ALTO + 130), "• Naranja: Se esperan fenómenos peligrosos para la sociedad", font=font_footer, fill=COLOR_ALERTA_NARANJA)
-            draw.text((70, ENCABEZADO_ALTO + MAPA_ALTO + 170), "• Rojo: Fenómenos excepcionales con potencial de provocar desastres", font=font_footer, fill=COLOR_ALERTA_ROJO)
-
-            img_final.save(ruta_salida, format="PNG")
-            print(f"[✓] Placa generada: {ruta_salida}")
-
-        browser.close()
+        img.save(ruta_salida, format="PNG")
+        print(f"[✓] Placa generada: {ruta_salida}")
 
 if __name__ == "__main__":
-    for dia in range(3):
-        procesar_generacion(dia)
+    for d in range(3):
+        procesar_generacion(d)
