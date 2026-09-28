@@ -4,7 +4,7 @@ on:
   schedule:
     # Se ejecuta cada 3 horas
     - cron: '0 */3 * * *'
-  # Permite ejecutarlo a mano desde la pestaña Actions
+  # Permite ejecutarlo manualmente desde Actions
   workflow_dispatch:
 
 jobs:
