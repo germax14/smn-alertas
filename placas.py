@@ -4,7 +4,6 @@ import time
 import json
 from datetime import datetime, timedelta
 from playwright.sync_api import sync_playwright
-from playwright_stealth import stealth_sync
 from PIL import Image, ImageDraw, ImageFont
 
 if getattr(sys, 'frozen', False):
@@ -71,7 +70,9 @@ def procesar_generacion(idx_dia):
             args=[
                 "--disable-blink-features=AutomationControlled",
                 "--no-sandbox",
-                "--disable-setuid-sandbox"
+                "--disable-setuid-sandbox",
+                "--disable-infobars",
+                "--window-size=1280,900"
             ]
         )
         context = browser.new_context(
@@ -79,8 +80,23 @@ def procesar_generacion(idx_dia):
             user_agent="Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/124.0.0.0 Safari/537.36",
             locale="es-AR"
         )
+
         page = context.new_page()
-        stealth_sync(page)
+        # Camuflaje nativo contra detección de WebDriver
+        page.add_init_script("""
+            Object.defineProperty(navigator, 'webdriver', {
+                get: () => undefined
+            });
+            window.chrome = {
+                runtime: {}
+            };
+            Object.defineProperty(navigator, 'plugins', {
+                get: () => [1, 2, 3, 4, 5]
+            });
+            Object.defineProperty(navigator, 'languages', {
+                get: () => ['es-AR', 'es', 'en-US', 'en']
+            });
+        """)
 
         url_smn = "https://www.smn.gob.ar/alertas"
         try:
@@ -89,7 +105,6 @@ def procesar_generacion(idx_dia):
         except Exception as e:
             print(f"[-] Error al cargar {url_smn}: {e}")
 
-        # Selección de día en la interfaz web si no es el primer día
         if idx_dia > 0:
             try:
                 botones_dias = page.query_selector_all("button.btn-dia, .nav-item button, .nav-tabs button")
@@ -104,7 +119,6 @@ def procesar_generacion(idx_dia):
             nombre_salida = f"Alerta_{prefijo}_{region}.png"
             ruta_salida = os.path.join(CARPETA_SALIDA, nombre_salida)
 
-            # Captura del mapa interactivo
             captura_temporal = os.path.join(base_dir, f"temp_{nombre_salida}")
             try:
                 mapa_elem = page.query_selector("#mapa, #map, .leaflet-container")
@@ -116,17 +130,14 @@ def procesar_generacion(idx_dia):
                 print(f"[-] Falló la captura de {nombre_salida}: {e}")
                 page.screenshot(path=captura_temporal)
 
-            # Composición visual con Pillow
             img_final = Image.new("RGB", (ANCHO_PLACA, ALTO_PLACA), COLOR_FONDO)
             draw = ImageDraw.Draw(img_final)
 
-            # Encabezado
             font_titulo = obtener_fuente(46, bold=True)
             font_sub = obtener_fuente(28, bold=False)
             draw.text((50, 40), f"SISTEMA DE ALERTA TEMPRANA - {dia_elegido.upper()}", font=font_titulo, fill=COLOR_TEXTO)
             draw.text((50, 110), f"Región: {region} | Servicio Meteorológico Nacional", font=font_sub, fill=COLOR_SUBTEXTO)
 
-            # Inserción del mapa
             if os.path.exists(captura_temporal):
                 try:
                     with Image.open(captura_temporal) as map_img:
@@ -138,7 +149,6 @@ def procesar_generacion(idx_dia):
                     if os.path.exists(captura_temporal):
                         os.remove(captura_temporal)
 
-            # Pie de placa
             font_footer = obtener_fuente(24, bold=False)
             draw.rectangle([(50, ENCABEZADO_ALTO + MAPA_ALTO + 20), (ANCHO_PLACA - 50, ALTO_PLACA - 40)], fill=(30, 41, 59))
             draw.text((70, ENCABEZADO_ALTO + MAPA_ALTO + 40), "Niveles de Alerta:", font=obtener_fuente(26, bold=True), fill=COLOR_TEXTO)
