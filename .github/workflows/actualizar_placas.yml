@@ -48,5 +48,6 @@ jobs:
             echo "No hubo cambios en las placas."
           else
             git commit -m "Auto: actualizacion de placas SMN [skip ci]"
-            git push
+            git pull --rebase origin main
+            git push origin main
           fi
