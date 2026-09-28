@@ -1,0 +1,53 @@
+name: Actualizar Placas SMN
+
+on:
+  schedule:
+    # Se ejecuta cada 3 horas
+    - cron: '0 */3 * * *'
+  # Permite ejecutarlo a mano con un botón desde la pestaña Actions
+  workflow_dispatch:
+
+jobs:
+  generar-placas:
+    runs-on: ubuntu-latest
+    permissions:
+      contents: write
+
+    steps:
+      - name: Descargar repositorio
+        uses: actions/checkout@v4
+
+      - name: Configurar Python
+        uses: actions/setup-python@v5
+        with:
+          python-version: '3.11'
+          cache: 'pip'
+
+      - name: Instalar dependencias de Python
+        run: |
+          pip install --upgrade pip
+          pip install -r requirements.txt
+
+      - name: Instalar Firefox y dependencias para Playwright
+        run: |
+          npx playwright install --with-deps firefox
+
+      - name: Instalar fuentes tipograficas
+        run: |
+          sudo apt-get update
+          sudo apt-get install -y fonts-dejavu-core fonts-freefont-ttf
+
+      - name: Ejecutar generacion de placas
+        run: python run_bot.py
+
+      - name: Guardar y subir placas actualizadas
+        run: |
+          git config --global user.name "github-actions[bot]"
+          git config --global user.email "github-actions[bot]@users.noreply.github.com"
+          git add placas_mapa/
+          if git diff --staged --quiet; then
+            echo "No hubo cambios en las placas."
+          else
+            git commit -m "Auto: actualizacion de placas SMN [skip ci]"
+            git push
+          fi
