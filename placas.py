@@ -276,3 +276,19 @@ def procesar_generacion(idx_dia):
 if __name__ == "__main__":
     for d in range(3):
         procesar_generacion(d)
+Pasos para actualizar:
+Ve a <> Code > placas.py en tu repositorio de GitHub.   
+PNG
++ 1
+
+Haz clic en el ícono del lápiz para editar.   
+PNG
+
+Reemplaza todo el contenido con este código y haz clic en Commit changes... guardando en la rama main.   
+PNG
+
+Ve a la pestaña Actions, entra en Actualizar Placas SMN y pulsa Run workflow.   
+PNG
++ 1
+
+Al finalizar, las zonas afectadas por tormentas se pintarán en amarillo y naranja directamente sobre el mapa regional.
