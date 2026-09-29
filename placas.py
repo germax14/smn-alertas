@@ -6,9 +6,7 @@ from datetime import datetime, timedelta
 import matplotlib
 matplotlib.use('Agg')
 import matplotlib.pyplot as plt
-from shapely.geometry import shape, Polygon, MultiPolygon
-import matplotlib.patches as mpatches
-from matplotlib.collections import PatchCollection
+from shapely.geometry import shape
 from PIL import Image, ImageDraw, ImageFont
 
 if getattr(sys, 'frozen', False):
@@ -32,19 +30,18 @@ COLOR_ALERTA_ROJO = (239, 68, 68)
 ENCABEZADO_ALTO = 200
 MAPA_ALTO = 780
 
-# Delimitaciones para zoom de encuadre por región
 REGIONES_LIMITES = {
     "Norte": {"minx": -69.0, "maxx": -53.0, "miny": -31.0, "maxy": -21.5},
     "Centro": {"minx": -71.0, "maxx": -56.0, "miny": -42.0, "maxy": -30.0},
     "Sur": {"minx": -74.5, "maxx": -62.0, "miny": -55.5, "maxy": -40.0}
 }
 
-COLORES_NIVEL = {
-    "verde": "#22c55e",
+COLORES_ALERTA = {
+    "verde": "#15803d",
     "amarillo": "#eab308",
     "naranja": "#f97316",
     "rojo": "#ef4444",
-    "normal": "#1e293b"
+    "base": "#1e293b"
 }
 
 def obtener_fuente(tamano, bold=False):
@@ -62,67 +59,80 @@ def obtener_fuente(tamano, bold=False):
                 continue
     return ImageFont.load_default()
 
-def leer_datos_alertas():
-    # Intenta leer los archivos que ya están en el repositorio
-    archivos = ["alertas_por_provincia.json", "alertas_sat_detalle.json", "alertas_completas.json"]
-    for arch in archivos:
-        ruta = os.path.join(base_dir, arch)
+def cargar_alertas():
+    # Lee los datos procesados en el repositorio
+    for archivo in ["alertas_sat_detalle.json", "alertas_por_provincia.json", "alertas_completas.json"]:
+        ruta = os.path.join(base_dir, archivo)
         if os.path.exists(ruta):
             try:
                 with open(ruta, "r", encoding="utf-8") as f:
-                    data = json.load(f)
-                    if data:
-                        return data
+                    contenido = f.read().strip()
+                    if contenido:
+                        return json.loads(contenido)
             except Exception:
                 continue
     return {}
 
-def obtener_color_alerta_zona(region, idx_dia, datos):
-    # Por defecto, fondo territorial estándar
-    return "#1e293b"
+def obtener_color_departamento(nombre_depto, prov_nombre, datos_alertas, idx_dia):
+    if not datos_alertas:
+        return COLORES_ALERTA["base"]
 
-def dibujar_poligono(ax, poly, fill_color, edge_color='#38bdf8', lw=1.2):
+    nombre_normalizado = (nombre_depto or "").strip().lower()
+    prov_normalizada = (prov_nombre or "").strip().lower()
+
+    # Si hay estructura de alertas detalladas por zona
+    alertas_lista = datos_alertas if isinstance(datos_alertas, list) else datos_alertas.get("alertas", [])
+    
+    nivel_prioridad = {"rojo": 4, "naranja": 3, "amarillo": 2, "verde": 1}
+    color_max = "base"
+    prio_max = 0
+
+    for al in alertas_lista:
+        zona = str(al.get("zona", "")).lower()
+        prov = str(al.get("provincia", "")).lower()
+        color = str(al.get("color", "")).lower()
+        dia_alerta = al.get("dia", 0)
+
+        # Si coincide el día (o no especifica) y la zona/provincia
+        if (dia_alerta == idx_dia or "dia" not in al) and (nombre_normalizado in zona or prov_normalizada in prov):
+            prio = nivel_prioridad.get(color, 0)
+            if prio > prio_max:
+                prio_max = prio
+                color_max = color
+
+    return COLORES_ALERTA.get(color_max, COLORES_ALERTA["base"])
+
+def dibujar_poligono(ax, poly, fill_color, edge_color='#334155', lw=0.6):
     if poly.geom_type == 'Polygon':
         x, y = poly.exterior.xy
-        ax.fill(x, y, color=fill_color, alpha=0.9)
+        ax.fill(x, y, color=fill_color, alpha=0.92)
         ax.plot(x, y, color=edge_color, linewidth=lw)
     elif poly.geom_type == 'MultiPolygon':
         for sub_p in poly.geoms:
             x, y = sub_p.exterior.xy
-            ax.fill(x, y, color=fill_color, alpha=0.9)
+            ax.fill(x, y, color=fill_color, alpha=0.92)
             ax.plot(x, y, color=edge_color, linewidth=lw)
 
 def renderizar_mapa_region(region, dia_idx, ruta_temp, datos_alertas):
     fig, ax = plt.subplots(figsize=(8, 7), facecolor='#0f172a')
     ax.set_facecolor('#0f172a')
 
-    # Descarga GeoJSON de provincias de Argentina desde repositorio abierto IGN/Georef
     url_provincias = "https://raw.githubusercontent.com/mgaitan/departamentos_argentina/master/departamentos-argentina.json"
-    
-    geo_dibujado = False
     try:
-        r = requests.get(url_provincias, timeout=12)
+        r = requests.get(url_provincias, timeout=15)
         if r.status_code == 200:
             geojson_data = r.json()
             for feature in geojson_data.get("features", []):
                 geom = shape(feature["geometry"])
-                dibujar_poligono(ax, geom, fill_color="#1e293b", edge_color="#334155", lw=0.6)
-            geo_dibujado = True
+                prop = feature.get("properties", {})
+                depto = prop.get("departamento", "")
+                prov = prop.get("provincia", "")
+
+                color_relleno = obtener_color_departamento(depto, prov, datos_alertas, dia_idx)
+                dibujar_poligono(ax, geom, fill_color=color_relleno, edge_color="#475569", lw=0.7)
     except Exception as e:
-        print(f"[-] No se pudo cargar provincias detalladas: {e}")
+        print(f"[-] Error renderizando departamentos: {e}")
 
-    if not geo_dibujado:
-        # Fallback con contorno continental argentino simplificado si no hay red
-        silueta_arg = Polygon([
-            (-65.5, -22.0), (-62.0, -22.0), (-57.5, -25.5), (-53.5, -26.0),
-            (-57.0, -30.0), (-58.0, -34.0), (-57.0, -36.0), (-62.0, -39.0),
-            (-65.0, -43.0), (-66.0, -47.0), (-65.0, -50.0), (-68.0, -55.0),
-            (-73.5, -52.0), (-72.0, -47.0), (-71.0, -41.0), (-70.0, -35.0),
-            (-69.5, -31.0), (-68.5, -26.0), (-66.5, -23.0)
-        ])
-        dibujar_poligono(ax, silueta_arg, fill_color="#1e293b", edge_color="#38bdf8", lw=1.5)
-
-    # Encuadre y vista regional
     lim = REGIONES_LIMITES[region]
     ax.set_xlim(lim["minx"], lim["maxx"])
     ax.set_ylim(lim["miny"], lim["maxy"])
@@ -143,8 +153,8 @@ def procesar_generacion(idx_dia):
     prefijos = {0: "Hoy", 1: "Manana", 2: "Pasado"}
     prefijo = prefijos[idx_dia]
 
-    print(f"\n[+] Renderizando placas para {dia_str.upper()}...")
-    datos_alertas = leer_datos_alertas()
+    print(f"\n[+] Coloreando placas vectoriales para {dia_str.upper()}...")
+    datos_alertas = cargar_alertas()
 
     for region in ["Norte", "Centro", "Sur"]:
         nombre_salida = f"Alerta_{prefijo}_{region}.png"
@@ -153,15 +163,12 @@ def procesar_generacion(idx_dia):
 
         renderizar_mapa_region(region, idx_dia, ruta_mapa_temp, datos_alertas)
 
-        # Montaje con Pillow
         img = Image.new("RGB", (ANCHO_PLACA, ALTO_PLACA), COLOR_FONDO)
         draw = ImageDraw.Draw(img)
 
-        # Encabezado
         draw.text((50, 40), f"SISTEMA DE ALERTA TEMPRANA - {dia_str.upper()}", font=obtener_fuente(46, bold=True), fill=COLOR_TEXTO)
         draw.text((50, 110), f"Región: {region} | Servicio Meteorológico Nacional", font=obtener_fuente(28), fill=COLOR_SUBTEXTO)
 
-        # Inserción de mapa centrado
         if os.path.exists(ruta_mapa_temp):
             with Image.open(ruta_mapa_temp) as map_img:
                 map_img = map_img.resize((ANCHO_PLACA - 100, MAPA_ALTO), Image.Resampling.LANCZOS)
@@ -171,7 +178,6 @@ def procesar_generacion(idx_dia):
             except Exception:
                 pass
 
-        # Pie informativo
         draw.rectangle([(50, ENCABEZADO_ALTO + MAPA_ALTO + 20), (ANCHO_PLACA - 50, ALTO_PLACA - 40)], fill=(30, 41, 59))
         draw.text((70, ENCABEZADO_ALTO + MAPA_ALTO + 40), "Niveles de Alerta:", font=obtener_fuente(26, bold=True), fill=COLOR_TEXTO)
         draw.text((70, ENCABEZADO_ALTO + MAPA_ALTO + 90), "• Amarillo: Posibles fenómenos con capacidad de daño", font=obtener_fuente(24), fill=COLOR_ALERTA_AMARILLO)
@@ -179,7 +185,7 @@ def procesar_generacion(idx_dia):
         draw.text((70, ENCABEZADO_ALTO + MAPA_ALTO + 170), "• Rojo: Fenómenos excepcionales con potencial de provocar desastres", font=obtener_fuente(24), fill=COLOR_ALERTA_ROJO)
 
         img.save(ruta_salida, format="PNG")
-        print(f"[✓] Placa generada con éxito: {ruta_salida}")
+        print(f"[✓] Placa guardada: {ruta_salida}")
 
 if __name__ == "__main__":
     for d in range(3):
