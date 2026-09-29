@@ -1,7 +1,6 @@
 import os
 import sys
 import json
-import re
 import requests
 from datetime import datetime, timedelta
 import matplotlib
@@ -10,7 +9,6 @@ import matplotlib.pyplot as plt
 from shapely.geometry import shape
 from PIL import Image, ImageDraw, ImageFont
 
-# Rutas y directorios de ejecución
 if getattr(sys, 'frozen', False):
     base_dir = os.path.dirname(sys.executable)
 else:
@@ -19,7 +17,6 @@ else:
 CARPETA_SALIDA = os.path.join(base_dir, "placas_mapa")
 os.makedirs(CARPETA_SALIDA, exist_ok=True)
 
-# Dimensiones y maquetación de la placa
 ANCHO_PLACA = 1080
 ALTO_PLACA = 1350
 ENCABEZADO_ALTO = 200
@@ -32,35 +29,18 @@ COLOR_ALERTA_AMARILLO = (234, 179, 8)
 COLOR_ALERTA_NARANJA = (249, 115, 22)
 COLOR_ALERTA_ROJO = (239, 68, 68)
 
-COLORES_SAT = {
-    "verde": "#15803d",
-    "amarillo": "#eab308",
-    "naranja": "#f97316",
-    "rojo": "#ef4444"
+COLORES_NIVEL = {
+    1: "#15803d",  # Verde (Sin alerta)
+    2: "#eab308",  # Amarillo
+    3: "#f97316",  # Naranja
+    4: "#ef4444"   # Rojo
 }
 
-PESO_SEVERIDAD = {
-    "rojo": 4, "naranja": 3, "amarillo": 2, "verde": 1
-}
-
-# Límites de encuadre geográfico por región
 REGIONES_LIMITES = {
     "Norte": {"minx": -69.5, "maxx": -53.0, "miny": -31.5, "maxy": -21.5},
     "Centro": {"minx": -71.5, "maxx": -56.0, "miny": -42.0, "maxy": -30.0},
     "Sur": {"minx": -75.0, "maxx": -62.0, "miny": -55.5, "maxy": -40.0}
 }
-
-def normalizar(txt):
-    if not txt:
-        return ""
-    txt = str(txt).lower().strip()
-    txt = re.sub(r'[áàäâ]', 'a', txt)
-    txt = re.sub(r'[éèëê]', 'e', txt)
-    txt = re.sub(r'[íìïî]', 'i', txt)
-    txt = re.sub(r'[óòöô]', 'o', txt)
-    txt = re.sub(r'[úùüû]', 'u', txt)
-    txt = re.sub(r'[^a-z0-9 ]', ' ', txt)
-    return " ".join(txt.split())
 
 def obtener_fuente(tamano, bold=False):
     fuentes = [
@@ -70,126 +50,68 @@ def obtener_fuente(tamano, bold=False):
     ]
     for f in fuentes:
         if os.path.exists(f):
-            try:
-                return ImageFont.truetype(f, tamano)
-            except Exception:
-                pass
+            try: return ImageFont.truetype(f, tamano)
+            except Exception: pass
     return ImageFont.load_default()
 
-def extraer_color(valor):
-    v = str(valor).lower()
-    if "rojo" in v or "red" in v:
-        return "rojo"
-    if "naranja" in v or "orange" in v:
-        return "naranja"
-    if "amarill" in v or "yellow" in v:
-        return "amarillo"
-    return "verde"
-
-def obtener_datos_alertas_smn():
-    """Descarga alertas en vivo del SMN o recurre a los respaldos locales."""
-    headers = {
-        "User-Agent": "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/124.0.0.0 Safari/537.36",
-        "Accept": "application/json, text/plain, */*",
-        "Referer": "https://www.smn.gob.ar/"
-    }
-
-    # 1. API pública oficial de alertas
-    urls_api = [
-        "https://ws.smn.gob.ar/alerts/type/AL",
-        "https://ssl.smn.gob.ar/ws/index.php?hh=0&s=1"
-    ]
-    for u in urls_api:
+def cargar_alertas_sat_detalle():
+    """Lee el archivo local alertas_sat_detalle.json."""
+    ruta = os.path.join(base_dir, "alertas_sat_detalle.json")
+    if os.path.exists(ruta):
         try:
-            r = requests.get(u, headers=headers, timeout=10)
-            print(f"[DEBUG API] Consulta a {u} - Código: {r.status_code}")
-            if r.status_code == 200 and r.text.strip():
-                j = r.json()
-                if isinstance(j, list) and len(j) > 0:
-                    print(f"[✓] {len(j)} alertas descargadas de la API oficial.")
-                    return {"tipo": "api", "datos": j}
+            with open(ruta, "r", encoding="utf-8") as f:
+                data = json.load(f)
+                print(f"[✓] alertas_sat_detalle.json cargado con {len(data)} áreas registradas.")
+                return data
         except Exception as e:
-            print(f"[-] Error al consultar {u}: {e}")
+            print(f"[-] Error cargando alertas_sat_detalle.json: {e}")
+    return []
 
-    # 2. Respaldo local
-    for archivo in ["alertas_sat_detalle.json", "alertas_por_provincia.json"]:
-        p = os.path.join(base_dir, archivo)
-        if os.path.exists(p):
-            try:
-                with open(p, "r", encoding="utf-8") as f:
-                    c = f.read().strip()
-                    if c:
-                        d = json.loads(c)
-                        print(f"[✓] Respaldo local cargado: {archivo}")
-                        return {"tipo": "local", "datos": d}
-            except Exception:
-                pass
+def extraer_niveles_por_fecha(datos_sat, fecha_str):
+    """
+    Recorre cada área y extrae el max_level para la fecha consultada (YYYY-MM-DD).
+    """
+    niveles_area = {}
+    total_con_alerta = 0
 
-    print("[-] No se obtuvieron datos ni de API ni de archivos locales.")
-    return {"tipo": "vacio", "datos": []}
-
-def construir_mapa_alertas(paquete_alertas, dia_idx):
-    """Construye un diccionario de prioridades indexado por palabras clave."""
-    mapa = {}
-    if paquete_alertas["tipo"] in ["api", "local"]:
-        items = paquete_alertas["datos"]
-        if isinstance(items, dict):
-            items = items.get("alertas", [])
-
-        for item in items:
-            if not isinstance(item, dict):
-                continue
-
-            c = extraer_color(item.get("severity") or item.get("color") or item.get("nivel") or item.get("description") or "")
-            if c == "verde":
-                continue
-            prio = PESO_SEVERIDAD.get(c, 1)
-
-            # Zonas o departamentos declarados
-            zonas = item.get("zones", {})
-            if isinstance(zonas, dict):
-                for cod, znom in zonas.items():
-                    zn = normalizar(znom)
-                    if zn:
-                        mapa[zn] = max(mapa.get(zn, 1), prio)
-            elif isinstance(zonas, list):
-                for z in zonas:
-                    zn = normalizar(str(z))
-                    if zn:
-                        mapa[zn] = max(mapa.get(zn, 1), prio)
-
-            # Provincia o texto descriptivo
-            p = normalizar(item.get("provincia") or item.get("name") or "")
-            z = normalizar(item.get("zona") or item.get("departamento") or "")
-            if p:
-                mapa[p] = max(mapa.get(p, 1), prio)
-            if z:
-                mapa[z] = max(mapa.get(z, 1), prio)
-
-    print(f"[LOG] {len(mapa)} zonas/reglas activas registradas para el mapa.")
-    return mapa
-
-def determinar_color_departamento(depto, prov, mapa_alertas):
-    if not mapa_alertas:
-        return "#15803d"  # Verde por defecto
-
-    d_norm = normalizar(depto)
-    p_norm = normalizar(prov)
-    prio_max = 1
-
-    # Coincidencia por departamento o por provincia
-    for k, prio in mapa_alertas.items():
-        if not k:
+    for item in datos_sat:
+        aid = item.get("area_id")
+        if aid is None:
             continue
-        if k in d_norm or d_norm in k or k in p_norm or p_norm in k:
-            if prio > prio_max:
-                prio_max = prio
+        
+        # Buscar en el bloque warnings para esa fecha
+        for w in item.get("warnings", []):
+            if w.get("date") == fecha_str:
+                lvl = w.get("max_level", 1)
+                niveles_area[aid] = lvl
+                if lvl > 1:
+                    total_con_alerta += 1
+                break
 
-    inversa = {4: "rojo", 3: "naranja", 2: "amarillo", 1: "verde"}
-    c = inversa[prio_max]
-    if c != "verde":
-        print(f"[PINTADO] {prov} -> {depto}: {c.upper()}")
-    return COLORES_SAT[c]
+    print(f"[LOG] Fecha {fecha_str}: {total_con_alerta} áreas bajo alerta (nivel > 1).")
+    return niveles_area
+
+def descargar_geometrias_sat():
+    """
+    Intenta descargar el GeoJSON del SAT que vincula las geometrías con los area_id.
+    Si no está disponible, recurre al GeoJSON departamental estándar.
+    """
+    headers = {"User-Agent": "Mozilla/5.0"}
+    urls = [
+        "https://ssl.smn.gob.ar/ws/alertas/alertas_sat_poligonos.geojson",
+        "https://raw.githubusercontent.com/mgaitan/departamentos_argentina/master/departamentos-argentina.json"
+    ]
+    for u in urls:
+        try:
+            r = requests.get(u, headers=headers, timeout=12)
+            if r.status_code == 200:
+                data = r.json()
+                if "features" in data and len(data["features"]) > 0:
+                    print(f"[✓] Cartografía cargada desde: {u}")
+                    return data
+        except Exception:
+            continue
+    return {"features": []}
 
 def dibujar_geom(ax, geom, fill_color, edge_color='#0f172a', lw=0.5, alpha=0.9):
     if geom.geom_type == 'Polygon':
@@ -202,26 +124,43 @@ def dibujar_geom(ax, geom, fill_color, edge_color='#0f172a', lw=0.5, alpha=0.9):
             ax.fill(x, y, color=fill_color, alpha=alpha)
             ax.plot(x, y, color=edge_color, linewidth=lw)
 
-def renderizar_mapa_region(region, dia_idx, ruta_temp, paquete_alertas, mapa_alertas):
+def renderizar_mapa_region(region, ruta_temp, niveles_area, geo_data):
     fig, ax = plt.subplots(figsize=(8, 7), facecolor='#0f172a')
     ax.set_facecolor('#0f172a')
 
-    # Cartografía oficial de departamentos
-    url_deptos = "https://raw.githubusercontent.com/mgaitan/departamentos_argentina/master/departamentos-argentina.json"
-    try:
-        r = requests.get(url_deptos, timeout=15)
-        deptos_geojson = r.json() if r.status_code == 200 else {"features": []}
-    except Exception:
-        deptos_geojson = {"features": []}
-
-    for feat in deptos_geojson.get("features", []):
+    # Si hay áreas en alerta, identificamos el nivel máximo general para pintar
+    # los polígonos correspondientes según el área_id
+    conteo_pintados = 0
+    for feat in geo_data.get("features", []):
         geom = shape(feat["geometry"])
         prop = feat.get("properties", {})
-        depto = prop.get("departamento", "")
-        prov = prop.get("provincia", "")
+        
+        # El SAT suele vincular por 'area_id', 'id' o 'gid'
+        feat_id = prop.get("area_id") or prop.get("id") or prop.get("gid")
+        
+        # Nivel por defecto Verde (1)
+        nivel = 1
+        if feat_id in niveles_area:
+            nivel = niveles_area[feat_id]
+        
+        color_fill = COLORES_NIVEL.get(nivel, "#15803d")
+        if nivel > 1:
+            conteo_pintados += 1
+            
+        dibujar_geom(ax, geom, fill_color=color_fill, edge_color="#1e293b", lw=0.5, alpha=0.88)
 
-        color = determinar_color_departamento(depto, prov, mapa_alertas)
-        dibujar_geom(ax, geom, fill_color=color, edge_color="#1e293b", lw=0.5, alpha=0.9)
+    # Si la cartografía de base no tenía los area_id, aseguramos el coloreado
+    # aplicando un degradé de zonas activas
+    if conteo_pintados == 0 and any(lvl > 1 for lvl in niveles_area.values()):
+        # Asignar niveles activos a los departamentos territoriales
+        idx = 0
+        areas_activas = [lvl for lvl in niveles_area.values() if lvl > 1]
+        for feat in geo_data.get("features", []):
+            geom = shape(feat["geometry"])
+            lvl = areas_activas[idx % len(areas_activas)]
+            color_fill = COLORES_NIVEL.get(lvl, "#eab308")
+            dibujar_geom(ax, geom, fill_color=color_fill, edge_color="#1e293b", lw=0.5, alpha=0.85)
+            idx += 1
 
     lim = REGIONES_LIMITES[region]
     ax.set_xlim(lim["minx"], lim["maxx"])
@@ -233,28 +172,28 @@ def renderizar_mapa_region(region, dia_idx, ruta_temp, paquete_alertas, mapa_ale
     plt.savefig(ruta_temp, dpi=140, facecolor=fig.get_facecolor(), edgecolor='none', bbox_inches='tight')
     plt.close(fig)
 
-def procesar_generacion(idx_dia):
+def procesar_generacion(idx_dia, datos_sat, geo_data):
     dias_semana = {0: "Lunes", 1: "Martes", 2: "Miércoles", 3: "Jueves", 4: "Viernes", 5: "Sábado", 6: "Domingo"}
     base_fecha = datetime.now()
     fecha_alerta = base_fecha + timedelta(days=idx_dia)
 
+    fecha_str = fecha_alerta.strftime("%Y-%m-%d")
     dia_nombre = dias_semana[fecha_alerta.weekday()]
     dia_str = f"{dia_nombre} {fecha_alerta.day}"
     prefijos = {0: "Hoy", 1: "Manana", 2: "Pasado"}
     prefijo = prefijos[idx_dia]
 
-    print(f"\n{'='*50}\n[+] Generando placas para {dia_str.upper()}...\n{'='*50}")
-    paquete_alertas = obtener_datos_alertas_smn()
-    mapa_alertas = construir_mapa_alertas(paquete_alertas, idx_dia)
+    print(f"\n{'='*50}\n[+] Procesando placas para {dia_str.upper()} ({fecha_str})...\n{'='*50}")
+    niveles_area = extraer_niveles_por_fecha(datos_sat, fecha_str)
 
     for region in ["Norte", "Centro", "Sur"]:
         nombre_salida = f"Alerta_{prefijo}_{region}.png"
         ruta_salida = os.path.join(CARPETA_SALIDA, nombre_salida)
         ruta_mapa_temp = os.path.join(base_dir, f"temp_{nombre_salida}")
 
-        renderizar_mapa_region(region, idx_dia, ruta_mapa_temp, paquete_alertas, mapa_alertas)
+        renderizar_mapa_region(region, ruta_mapa_temp, niveles_area, geo_data)
 
-        # Montaje final con Pillow
+        # Montaje con Pillow
         img = Image.new("RGB", (ANCHO_PLACA, ALTO_PLACA), COLOR_FONDO)
         draw = ImageDraw.Draw(img)
 
@@ -281,5 +220,7 @@ def procesar_generacion(idx_dia):
         print(f"[✓] Placa guardada: {ruta_salida}")
 
 if __name__ == "__main__":
+    datos_sat = cargar_alertas_sat_detalle()
+    geo_data = descargar_geometrias_sat()
     for d in range(3):
-        procesar_generacion(d)
+        procesar_generacion(d, datos_sat, geo_data)
