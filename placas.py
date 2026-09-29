@@ -1,6 +1,7 @@
 import os
 import sys
 import json
+import re
 import requests
 from datetime import datetime, timedelta
 import matplotlib
@@ -30,6 +31,7 @@ COLOR_ALERTA_ROJO = (239, 68, 68)
 ENCABEZADO_ALTO = 200
 MAPA_ALTO = 780
 
+# Encuadres geográficos de recorte por región
 REGIONES_LIMITES = {
     "Norte": {"minx": -69.0, "maxx": -53.0, "miny": -31.0, "maxy": -21.5},
     "Centro": {"minx": -71.0, "maxx": -56.0, "miny": -42.0, "maxy": -30.0},
@@ -37,11 +39,34 @@ REGIONES_LIMITES = {
 }
 
 COLORES_SAT = {
+    "verde": "#15803d",
     "amarillo": "#eab308",
     "naranja": "#f97316",
-    "rojo": "#ef4444",
-    "verde": "#16a34a"
+    "rojo": "#ef4444"
 }
+
+PESO_SEVERIDAD = {
+    "rojo": 4,
+    "red": 4,
+    "naranja": 3,
+    "orange": 3,
+    "amarillo": 2,
+    "yellow": 2,
+    "verde": 1,
+    "green": 1
+}
+
+def normalizar_texto(texto):
+    if not texto:
+        return ""
+    txt = str(texto).lower().strip()
+    txt = re.sub(r'[áàäâ]', 'a', txt)
+    txt = re.sub(r'[éèëê]', 'e', txt)
+    txt = re.sub(r'[íìïî]', 'i', txt)
+    txt = re.sub(r'[óòöô]', 'o', txt)
+    txt = re.sub(r'[úùüû]', 'u', txt)
+    txt = re.sub(r'[^a-z0-9 ]', ' ', txt)
+    return ' '.join(txt.split())
 
 def obtener_fuente(tamano, bold=False):
     fuentes_posibles = [
@@ -58,81 +83,134 @@ def obtener_fuente(tamano, bold=False):
                 continue
     return ImageFont.load_default()
 
-def descargar_poligonos_alertas():
-    """Descarga los polígonos oficiales de alertas del SMN o recurre a los archivos del repositorio."""
+def descargar_poligonos_sat_smn():
+    """Consulta los endpoints de GeoJSON con polígonos de alerta directa del SMN."""
     urls = [
         "https://ssl.smn.gob.ar/ws/alertas/alertas_sat_poligonos.json",
         "https://ssl.smn.gob.ar/ws/alertas/alertas_hoy.json"
     ]
     headers = {"User-Agent": "Mozilla/5.0 (Windows NT 10.0; Win64; x64)"}
-    for url in urls:
+    for u in urls:
         try:
-            r = requests.get(url, headers=headers, timeout=10)
+            r = requests.get(u, headers=headers, timeout=12)
             if r.status_code == 200 and r.text.strip():
                 data = r.json()
-                if "features" in data:
+                if isinstance(data, dict) and "features" in data and len(data["features"]) > 0:
+                    print(f"[+] Polígonos SAT oficiales descargados desde: {u}")
                     return data
         except Exception:
             continue
+    return None
 
-    # Fallback local
-    for arch in ["alertas_sat_detalle.json", "alertas_completas.json"]:
+def cargar_alertas_locales():
+    """Lee y unifica los datos de los JSON locales en el repositorio."""
+    archivos = ["alertas_sat_detalle.json", "alertas_por_provincia.json", "alertas_completas.json"]
+    for arch in archivos:
         path = os.path.join(base_dir, arch)
         if os.path.exists(path):
             try:
                 with open(path, "r", encoding="utf-8") as f:
-                    data = json.load(f)
-                    if isinstance(data, dict) and "features" in data:
-                        return data
-            except Exception:
-                pass
-    return {"type": "FeatureCollection", "features": []}
+                    contenido = f.read().strip()
+                    if contenido:
+                        datos = json.loads(contenido)
+                        print(f"[+] Datos de alertas locales cargados desde: {arch}")
+                        return datos
+            except Exception as e:
+                print(f"[-] Error al leer {arch}: {e}")
+    return []
 
-def dibujar_geom(ax, geom, fill_color, edge_color='#334155', lw=0.6, alpha=0.9):
+def extraer_nivel_color(alerta_obj):
+    color = alerta_obj.get("color") or alerta_obj.get("nivel") or alerta_obj.get("severidad") or ""
+    color_norm = str(color).lower()
+    for clave in PESO_SEVERIDAD:
+        if clave in color_norm:
+            if clave in ["red", "rojo"]: return "rojo"
+            if clave in ["orange", "naranja"]: return "naranja"
+            if clave in ["yellow", "amarillo"]: return "amarillo"
+            if clave in ["green", "verde"]: return "verde"
+    return "verde"
+
+def obtener_color_por_nombre(depto_nombre, prov_nombre, datos_locales, dia_idx):
+    depto_norm = normalizar_texto(depto_nombre)
+    prov_norm = normalizar_texto(prov_nombre)
+
+    lista = datos_locales if isinstance(datos_locales, list) else datos_locales.get("alertas", [])
+    max_prio = 1
+    color_ganador = "verde"
+
+    for item in lista:
+        item_dia = item.get("dia", 0)
+        # Filtra si corresponde al día evaluado
+        if item_dia == dia_idx or item_dia is None:
+            zona_alerta = normalizar_texto(item.get("zona") or item.get("departamento") or item.get("nombre") or "")
+            prov_alerta = normalizar_texto(item.get("provincia") or "")
+
+            coincide = False
+            if depto_norm and depto_norm in zona_alerta:
+                coincide = True
+            elif prov_norm and prov_norm in prov_alerta and (not zona_alerta or "toda" in zona_alerta):
+                coincide = True
+
+            if coincide:
+                color = extraer_nivel_color(item)
+                prio = PESO_SEVERIDAD.get(color, 1)
+                if prio > max_prio:
+                    max_prio = prio
+                    color_ganador = color
+
+    return COLORES_SAT.get(color_ganador, "#15803d")
+
+def dibujar_geometria(ax, geom, color_relleno, color_borde='#0f172a', lw=0.6, alpha=0.9):
     if geom.geom_type == 'Polygon':
         x, y = geom.exterior.xy
-        ax.fill(x, y, color=fill_color, alpha=alpha)
-        ax.plot(x, y, color=edge_color, linewidth=lw)
+        ax.fill(x, y, color=color_relleno, alpha=alpha)
+        ax.plot(x, y, color=color_borde, linewidth=lw)
     elif geom.geom_type == 'MultiPolygon':
         for sub in geom.geoms:
             x, y = sub.exterior.xy
-            ax.fill(x, y, color=fill_color, alpha=alpha)
-            ax.plot(x, y, color=edge_color, linewidth=lw)
+            ax.fill(x, y, color=color_relleno, alpha=alpha)
+            ax.plot(x, y, color=color_borde, linewidth=lw)
 
-def renderizar_mapa_region(region, dia_idx, ruta_temp, geojson_alertas):
+def renderizar_mapa_region(region, dia_idx, ruta_temp, poligonos_sat, datos_locales):
     fig, ax = plt.subplots(figsize=(8, 7), facecolor='#0f172a')
     ax.set_facecolor('#0f172a')
 
-    # 1. Base territorial de departamentos (Fondo verde suave de 'Sin alerta')
+    # Descarga la base geográfica oficial de departamentos
     url_base = "https://raw.githubusercontent.com/mgaitan/departamentos_argentina/master/departamentos-argentina.json"
-    try:
-        r = requests.get(url_base, timeout=12)
-        if r.status_code == 200:
-            for feat in r.json().get("features", []):
-                geom = shape(feat["geometry"])
-                # Se pintan en un verde oscuro/neutro para indicar 'Nivel Verde / Sin alertas'
-                dibujar_geom(ax, geom, fill_color="#14532d", edge_color="#1e293b", lw=0.5, alpha=0.5)
-    except Exception as e:
-        print(f"[-] Error cargando cartografía base: {e}")
+    r = requests.get(url_base, timeout=15)
+    geojson_deptos = r.json() if r.status_code == 200 else {"features": []}
 
-    # 2. Polígonos de alerta activos (Amarillo, Naranja, Rojo)
-    features_alerta = geojson_alertas.get("features", [])
-    for feat in features_alerta:
+    # 1. Dibujar base territorial
+    for feat in geojson_deptos.get("features", []):
+        geom = shape(feat["geometry"])
         prop = feat.get("properties", {})
-        color_prop = str(prop.get("color", prop.get("nivel", ""))).lower()
-        dia_prop = prop.get("dia", 0)
+        depto = prop.get("departamento", "")
+        prov = prop.get("provincia", "")
 
-        # Si corresponde al día consultado
-        if dia_prop == dia_idx or dia_idx == 0:
-            color_hex = COLORES_SAT.get(color_prop)
-            if color_hex and color_hex != "#16a34a":
-                try:
-                    geom_alerta = shape(feat["geometry"])
-                    dibujar_geom(ax, geom_alerta, fill_color=color_hex, edge_color="#ffffff", lw=0.9, alpha=0.85)
-                except Exception:
-                    continue
+        # Si no hay polígonos SAT directos, colorea directamente cada departamento cruzando con el JSON local
+        if not poligonos_sat:
+            color_depto = obtener_color_por_nombre(depto, prov, datos_locales, dia_idx)
+            dibujar_geometria(ax, geom, color_relleno=color_depto, color_borde="#1e293b", lw=0.6, alpha=0.92)
+        else:
+            # Fondo territorial base en verde suave (sin alerta)
+            dibujar_geometria(ax, geom, color_relleno="#15803d", color_borde="#1e293b", lw=0.6, alpha=0.5)
 
-    # Encuadre y proporciones
+    # 2. Si hay polígonos vectoriales oficiales del SAT, los superpone
+    if poligonos_sat:
+        for feat in poligonos_sat.get("features", []):
+            prop = feat.get("properties", {})
+            dia_alerta = prop.get("dia", 0)
+            if dia_alerta == dia_idx or dia_idx == 0:
+                color_tipo = extraer_nivel_color(prop)
+                color_hex = COLORES_SAT.get(color_tipo)
+                if color_hex and color_hex != "#15803d":
+                    try:
+                        geom_al = shape(feat["geometry"])
+                        dibujar_geometria(ax, geom_al, color_relleno=color_hex, color_borde="#ffffff", lw=1.0, alpha=0.88)
+                    except Exception:
+                        continue
+
+    # Ajuste de coordenadas y encuadre
     lim = REGIONES_LIMITES[region]
     ax.set_xlim(lim["minx"], lim["maxx"])
     ax.set_ylim(lim["miny"], lim["maxy"])
@@ -153,15 +231,16 @@ def procesar_generacion(idx_dia):
     prefijos = {0: "Hoy", 1: "Manana", 2: "Pasado"}
     prefijo = prefijos[idx_dia]
 
-    print(f"\n[+] Procesando alertas para {dia_str.upper()}...")
-    geojson_alertas = descargar_poligonos_alertas()
+    print(f"\n[+] Procesando placas para {dia_str.upper()}...")
+    poligonos_sat = descargar_poligonos_sat_smn()
+    datos_locales = cargar_alertas_locales()
 
     for region in ["Norte", "Centro", "Sur"]:
         nombre_salida = f"Alerta_{prefijo}_{region}.png"
         ruta_salida = os.path.join(CARPETA_SALIDA, nombre_salida)
         ruta_mapa_temp = os.path.join(base_dir, f"temp_{nombre_salida}")
 
-        renderizar_mapa_region(region, idx_dia, ruta_mapa_temp, geojson_alertas)
+        renderizar_mapa_region(region, idx_dia, ruta_mapa_temp, poligonos_sat, datos_locales)
 
         # Montaje con Pillow
         img = Image.new("RGB", (ANCHO_PLACA, ALTO_PLACA), COLOR_FONDO)
