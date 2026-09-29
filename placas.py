@@ -10,7 +10,6 @@ import matplotlib.pyplot as plt
 from shapely.geometry import shape
 from PIL import Image, ImageDraw, ImageFont
 
-# Rutas y configuración de carpetas
 if getattr(sys, 'frozen', False):
     base_dir = os.path.dirname(sys.executable)
 else:
@@ -19,7 +18,6 @@ else:
 CARPETA_SALIDA = os.path.join(base_dir, "placas_mapa")
 os.makedirs(CARPETA_SALIDA, exist_ok=True)
 
-# Dimensiones y colores
 ANCHO_PLACA = 1080
 ALTO_PLACA = 1350
 ENCABEZADO_ALTO = 200
@@ -49,7 +47,17 @@ REGIONES_LIMITES = {
     "Sur": {"minx": -75.0, "maxx": -62.0, "miny": -55.5, "maxy": -40.0}
 }
 
-# --- FUNCIONES BASE ---
+def normalizar_tokens(texto):
+    if not texto: return set()
+    txt = str(texto).lower().strip()
+    txt = re.sub(r'[áàäâ]', 'a', txt)
+    txt = re.sub(r'[éèëê]', 'e', txt)
+    txt = re.sub(r'[íìïî]', 'i', txt)
+    txt = re.sub(r'[óòöô]', 'o', txt)
+    txt = re.sub(r'[úùüû]', 'u', txt)
+    palabras = set(re.findall(r'[a-z0-9]{3,}', txt))
+    stopwords = {"cordillera", "valles", "meseta", "costa", "zona", "norte", "sur", "este", "oeste", "centro"}
+    return palabras - stopwords
 
 def obtener_fuente(tamano, bold=False):
     fuentes_posibles = [
@@ -70,21 +78,15 @@ def extraer_nivel(val):
     if any(c in val_norm for c in ["amarillo", "yellow"]): return "amarillo"
     return "verde"
 
-# --- 1. DESCARGA CON CABECERAS REALES ---
-
-def descargar_poligonos_sat(dia_idx):
+def obtener_alertas_api_smn(dia_idx):
+    """Consulta la API de alertas abiertas del SMN (ws.smn.gob.ar)."""
     headers = {
-        "User-Agent": "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/124.0.0.0 Safari/537.36",
-        "Accept": "application/json, text/plain, */*",
-        "Referer": "https://www.smn.gob.ar/alertas",
-        "Accept-Language": "es-AR,es;q=0.9,en;q=0.8"
+        "User-Agent": "Mozilla/5.0 (Windows NT 10.0; Win64; x64)",
+        "Accept": "application/json"
     }
-    
-    sufijo = f"_{dia_idx}" if dia_idx > 0 else ""
     urls = [
-        f"https://ssl.smn.gob.ar/ws/alertas/alertas_sat_poligonos{sufijo}.geojson",
-        f"https://ssl.smn.gob.ar/ws/alertas/alertas_sat_poligonos{sufijo}.json",
-        "https://ssl.smn.gob.ar/ws/alertas/alertas_sat_poligonos.geojson"
+        "https://ws.smn.gob.ar/alerts/type/AL",
+        "https://ssl.smn.gob.ar/ws/index.php?hh=0&s=1"
     ]
     
     for url in urls:
@@ -92,108 +94,96 @@ def descargar_poligonos_sat(dia_idx):
             r = requests.get(url, headers=headers, timeout=12)
             if r.status_code == 200 and r.text.strip():
                 data = r.json()
-                if "features" in data and len(data["features"]) > 0:
-                    print(f"[LOG] GeoJSON remoto obtenido desde: {url} ({len(data['features'])} polígonos)")
+                if isinstance(data, list) and len(data) > 0:
+                    print(f"[+] Alertas descargadas de la API oficial: {url} ({len(data)} alertas encontradas)")
                     return data
-        except Exception:
-            continue
-            
-    print(f"[LOG] No se pudo obtener GeoJSON remoto para el día {dia_idx}. Dependiendo exclusivamente de JSON locales...")
-    return None
-
-# --- 2. COINCIDENCIA DIFUSA (TOKEN POR TOKEN) ---
-
-def normalizar_a_tokens(texto):
-    if not texto: return set()
-    txt = str(texto).lower().strip()
-    txt = re.sub(r'[áàäâ]', 'a', txt)
-    txt = re.sub(r'[éèëê]', 'e', txt)
-    txt = re.sub(r'[íìïî]', 'i', txt)
-    txt = re.sub(r'[óòöô]', 'o', txt)
-    txt = re.sub(r'[úùüû]', 'u', txt)
-    palabras = set(re.findall(r'[a-z0-9]{3,}', txt))
-    stopwords = {"cordillera", "valles", "meseta", "costa", "zona", "norte", "sur", "este", "oeste", "centro"}
-    return palabras - stopwords
-
-def cargar_alertas_locales(dia_idx):
-    reglas = []
-    archivos = ["alertas_sat_detalle.json", "alertas_por_provincia.json", "alertas_completas.json"]
-    claves_dia = [str(dia_idx), ["hoy", "manana", "pasado"][dia_idx]]
-    
-    for nom in archivos:
-        path = os.path.join(base_dir, nom)
-        if not os.path.exists(path): continue
-        try:
-            with open(path, 'r', encoding='utf-8') as f:
-                data = json.load(f)
-            
-            if isinstance(data, dict):
-                for kd in claves_dia:
-                    if kd in data:
-                        data = data[kd]
-                        break
-                if isinstance(data, dict):
-                    data = list(data.values())
-            
-            if isinstance(data, list):
-                for item in data:
-                    if not isinstance(item, dict): continue
-                    
-                    color = extraer_nivel(item.get("color") or item.get("nivel") or item.get("severidad"))
-                    if color == "verde": continue
-                    
-                    prov = str(item.get("provincia") or item.get("name") or "")
-                    zona = str(item.get("zona") or item.get("departamento") or item.get("nombre") or "")
-                    
-                    reglas.append({
-                        "color": color,
-                        "prio": PESO_SEVERIDAD.get(color, 1),
-                        "tokens_prov": normalizar_a_tokens(prov),
-                        "tokens_zona": normalizar_a_tokens(zona),
-                        "texto_original": f"{prov} - {zona}".strip(" -")
-                    })
         except Exception as e:
-            print(f"[-] Error parseando {nom}: {e}")
-            
-    print(f"[LOG] {len(reglas)} reglas de alerta estructuradas leídas para el día {dia_idx}.")
+            print(f"[-] Intento fallido en {url}: {e}")
+
+    # Fallback: archivos locales con contenido
+    for nom in ["alertas_sat_detalle.json", "alertas_por_provincia.json"]:
+        path = os.path.join(base_dir, nom)
+        if os.path.exists(path):
+            try:
+                with open(path, "r", encoding="utf-8") as f:
+                    contenido = f.read().strip()
+                    if contenido:
+                        data = json.loads(contenido)
+                        print(f"[+] Fallback local cargado desde: {nom}")
+                        return data
+            except Exception:
+                continue
+    return []
+
+def estructurar_reglas_alerta(datos_raw, dia_idx):
+    reglas = []
+    if not datos_raw:
+        return reglas
+
+    # Si la API entrega lista de alertas del SMN
+    items = datos_raw if isinstance(datos_raw, list) else datos_raw.get("alertas", [])
+
+    for item in items:
+        if not isinstance(item, dict):
+            continue
+
+        color = extraer_nivel(item.get("severity") or item.get("color") or item.get("nivel") or "")
+        if color == "verde":
+            continue
+
+        prio = PESO_SEVERIDAD.get(color, 1)
+        
+        # Procesar estructura de zonas del SMN
+        zonas = item.get("zones", {})
+        if isinstance(zonas, dict):
+            for cod, nom_zona in zonas.items():
+                reglas.append({
+                    "color": color,
+                    "prio": prio,
+                    "tokens": normalizar_tokens(nom_zona),
+                    "nombre": nom_zona
+                })
+        else:
+            # Estructura genérica provincia / departamento
+            prov = str(item.get("provincia") or item.get("name") or "")
+            zona = str(item.get("zona") or item.get("departamento") or "")
+            reglas.append({
+                "color": color,
+                "prio": prio,
+                "tokens": normalizar_tokens(f"{prov} {zona}"),
+                "nombre": f"{prov} - {zona}".strip(" -")
+            })
+
+    print(f"[LOG] {len(reglas)} zonas bajo alerta activa detectadas para el día {dia_idx}.")
     return reglas
 
-def coincide_departamento(depto_mapa, prov_mapa, regla):
-    tokens_depto = normalizar_a_tokens(depto_mapa)
-    tokens_prov = normalizar_a_tokens(prov_mapa)
+def obtener_color_depto(depto_nombre, prov_nombre, reglas):
+    tokens_depto = normalizar_tokens(depto_nombre)
+    tokens_prov = normalizar_tokens(prov_nombre)
     
-    # Coincidencia por tokens de departamento
-    if tokens_depto and (tokens_depto & regla["tokens_zona"]):
-        return True
-    
-    # Coincidencia por provincia (si la alerta no especificó departamento/zona, aplica a toda)
-    if tokens_prov and (tokens_prov & regla["tokens_prov"]) and not regla["tokens_zona"]:
-        return True
-        
-    return False
+    max_prio = 1
+    color_max = "verde"
+    motivo = ""
 
-# --- 3. REGISTRO EN LOGS Y ASIGNACIÓN DE COLOR ---
+    for r in reglas:
+        # Match si hay coincidencia de tokens entre el departamento y la zona bajo alerta
+        if tokens_depto and (tokens_depto & r["tokens"]):
+            if r["prio"] > max_prio:
+                max_prio = r["prio"]
+                color_max = r["color"]
+                motivo = r["nombre"]
+        elif tokens_prov and (tokens_prov & r["tokens"]):
+            if r["prio"] > max_prio:
+                max_prio = r["prio"]
+                color_max = r["color"]
+                motivo = r["nombre"]
 
-def procesar_alertas_con_logs(depto_nombre, prov_nombre, reglas_alerta):
-    color_asignado = "verde"
-    prio_max = 1
-    motivos = []
+    if color_max != "verde":
+        print(f"[PINTADO] {prov_nombre}, {depto_nombre} -> {color_max.upper()} | Coincidencia: {motivo}")
 
-    for r in reglas_alerta:
-        if coincide_departamento(depto_nombre, prov_nombre, r):
-            if r["prio"] > prio_max:
-                prio_max = r["prio"]
-                color_asignado = r["color"]
-            motivos.append(f"[{r['color'].upper()}] {r['texto_original']}")
+    return COLORES_SAT.get(color_max, "#15803d")
 
-    if color_asignado != "verde":
-        print(f"[PINTADO] {prov_nombre}, {depto_nombre} -> {color_asignado.upper()} | Motivo: {', '.join(motivos)}")
-
-    return COLORES_SAT.get(color_asignado, "#15803d")
-
-# --- MOTOR DE DIBUJO ---
-
-def dibujar_geom(ax, geom, color_relleno, color_borde='#0f172a', lw=0.6, alpha=0.9):
+def dibujar_geom(ax, geom, color_relleno, color_borde='#1e293b', lw=0.5, alpha=0.9):
     if geom.geom_type == 'Polygon':
         x, y = geom.exterior.xy
         ax.fill(x, y, color=color_relleno, alpha=alpha)
@@ -204,11 +194,10 @@ def dibujar_geom(ax, geom, color_relleno, color_borde='#0f172a', lw=0.6, alpha=0
             ax.fill(x, y, color=color_relleno, alpha=alpha)
             ax.plot(x, y, color=color_borde, linewidth=lw)
 
-def renderizar_mapa_region(region, dia_idx, ruta_temp, poligonos_sat, reglas_alerta):
+def renderizar_mapa_region(region, dia_idx, ruta_temp, reglas):
     fig, ax = plt.subplots(figsize=(8, 7), facecolor='#0f172a')
     ax.set_facecolor('#0f172a')
 
-    # Cartografía base de departamentos IGN
     url_deptos = "https://raw.githubusercontent.com/mgaitan/departamentos_argentina/master/departamentos-argentina.json"
     try:
         r = requests.get(url_deptos, timeout=15)
@@ -216,29 +205,15 @@ def renderizar_mapa_region(region, dia_idx, ruta_temp, poligonos_sat, reglas_ale
     except Exception:
         deptos_geojson = {"features": []}
 
-    # 1. Dibujar departamentos y aplicar coincidencias difusas
     for feat in deptos_geojson.get("features", []):
         geom = shape(feat["geometry"])
         prop = feat.get("properties", {})
         depto = prop.get("departamento", "")
         prov = prop.get("provincia", "")
 
-        color_relleno = procesar_alertas_con_logs(depto, prov, reglas_alerta)
-        dibujar_geom(ax, geom, color_relleno=color_relleno, color_borde="#1e293b", lw=0.5, alpha=0.85)
+        color = obtener_color_depto(depto, prov, reglas)
+        dibujar_geom(ax, geom, color_relleno=color, color_borde="#0f172a", lw=0.5, alpha=0.9)
 
-    # 2. Superponer polígonos del SMN si la descarga remota funcionó
-    if poligonos_sat:
-        for feat in poligonos_sat.get("features", []):
-            prop = feat.get("properties", {})
-            c_sat = extraer_nivel(prop.get("color") or prop.get("nivel") or "")
-            if c_sat != "verde":
-                try:
-                    g = shape(feat["geometry"])
-                    dibujar_geom(ax, g, color_relleno=COLORES_SAT[c_sat], color_borde="#ffffff", lw=1.0, alpha=0.9)
-                except Exception:
-                    continue
-
-    # Encuadre y vista regional
     lim = REGIONES_LIMITES[region]
     ax.set_xlim(lim["minx"], lim["maxx"])
     ax.set_ylim(lim["miny"], lim["maxy"])
@@ -260,17 +235,16 @@ def procesar_generacion(idx_dia):
     prefijo = prefijos[idx_dia]
 
     print(f"\n{'='*50}\n[+] Procesando placas para {dia_str.upper()}...\n{'='*50}")
-    poligonos_sat = descargar_poligonos_sat(idx_dia)
-    reglas_alerta = cargar_alertas_locales(idx_dia)
+    datos_raw = obtener_alertas_api_smn(idx_dia)
+    reglas = estructurar_reglas_alerta(datos_raw, idx_dia)
 
     for region in ["Norte", "Centro", "Sur"]:
         nombre_salida = f"Alerta_{prefijo}_{region}.png"
         ruta_salida = os.path.join(CARPETA_SALIDA, nombre_salida)
         ruta_mapa_temp = os.path.join(base_dir, f"temp_{nombre_salida}")
 
-        renderizar_mapa_region(region, idx_dia, ruta_mapa_temp, poligonos_sat, reglas_alerta)
+        renderizar_mapa_region(region, idx_dia, ruta_mapa_temp, reglas)
 
-        # Composición con Pillow
         img = Image.new("RGB", (ANCHO_PLACA, ALTO_PLACA), COLOR_FONDO)
         draw = ImageDraw.Draw(img)
 
