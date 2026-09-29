@@ -1,6 +1,7 @@
 import os
 import sys
 import json
+import re
 import requests
 from datetime import datetime, timedelta
 import matplotlib
@@ -8,6 +9,8 @@ matplotlib.use('Agg')
 import matplotlib.pyplot as plt
 from shapely.geometry import shape
 from PIL import Image, ImageDraw, ImageFont
+
+# Librerías para Avisos a Corto Plazo
 import contextily as ctx
 from shapely import wkt
 import geopandas as gpd
@@ -34,7 +37,7 @@ COLOR_ROJO = (220, 38, 38)
 COLOR_BORDE = (30, 41, 59)
 
 COLORES_NIVEL = {
-    1: "#14532d",  # Verde oscuro
+    1: "#14532d",  # Verde Oscuro (Sin alerta)
     2: "#eab308",  # Amarillo
     3: "#f97316",  # Naranja
     4: "#ef4444"   # Rojo
@@ -45,6 +48,17 @@ REGIONES_LIMITES = {
     "Centro": {"minx": -71.5, "maxx": -56.0, "miny": -42.0, "maxy": -30.0},
     "Sur": {"minx": -75.0, "maxx": -62.0, "miny": -55.5, "maxy": -40.0}
 }
+
+def normalizar(txt):
+    if not txt: return ""
+    txt = str(txt).lower().strip()
+    txt = re.sub(r'[áàäâ]', 'a', txt)
+    txt = re.sub(r'[éèëê]', 'e', txt)
+    txt = re.sub(r'[íìïî]', 'i', txt)
+    txt = re.sub(r'[óòöô]', 'o', txt)
+    txt = re.sub(r'[úùüû]', 'u', txt)
+    txt = re.sub(r'[^a-z0-9]', '', txt)
+    return txt
 
 def obtener_fuente(tamano, bold=False):
     fuentes = [
@@ -61,22 +75,112 @@ def obtener_fuente(tamano, bold=False):
 def dibujar_caja_redondeada(draw, xy, fill, outline=None, width=0, radius=10):
     draw.rounded_rectangle(xy, radius=radius, fill=fill, outline=outline, width=width)
 
+def dibujar_geom(ax, geom, fill_color, edge_color='#0f172a', lw=0.4, alpha=0.9):
+    try:
+        if geom.geom_type == 'Polygon':
+            x, y = geom.exterior.xy
+            ax.fill(x, y, color=fill_color, alpha=alpha)
+            ax.plot(x, y, color=edge_color, linewidth=lw)
+        elif geom.geom_type == 'MultiPolygon':
+            for sub in geom.geoms:
+                x, y = sub.exterior.xy
+                ax.fill(x, y, color=fill_color, alpha=alpha)
+                ax.plot(x, y, color=edge_color, linewidth=lw)
+    except Exception:
+        pass
+
+# ==========================================
+# DESCARGAS SEGURAS (CON REINTENTOS)
+# ==========================================
+
+def descargar_base_ign():
+    url = "https://raw.githubusercontent.com/mgaitan/departamentos_argentina/master/departamentos-argentina.json"
+    for _ in range(3):
+        try:
+            r = requests.get(url, timeout=20)
+            if r.status_code == 200:
+                print("[✓] Mapa base IGN descargado correctamente.")
+                return r.json()
+        except Exception:
+            pass
+    print("[-] CRÍTICO: Falló la descarga del mapa base tras 3 intentos.")
+    return {"features": []}
+
+def descargar_poligonos_smn():
+    url_smn = "https://ssl.smn.gob.ar/ws/alertas/alertas_sat_poligonos.geojson"
+    proxies = [url_smn, f"https://api.allorigins.win/raw?url={url_smn}", f"https://corsproxy.io/?{url_smn}"]
+    headers = {"User-Agent": "Mozilla/5.0"}
+    for u in proxies:
+        try:
+            r = requests.get(u, headers=headers, timeout=15)
+            if r.status_code == 200:
+                d = r.json()
+                if "features" in d:
+                    print("[✓] Polígonos oficiales del SMN descargados.")
+                    return d
+        except Exception:
+            pass
+    print("[-] No se pudo obtener polígonos del SMN. Se usará coincidencia de texto.")
+    return None
+
+def obtener_mapeo_nombres():
+    mapeo = {}
+    url = "https://ws.smn.gob.ar/alerts/type/AL"
+    proxies = [url, f"https://api.allorigins.win/raw?url={url}"]
+    for u in proxies:
+        try:
+            r = requests.get(u, headers={"User-Agent": "Mozilla/5.0"}, timeout=15)
+            if r.status_code == 200:
+                for item in r.json():
+                    for aid, zname in item.get("zones", {}).items():
+                        mapeo[str(aid)] = zname
+                if mapeo: return mapeo
+        except Exception:
+            pass
+    return mapeo
+
+def extraer_reglas_texto_locales():
+    mapa = {}
+    for arch in ["alertas_por_provincia.json", "alertas_completas.json"]:
+        p = os.path.join(base_dir, arch)
+        if os.path.exists(p):
+            try:
+                with open(p, "r", encoding="utf-8") as f:
+                    data = json.load(f)
+                def buscar(nodo, c_actual=1):
+                    if isinstance(nodo, dict):
+                        c_str = str(nodo.get("color") or nodo.get("nivel") or "").lower()
+                        if "rojo" in c_str or "red" in c_str: c_actual = 4
+                        elif "naranja" in c_str or "orange" in c_str: c_actual = 3
+                        elif "amarill" in c_str or "yellow" in c_str: c_actual = 2
+                        
+                        for k in ["provincia", "departamento", "zona"]:
+                            if k in nodo and isinstance(nodo[k], str):
+                                n = normalizar(nodo[k])
+                                if n: mapa[n] = max(mapa.get(n, 1), c_actual)
+                        for v in nodo.values(): buscar(v, c_actual)
+                    elif isinstance(nodo, list):
+                        for e in nodo: buscar(e, c_actual)
+                buscar(data)
+            except Exception: pass
+    return mapa
+
 # ==========================================
 # PARTE 1: AVISOS A CORTO PLAZO (SATEM)
 # ==========================================
 
 def descargar_acp_smn():
     url = "https://ws.smn.gob.ar/alerts/type/AC"
-    headers = {"User-Agent": "Mozilla/5.0"}
-    try:
-        r = requests.get(url, headers=headers, timeout=15)
-        if r.status_code == 200:
-            data = r.json()
-            if isinstance(data, list) and len(data) > 0:
-                print(f"[✓] ACP: {len(data)} Avisos a Corto Plazo obtenidos.")
-                return data
-    except Exception as e:
-        print(f"[-] Error descargando ACP: {e}")
+    proxies = [url, f"https://api.allorigins.win/raw?url={url}"]
+    for u in proxies:
+        try:
+            r = requests.get(u, headers={"User-Agent": "Mozilla/5.0"}, timeout=15)
+            if r.status_code == 200:
+                d = r.json()
+                if isinstance(d, list) and len(d) > 0:
+                    print(f"[✓] ACP: {len(d)} Avisos a Corto Plazo obtenidos.")
+                    return d
+        except Exception: pass
     return []
 
 def generar_mapa_acp(poligono_wkt, ruta_temp):
@@ -90,7 +194,6 @@ def generar_mapa_acp(poligono_wkt, ruta_temp):
             ax.plot(x, y, marker='o', color='yellow', markeredgecolor='black', markersize=6, transform=ctx.crs.WGS84_to_Mercator)
         ctx.add_basemap(ax, source=ctx.providers.OpenStreetMap.Mapnik)
     except Exception as e:
-        print(f"[-] Error renderizando mapa ACP: {e}")
         ax.set_facecolor('#d1d5db')
     ax.set_axis_off()
     plt.tight_layout(pad=0)
@@ -109,10 +212,7 @@ def crear_placa_acp(acp_data, idx):
     zonas_dict = acp_data.get("zones", {})
     provincias = {}
     for cod, desc in zonas_dict.items():
-        if " - " in desc:
-            prov, depto = desc.split(" - ", 1)
-        else:
-            prov, depto = "ZONA", desc
+        prov, depto = desc.split(" - ", 1) if " - " in desc else ("ZONA", desc)
         if prov not in provincias: provincias[prov] = []
         provincias[prov].append(depto)
 
@@ -122,7 +222,6 @@ def crear_placa_acp(acp_data, idx):
     draw.ellipse([(40, 30), (120, 110)], fill=(255, 255, 255))
     draw.text((150, 40), "SATEM ARGENTINA", font=obtener_fuente(40, bold=True), fill=COLOR_TEXTO)
     draw.text((150, 85), "Soporte y Alerta Temprana ante Eventos Meteorológicos", font=obtener_fuente(20), fill=(56, 189, 248))
-
     draw.text((40, 140), "AVISO A CORTO PLAZO", font=obtener_fuente(35, bold=True), fill=COLOR_AMARILLO)
 
     dibujar_caja_redondeada(draw, [(40, 190), (250, 280)], fill=COLOR_CAJA_GRIS, outline=COLOR_BORDE, width=2)
@@ -137,9 +236,8 @@ def crear_placa_acp(acp_data, idx):
     draw.text((60, 330), "FENÓMENO PREVISTO", font=obtener_fuente(14, bold=True), fill=COLOR_ROJO)
     
     import textwrap
-    lines = textwrap.wrap(titulo_fenomeno, width=25)
     y_text = 370
-    for line in lines:
+    for line in textwrap.wrap(titulo_fenomeno, width=25):
         draw.text((60, y_text), line, font=obtener_fuente(24, bold=True), fill=COLOR_TEXTO)
         y_text += 35
 
@@ -150,9 +248,7 @@ def crear_placa_acp(acp_data, idx):
     for prov, deptos in provincias.items():
         draw.text((60, y_zona), f"{prov}:", font=obtener_fuente(24, bold=True), fill=COLOR_AMARILLO)
         y_zona += 35
-        depto_str = " • ".join(deptos) + "."
-        lines_d = textwrap.wrap(depto_str, width=32)
-        for ld in lines_d:
+        for ld in textwrap.wrap(" • ".join(deptos) + ".", width=32):
             draw.text((60, y_zona), ld, font=obtener_fuente(20, bold=True), fill=COLOR_TEXTO)
             y_zona += 28
         y_zona += 10
@@ -176,7 +272,6 @@ def crear_placa_acp(acp_data, idx):
     draw.text((40, 1020), "Datos oficiales: Servicio Meteorológico Nacional (SMN)", font=obtener_fuente(12), fill=(75, 85, 99))
     ruta_salida = os.path.join(CARPETA_SALIDA, f"ACP_{idx}.png")
     img.save(ruta_salida, format="PNG")
-    print(f"[✓] Placa ACP guardada: {ruta_salida}")
 
 # ==========================================
 # PARTE 2: ALERTAS REGIONALES (HOY/MAÑANA)
@@ -189,9 +284,8 @@ def cargar_alertas_sat_detalle():
             with open(ruta, "r", encoding="utf-8") as f:
                 data = json.load(f)
                 if isinstance(data, dict): data = data.get("data", list(data.values())[0] if data else [])
-                print(f"[✓] Regional: alertas_sat_detalle.json cargado ({len(data)} áreas).")
                 return data
-        except Exception as e: print(f"[-] Error cargando alertas: {e}")
+        except Exception: pass
     return []
 
 def extraer_niveles_por_fecha(datos_sat, fecha_str):
@@ -205,52 +299,50 @@ def extraer_niveles_por_fecha(datos_sat, fecha_str):
                 break
     return niveles
 
-def descargar_base_ign():
-    url = "https://raw.githubusercontent.com/mgaitan/departamentos_argentina/master/departamentos-argentina.json"
-    try:
-        r = requests.get(url, timeout=15)
-        if r.status_code == 200: return r.json()
-    except Exception: pass
-    return {"features": []}
-
-def descargar_poligonos_smn():
-    url_smn = "https://ssl.smn.gob.ar/ws/alertas/alertas_sat_poligonos.geojson"
-    try:
-        r = requests.get(f"https://api.allorigins.win/raw?url={url_smn}", headers={"User-Agent": "Mozilla/5.0"}, timeout=15)
-        if r.status_code == 200:
-            d = r.json()
-            if "features" in d: return d
-    except Exception: pass
-    return None
-
-def dibujar_geom_simple(ax, geom, fill_color, edge_color='#0f172a', lw=0.4, alpha=0.9):
-    if geom.geom_type == 'Polygon':
-        x, y = geom.exterior.xy
-        ax.fill(x, y, color=fill_color, alpha=alpha)
-        ax.plot(x, y, color=edge_color, linewidth=lw)
-    elif geom.geom_type == 'MultiPolygon':
-        for sub in geom.geoms:
-            x, y = sub.exterior.xy
-            ax.fill(x, y, color=fill_color, alpha=alpha)
-            ax.plot(x, y, color=edge_color, linewidth=lw)
-
-def renderizar_mapa_region(region, ruta_temp, niveles_area, base_ign, poligonos_smn):
+def renderizar_mapa_region(region, ruta_temp, niveles_area, base_ign, poligonos_smn, niveles_texto):
     fig, ax = plt.subplots(figsize=(8, 7), facecolor='#0f172a')
     ax.set_facecolor('#0f172a')
 
-    for feat in base_ign.get("features", []):
-        g = feat.get("geometry")
-        if g: dibujar_geom_simple(ax, shape(g), fill_color="#14532d", edge_color="#1e293b", lw=0.4, alpha=0.7)
+    pintados = 0
 
-    if poligonos_smn:
-        for feat in poligonos_smn.get("features", []):
+    if poligonos_smn and "features" in poligonos_smn and len(poligonos_smn["features"]) > 0:
+        # Base
+        for feat in base_ign.get("features", []):
+            g = feat.get("geometry")
+            if g: dibujar_geom(ax, shape(g), fill_color="#14532d", edge_color="#1e293b", lw=0.4, alpha=0.7)
+        # Superposición de polígonos exactos SMN
+        for feat in poligonos_smn["features"]:
             prop = feat.get("properties", {})
             aid = str(prop.get("ARE_IN_ID") or prop.get("are_in_id") or prop.get("area_id") or "")
             nivel = niveles_area.get(aid, 1)
             if nivel > 1:
-                g = feat.get("geometry")
-                if g: dibujar_geom_simple(ax, shape(g), fill_color=COLORES_NIVEL.get(nivel), edge_color="#ffffff", lw=0.8, alpha=0.95)
+                pintados += 1
+            color = COLORES_NIVEL.get(nivel, "#15803d")
+            g = feat.get("geometry")
+            if g: 
+                borde = "#ffffff" if nivel > 1 else "#1e293b"
+                dibujar_geom(ax, shape(g), color, borde, 0.6 if nivel>1 else 0.4, 0.95 if nivel>1 else 0.7)
+    else:
+        # Fallback Textual sobre mapa IGN
+        for feat in base_ign.get("features", []):
+            g = feat.get("geometry")
+            if not g: continue
+            prop = feat.get("properties", {})
+            prov = normalizar(prop.get("provincia", ""))
+            depto = normalizar(prop.get("departamento", ""))
+            
+            nivel = 1
+            for txt, lvl in niveles_texto.items():
+                if len(txt) > 3 and (txt in depto or depto in txt or txt in prov or prov in txt):
+                    if lvl > nivel: nivel = lvl
+            
+            if nivel > 1: pintados += 1
+            color = COLORES_NIVEL.get(nivel, "#14532d")
+            borde = "#ffffff" if nivel > 1 else "#1e293b"
+            dibujar_geom(ax, shape(g), color, borde, 0.6 if nivel>1 else 0.4, 0.95 if nivel>1 else 0.7)
 
+    print(f"[LOG] Región {region}: {pintados} polígonos en alerta dibujados.")
+    
     lim = REGIONES_LIMITES[region]
     ax.set_xlim(lim["minx"], lim["maxx"])
     ax.set_ylim(lim["miny"], lim["maxy"])
@@ -260,7 +352,7 @@ def renderizar_mapa_region(region, ruta_temp, niveles_area, base_ign, poligonos_
     plt.savefig(ruta_temp, dpi=140, facecolor=fig.get_facecolor(), edgecolor='none', bbox_inches='tight')
     plt.close(fig)
 
-def procesar_generacion_regional(idx_dia, datos_sat, base_ign, poligonos_smn):
+def procesar_generacion_regional(idx_dia, datos_sat, base_ign, poligonos_smn, mapeo_nombres):
     dias_semana = {0: "Lunes", 1: "Martes", 2: "Miércoles", 3: "Jueves", 4: "Viernes", 5: "Sábado", 6: "Domingo"}
     base_fecha = datetime.now()
     fecha_alerta = base_fecha + timedelta(days=idx_dia)
@@ -269,13 +361,22 @@ def procesar_generacion_regional(idx_dia, datos_sat, base_ign, poligonos_smn):
     prefijo = {0: "Hoy", 1: "Manana", 2: "Pasado"}[idx_dia]
 
     niveles_area = extraer_niveles_por_fecha(datos_sat, fecha_str)
+    
+    # Consolidar diccionario de respaldo por texto
+    niveles_texto = extraer_reglas_texto_locales()
+    for aid, lvl in niveles_area.items():
+        if lvl > 1:
+            zname = mapeo_nombres.get(aid, "")
+            if zname:
+                nz = normalizar(zname)
+                niveles_texto[nz] = max(niveles_texto.get(nz, 1), lvl)
 
     for region in ["Norte", "Centro", "Sur"]:
         nombre_salida = f"Alerta_{prefijo}_{region}.png"
         ruta_salida = os.path.join(CARPETA_SALIDA, nombre_salida)
         ruta_mapa_temp = os.path.join(base_dir, f"temp_{nombre_salida}")
 
-        renderizar_mapa_region(region, ruta_mapa_temp, niveles_area, base_ign, poligonos_smn)
+        renderizar_mapa_region(region, ruta_mapa_temp, niveles_area, base_ign, poligonos_smn, niveles_texto)
 
         img = Image.new("RGB", (ANCHO_PLACA, ALTO_PLACA), COLOR_FONDO)
         draw = ImageDraw.Draw(img)
@@ -300,18 +401,14 @@ def procesar_generacion_regional(idx_dia, datos_sat, base_ign, poligonos_smn):
         print(f"[✓] Placa regional guardada: {ruta_salida}")
 
 if __name__ == "__main__":
-    # 1. Generar placas de Aviso a Corto Plazo (ACP) si hay vigentes
     acps = descargar_acp_smn()
     if acps:
-        for i, acp in enumerate(acps):
-            crear_placa_acp(acp, i)
-    else:
-        print("[LOG] No hay Avisos a Corto Plazo (ACP) activos en este momento.")
+        for i, acp in enumerate(acps): crear_placa_acp(acp, i)
 
-    # 2. Generar placas Regionales de Alerta (Hoy, Mañana, Pasado)
     datos_sat = cargar_alertas_sat_detalle()
     base_ign = descargar_base_ign()
     poligonos_smn = descargar_poligonos_smn()
+    mapeo_nombres = obtener_mapeo_nombres()
     
     for d in range(3):
-        procesar_generacion_regional(d, datos_sat, base_ign, poligonos_smn)
+        procesar_generacion_regional(d, datos_sat, base_ign, poligonos_smn, mapeo_nombres)
