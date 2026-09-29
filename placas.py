@@ -36,12 +36,11 @@ REGIONES_LIMITES = {
     "Sur": {"minx": -74.5, "maxx": -62.0, "miny": -55.5, "maxy": -40.0}
 }
 
-COLORES_ALERTA = {
-    "verde": "#15803d",
+COLORES_SAT = {
     "amarillo": "#eab308",
     "naranja": "#f97316",
     "rojo": "#ef4444",
-    "base": "#1e293b"
+    "verde": "#16a34a"
 }
 
 def obtener_fuente(tamano, bold=False):
@@ -59,80 +58,81 @@ def obtener_fuente(tamano, bold=False):
                 continue
     return ImageFont.load_default()
 
-def cargar_alertas():
-    # Lee los datos procesados en el repositorio
-    for archivo in ["alertas_sat_detalle.json", "alertas_por_provincia.json", "alertas_completas.json"]:
-        ruta = os.path.join(base_dir, archivo)
-        if os.path.exists(ruta):
+def descargar_poligonos_alertas():
+    """Descarga los polígonos oficiales de alertas del SMN o recurre a los archivos del repositorio."""
+    urls = [
+        "https://ssl.smn.gob.ar/ws/alertas/alertas_sat_poligonos.json",
+        "https://ssl.smn.gob.ar/ws/alertas/alertas_hoy.json"
+    ]
+    headers = {"User-Agent": "Mozilla/5.0 (Windows NT 10.0; Win64; x64)"}
+    for url in urls:
+        try:
+            r = requests.get(url, headers=headers, timeout=10)
+            if r.status_code == 200 and r.text.strip():
+                data = r.json()
+                if "features" in data:
+                    return data
+        except Exception:
+            continue
+
+    # Fallback local
+    for arch in ["alertas_sat_detalle.json", "alertas_completas.json"]:
+        path = os.path.join(base_dir, arch)
+        if os.path.exists(path):
             try:
-                with open(ruta, "r", encoding="utf-8") as f:
-                    contenido = f.read().strip()
-                    if contenido:
-                        return json.loads(contenido)
+                with open(path, "r", encoding="utf-8") as f:
+                    data = json.load(f)
+                    if isinstance(data, dict) and "features" in data:
+                        return data
             except Exception:
-                continue
-    return {}
+                pass
+    return {"type": "FeatureCollection", "features": []}
 
-def obtener_color_departamento(nombre_depto, prov_nombre, datos_alertas, idx_dia):
-    if not datos_alertas:
-        return COLORES_ALERTA["base"]
-
-    nombre_normalizado = (nombre_depto or "").strip().lower()
-    prov_normalizada = (prov_nombre or "").strip().lower()
-
-    # Si hay estructura de alertas detalladas por zona
-    alertas_lista = datos_alertas if isinstance(datos_alertas, list) else datos_alertas.get("alertas", [])
-    
-    nivel_prioridad = {"rojo": 4, "naranja": 3, "amarillo": 2, "verde": 1}
-    color_max = "base"
-    prio_max = 0
-
-    for al in alertas_lista:
-        zona = str(al.get("zona", "")).lower()
-        prov = str(al.get("provincia", "")).lower()
-        color = str(al.get("color", "")).lower()
-        dia_alerta = al.get("dia", 0)
-
-        # Si coincide el día (o no especifica) y la zona/provincia
-        if (dia_alerta == idx_dia or "dia" not in al) and (nombre_normalizado in zona or prov_normalizada in prov):
-            prio = nivel_prioridad.get(color, 0)
-            if prio > prio_max:
-                prio_max = prio
-                color_max = color
-
-    return COLORES_ALERTA.get(color_max, COLORES_ALERTA["base"])
-
-def dibujar_poligono(ax, poly, fill_color, edge_color='#334155', lw=0.6):
-    if poly.geom_type == 'Polygon':
-        x, y = poly.exterior.xy
-        ax.fill(x, y, color=fill_color, alpha=0.92)
+def dibujar_geom(ax, geom, fill_color, edge_color='#334155', lw=0.6, alpha=0.9):
+    if geom.geom_type == 'Polygon':
+        x, y = geom.exterior.xy
+        ax.fill(x, y, color=fill_color, alpha=alpha)
         ax.plot(x, y, color=edge_color, linewidth=lw)
-    elif poly.geom_type == 'MultiPolygon':
-        for sub_p in poly.geoms:
-            x, y = sub_p.exterior.xy
-            ax.fill(x, y, color=fill_color, alpha=0.92)
+    elif geom.geom_type == 'MultiPolygon':
+        for sub in geom.geoms:
+            x, y = sub.exterior.xy
+            ax.fill(x, y, color=fill_color, alpha=alpha)
             ax.plot(x, y, color=edge_color, linewidth=lw)
 
-def renderizar_mapa_region(region, dia_idx, ruta_temp, datos_alertas):
+def renderizar_mapa_region(region, dia_idx, ruta_temp, geojson_alertas):
     fig, ax = plt.subplots(figsize=(8, 7), facecolor='#0f172a')
     ax.set_facecolor('#0f172a')
 
-    url_provincias = "https://raw.githubusercontent.com/mgaitan/departamentos_argentina/master/departamentos-argentina.json"
+    # 1. Base territorial de departamentos (Fondo verde suave de 'Sin alerta')
+    url_base = "https://raw.githubusercontent.com/mgaitan/departamentos_argentina/master/departamentos-argentina.json"
     try:
-        r = requests.get(url_provincias, timeout=15)
+        r = requests.get(url_base, timeout=12)
         if r.status_code == 200:
-            geojson_data = r.json()
-            for feature in geojson_data.get("features", []):
-                geom = shape(feature["geometry"])
-                prop = feature.get("properties", {})
-                depto = prop.get("departamento", "")
-                prov = prop.get("provincia", "")
-
-                color_relleno = obtener_color_departamento(depto, prov, datos_alertas, dia_idx)
-                dibujar_poligono(ax, geom, fill_color=color_relleno, edge_color="#475569", lw=0.7)
+            for feat in r.json().get("features", []):
+                geom = shape(feat["geometry"])
+                # Se pintan en un verde oscuro/neutro para indicar 'Nivel Verde / Sin alertas'
+                dibujar_geom(ax, geom, fill_color="#14532d", edge_color="#1e293b", lw=0.5, alpha=0.5)
     except Exception as e:
-        print(f"[-] Error renderizando departamentos: {e}")
+        print(f"[-] Error cargando cartografía base: {e}")
 
+    # 2. Polígonos de alerta activos (Amarillo, Naranja, Rojo)
+    features_alerta = geojson_alertas.get("features", [])
+    for feat in features_alerta:
+        prop = feat.get("properties", {})
+        color_prop = str(prop.get("color", prop.get("nivel", ""))).lower()
+        dia_prop = prop.get("dia", 0)
+
+        # Si corresponde al día consultado
+        if dia_prop == dia_idx or dia_idx == 0:
+            color_hex = COLORES_SAT.get(color_prop)
+            if color_hex and color_hex != "#16a34a":
+                try:
+                    geom_alerta = shape(feat["geometry"])
+                    dibujar_geom(ax, geom_alerta, fill_color=color_hex, edge_color="#ffffff", lw=0.9, alpha=0.85)
+                except Exception:
+                    continue
+
+    # Encuadre y proporciones
     lim = REGIONES_LIMITES[region]
     ax.set_xlim(lim["minx"], lim["maxx"])
     ax.set_ylim(lim["miny"], lim["maxy"])
@@ -153,16 +153,17 @@ def procesar_generacion(idx_dia):
     prefijos = {0: "Hoy", 1: "Manana", 2: "Pasado"}
     prefijo = prefijos[idx_dia]
 
-    print(f"\n[+] Coloreando placas vectoriales para {dia_str.upper()}...")
-    datos_alertas = cargar_alertas()
+    print(f"\n[+] Procesando alertas para {dia_str.upper()}...")
+    geojson_alertas = descargar_poligonos_alertas()
 
     for region in ["Norte", "Centro", "Sur"]:
         nombre_salida = f"Alerta_{prefijo}_{region}.png"
         ruta_salida = os.path.join(CARPETA_SALIDA, nombre_salida)
         ruta_mapa_temp = os.path.join(base_dir, f"temp_{nombre_salida}")
 
-        renderizar_mapa_region(region, idx_dia, ruta_mapa_temp, datos_alertas)
+        renderizar_mapa_region(region, idx_dia, ruta_mapa_temp, geojson_alertas)
 
+        # Montaje con Pillow
         img = Image.new("RGB", (ANCHO_PLACA, ALTO_PLACA), COLOR_FONDO)
         draw = ImageDraw.Draw(img)
 
@@ -180,9 +181,10 @@ def procesar_generacion(idx_dia):
 
         draw.rectangle([(50, ENCABEZADO_ALTO + MAPA_ALTO + 20), (ANCHO_PLACA - 50, ALTO_PLACA - 40)], fill=(30, 41, 59))
         draw.text((70, ENCABEZADO_ALTO + MAPA_ALTO + 40), "Niveles de Alerta:", font=obtener_fuente(26, bold=True), fill=COLOR_TEXTO)
-        draw.text((70, ENCABEZADO_ALTO + MAPA_ALTO + 90), "• Amarillo: Posibles fenómenos con capacidad de daño", font=obtener_fuente(24), fill=COLOR_ALERTA_AMARILLO)
-        draw.text((70, ENCABEZADO_ALTO + MAPA_ALTO + 130), "• Naranja: Se esperan fenómenos peligrosos para la sociedad", font=obtener_fuente(24), fill=COLOR_ALERTA_NARANJA)
-        draw.text((70, ENCABEZADO_ALTO + MAPA_ALTO + 170), "• Rojo: Fenómenos excepcionales con potencial de provocar desastres", font=obtener_fuente(24), fill=COLOR_ALERTA_ROJO)
+        draw.text((70, ENCABEZADO_ALTO + MAPA_ALTO + 90), "• Verde: Sin fenómenos meteorológicos de riesgo", font=obtener_fuente(24), fill=(34, 197, 94))
+        draw.text((70, ENCABEZADO_ALTO + MAPA_ALTO + 130), "• Amarillo: Posibles fenómenos con capacidad de daño", font=obtener_fuente(24), fill=COLOR_ALERTA_AMARILLO)
+        draw.text((70, ENCABEZADO_ALTO + MAPA_ALTO + 170), "• Naranja: Se esperan fenómenos peligrosos para la sociedad", font=obtener_fuente(24), fill=COLOR_ALERTA_NARANJA)
+        draw.text((70, ENCABEZADO_ALTO + MAPA_ALTO + 210), "• Rojo: Fenómenos excepcionales con potencial de desastre", font=obtener_fuente(24), fill=COLOR_ALERTA_ROJO)
 
         img.save(ruta_salida, format="PNG")
         print(f"[✓] Placa guardada: {ruta_salida}")
